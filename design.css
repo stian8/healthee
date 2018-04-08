@@ -1,10 +1,34 @@
+:root {
+    --color-green: hsl(120, 25%, 25%);
+}
+
 body {margin:0;}
 
+.navWrapper{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.logo{
+    grid-column: 1;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3em;
+    margin-top: 1vh;
+    margin-left: 4vw;
+}
+
+.logo a{
+    color: var(--color-green);
+}
+
+img{
+    height: 6vh;
+}
 .icons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-	margin-left: 50%;
-    width: 50%;
+	grid-column: 2;
     background-color: white;
     overflow: auto;
 }
@@ -18,4 +42,24 @@ body {margin:0;}
 
 .icons a:hover {
     background-color: #888;
+}
+
+.mainWrapper{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 75% 25%;
+}
+
+.main{
+    grid-column: 1;
+    margin-left: 4vw;
+
+}
+.sidebar{
+    grid-column: 2;
+}
+
+.plant{
+    margin-top: 10vh;
+    height: 50vh;
 }
