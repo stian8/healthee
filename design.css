@@ -1,8 +1,17 @@
 :root {
     --color-green: hsl(120, 25%, 25%);
+    --color-bluegreen: hsl(170, 43%, 51%);
 }
 
 body {margin:0;}
+
+h4{
+    padding: 1vmin;
+    font-family: system-ui;
+    background: var(--color-green);
+    text-align: left;
+    color: #DDD;
+}
 
 .navWrapper{
     width: 100%;
@@ -53,13 +62,45 @@ img{
 .main{
     grid-column: 1;
     margin-left: 4vw;
+    text-align: center;
 
 }
 .sidebar{
     grid-column: 2;
+    text-align: center;
 }
 
 .plant{
     margin-top: 10vh;
     height: 50vh;
+}
+
+.profile {
+  margin: auto;
+  padding-top: 1vh;
+  width: 100%;
+  text-align: center;
+  font-family: system-ui;
+}
+
+.profileImg{
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.statImg{
+    margin: auto;
+    width: 80%;
+    height: 20%;
+}
+button {
+  border-radius: 5px;
+  padding: 8px;
+  color: white;
+  background-color: var(--color-bluegreen);
+  text-align: center;
+  cursor: pointer;
+  width: 150px;
+  font-size: 1em;
 }
