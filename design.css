@@ -1,0 +1,21 @@
+body {margin:0;}
+
+.icons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+	margin-left: 50%;
+    width: 50%;
+    background-color: white;
+    overflow: auto;
+}
+
+.icons a {
+    text-align: center;
+    padding: 12px 0;
+    color: #000;
+    font-size: 3em;
+}
+
+.icons a:hover {
+    background-color: #888;
+}
