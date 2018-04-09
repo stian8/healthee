@@ -105,3 +105,14 @@ button {
   width: 150px;
   font-size: 1em;
 }
+
+footer {
+  display: block;
+    background-color: #999;
+    padding: 1em 2em;
+    color: white;
+    text-align: right;
+    margin-top: 2em;
+    font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
