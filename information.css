@@ -1,0 +1,127 @@
+:root {
+    --color-green: hsl(120, 25%, 25%);
+    --color-bluegreen: hsl(170, 43%, 51%);
+    --color-seablue: hsl(190, 100%, 40%);
+}
+
+h1 {
+	font-family: 'Roboto', sans-serif;
+    font-size: 3em;
+}
+
+h2 {
+	font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+}
+
+h3 {
+	font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    line-height: 150%;
+}
+
+li {
+	margin: 0 0 10px 0;
+	display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+ul.quicklinks li:before {    
+    font-family: 'FontAwesome';
+    content: '\f002';
+    margin:0 15px 0 -15px;
+}
+
+ul.info li:before {    
+    font-family: 'FontAwesome';
+    content: '\f06c';
+    font-size: 14px;
+    margin:0 15px 0 -30px;
+    color: var(--color-green);
+}
+
+ul{ 
+	list-style-type: none; 
+	padding-left: 1.2em;
+}
+
+ul.info li{
+	margin: 20px 0;
+	line-height: 150%;
+	list-style-position: inside;
+	list-style: none;
+    padding-left: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+}
+
+.main-wrapper {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	width: 80%;
+	margin-left: 6vw;
+	margin-right: 6vw;
+}
+
+.dislocation {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.dislocation-image {
+	height: 100%;
+	margin: 20px;
+}
+
+.dislocation-caption {
+	font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+.title-section {
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.quicklinks {
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+}
+
+.quick-link {
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	color: var(--color-seablue);
+}
+
+.top-link {
+	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+	color: var(--color-seablue);
+}
+
+
+.info-wrapper {
+	margin-bottom: 30px;
+}
+
+
+footer {
+	display: block;
+    background-color: #999;
+    padding: 1em 2em;
+    color: white;
+    text-align: right;
+    margin-top: 2em;
+    font-family: 'Roboto', sans-serif;
+	font-size: 18px;
+}
+
+
