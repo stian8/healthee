@@ -10,6 +10,7 @@ NavBar for Healthee Web Interface
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Load style sheets -->
 <link rel="stylesheet" href="design.css">
+<link rel="stylesheet" href="calendar.css">
 <!--Font Awesome API imported for icon usage"-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -28,37 +29,49 @@ NavBar for Healthee Web Interface
 	<div class="main">
 		<!--Code for main portion of the page goes here-->
 		<h4>&ensp; Calendar</h4>
-		<div class="calendar">
-      <div id="month" style="text-align:left" width="100%">
-        April 2018
-        <button class="plus">+</button>
+    <div id="calendar-main">
+    <div id="todo">
+      <div class="heading">Daily Exercises</div>
+      <form id="todo-list">
+        <label><input type="checkbox" />Hamstring Stretch</label> <br>
+        <label><input type="checkbox" />Quad Sets</label> <br>
+        <label><input type="checkbox" />Leg Lifts</label> <br>
+        <label><input type="checkbox" />Wall Squats</label> <br>
+        <label hidden><input type="checkbox" />Calf Stretch</label>
+      </form>
+    </div>
+		<div id="calendar">
+      <div id="calendar-title-bar" style="text-align:left; margin:5px" width="100%">
+        <div style="font-size:22px">April 2018</div>
+        <button class="calendar-buttons">+</button>
+        <button id="week-month">Month View</button>
+        <button class="calendar-buttons"><</button>
+        <button class="calendar-buttons">></button>
       </div>
       <div width="100%" style="text-align:right">
-        <button id="week-month">Month View</button>
-        <button id="prev"><</button>
-        <button id="next">></button>
+
       </div>
       <div style="text-align:right" width="33%">
       </div>
       <div id="week-view">
-        <table width="100%" height="400px" border="1px">
+        <table id="week-table" border="2px">
           <tr>
-            <th width="14%">Sunday</th>
-            <th width="14%">Monday</th>
-            <th width="14%">Tuesday</th>
-            <th width="14%">Wednesday</th>
-            <th width="14%">Thurdsay</th>
-            <th width="14%">Friday</th>
-            <th width="14%">Saturday</th>
+            <th width="14%">Sun</th>
+            <th width="14%">Mon</th>
+            <th width="14%">Tues</th>
+            <th width="14%">Wed</th>
+            <th width="14%">Thurs</th>
+            <th width="14%">Fri</th>
+            <th width="14%">Sat</th>
           </tr>
           <tr>
-            <th width="14%" height="100%">Sunday</th>
-            <th width="14%" height="100%">Monday</th>
-            <th width="14%" height="100%">Tuesday</th>
-            <th width="14%" height="100%">Wednesday</th>
-            <th width="14%" height="100%">Thurdsay</th>
-            <th width="14%" height="100%">Friday</th>
-            <th width="14%" height="100%">Saturday</th>
+            <th width="14%" height="100%"></th>
+            <th width="14%" height="100%"></th>
+            <th width="14%" height="100%"></th>
+            <th width="14%" height="100%"></th>
+            <th width="14%" height="100%"></th>
+            <th width="14%" height="100%"></th>
+            <th width="14%" height="100%"></th>
           </tr>
         </table>
       </div>
@@ -66,7 +79,16 @@ NavBar for Healthee Web Interface
         Month
       </div>
 		</div>
-	</div>
+
+    <!-- HIDDEN ELEMENTS -->
+    <div id="plus-menus" hidden>
+      <button class="plus-menu-button">Appointment</button>
+      <button class="plus-menu-button">Exercises</button>
+      <button class="plus-menu-button">Note</button>
+    </div>
+
+  </div>
+  </div>
 	<div class="sidebar">
 		<img class="plant" src="smiley_plant.png"></img>
 	</div>
