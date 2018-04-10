@@ -21,7 +21,7 @@ NavBar for Healthee Web Interface
   <!--hrefs to be filled as we build our other pages-->
   <a href="./profile.html"><i class="fa fa-user-circle-o"></i></a>
   <a href="./calendar.html"><i class="fa fa-calendar"></i></a>
-  <a href="#"><i class="fa fa-info-circle"></i></a>
+  <a href="./information.html"><i class="fa fa-info-circle"></i></a>
   <a href="#"><i class="fa fa-envelope"></i></a>
 </div>
 </div>
@@ -31,14 +31,15 @@ NavBar for Healthee Web Interface
 		<h4>&ensp; Calendar</h4>
     <div id="calendar-main">
     <div id="todo">
-      <div class="heading">Daily Exercises</div>
       <form id="todo-list">
+        <div class="heading">Daily Exercises</div>
         <label><input type="checkbox" />Hamstring Stretch</label> <br>
         <label><input type="checkbox" />Quad Sets</label> <br>
         <label><input type="checkbox" />Leg Lifts</label> <br>
         <label><input type="checkbox" />Wall Squats</label> <br>
         <label hidden><input type="checkbox" />Calf Stretch</label>
       </form>
+      <img width="100%" height="100%" id="progress" src="full.png" alt="Progress Bar">
     </div>
 		<div id="calendar">
       <div id="calendar-title-bar" style="text-align:left; margin:5px" width="100%">
@@ -54,7 +55,7 @@ NavBar for Healthee Web Interface
       <div style="text-align:right" width="33%">
       </div>
       <div id="week-view">
-        <table id="week-table" border="2px">
+        <table id="week-table" border="1px">
           <tr>
             <th width="14%">Sun</th>
             <th width="14%">Mon</th>
@@ -76,17 +77,48 @@ NavBar for Healthee Web Interface
         </table>
       </div>
       <div id="month-view" hidden>
-        Month
+        Month (javascript-generated table)
       </div>
 		</div>
 
     <!-- HIDDEN ELEMENTS -->
-    <div id="plus-menus" hidden>
+    <div id="plus-menu" hidden>
       <button class="plus-menu-button">Appointment</button>
       <button class="plus-menu-button">Exercises</button>
       <button class="plus-menu-button">Note</button>
     </div>
-
+    <div id="video" hidden>
+      <iframe width="640" height="360" src="https://www.youtube.com/embed/o5b0gS7wI1k"
+      frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+    <div id="appt-schedule" width="600" height="300" border="1px" hidden>
+      <label>Subject: <input type="text" /></label> <br>
+      <label>Date: <input type="date" /></label> <br>
+      <label>Time: <input type="time" /></label> <br>
+      <label>Location: <input type="text" /></label> <br>
+      <button>Save</button>
+      <button>Cancel</button>
+    </div>
+    <div id="add-exercise" width="600" height="300" border="1px" hidden>
+      <label>Exercise: <input type="text" /></label> <br>
+      <label>Video: <input type="text" /></label> <br>
+      <label>Info: <textarea rows="10" cols"30"> </textarea></label> <br>
+      <label>Repeat: </label>
+      <label><input type="radio" />daily</label>
+      <label><input type="radio" />weekly</label>
+      <label><input type="radio" />monthly</label>
+      <label><input type="radio" />never</label>
+      <br>
+      <button>Save</button>
+      <button>Cancel</button>
+    </div>
+    <div id="self-note" width="600" height="300" border="1px" hidden>
+      <label>Self-Note</label><br>
+      <textarea rows="10" cols"60"> </textarea>
+      <br>
+      <button>Save</button>
+      <button>Cancel</button>
+    </div>
   </div>
   </div>
 	<div class="sidebar">

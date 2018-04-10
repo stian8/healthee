@@ -24,6 +24,8 @@
 
 #todo {
   width: 20%;
+  display: grid;
+  grid-template-rows: 90% 10%;
   border-style: solid;
   margin: 10px;
   margin-top: 0px;
@@ -34,6 +36,9 @@
   text-align: left;
   font-size: 16px;
   margin: 2px;
+}
+
+#progress {
 }
 
 #calendar {
@@ -58,4 +63,14 @@
   border-style: solid;
   border-spacing: 0px;
   border-color: black;
+}
+
+#plus-menu {
+  padding: 0px;
+  margin: 0px;
+  height: 108px;
+  width: 150px;
+  border-style: solid;
+  border-color: black;
+  background-color: black;
 }
