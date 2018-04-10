@@ -26,6 +26,11 @@ li {
     text-align: -webkit-match-parent;
 }
 
+.injury-type {
+	color: var(--color-bluegreen);
+	font-size: 40px;
+}
+
 ul.quicklinks li:before {    
     font-family: 'FontAwesome';
     content: '\f002';
@@ -83,10 +88,23 @@ ul.info li{
 
 .title-section {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	height: 100%;
 	align-items: center;
 	justify-content: center;
+	margin-bottom: 70px;
+}
+
+.injury-selection {
+	display: flex;
+	flex-direction: column;
+	height: 20px;
+	align-items: center;
+	justify-content: center;
+}
+
+.other-injuries {
+	margin-top: -20px;
 }
 
 .quicklinks {
