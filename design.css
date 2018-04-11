@@ -27,8 +27,15 @@ h4{
     margin-top: 1vh;
     margin-left: 2vw;
 }
-
 .logo a{
+    text-decoration: none;
+}
+
+a#heal{
+  color: black;
+}
+
+a#thee{
     color: var(--color-green);
 }
 
