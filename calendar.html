@@ -13,6 +13,7 @@ NavBar for Healthee Web Interface
 <link rel="stylesheet" href="calendar.css">
 <!--Font Awesome API imported for icon usage"-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="general.js"></script>
 </head>
 <body>
 <div class="navWrapper">
@@ -122,7 +123,10 @@ NavBar for Healthee Web Interface
   </div>
   </div>
 	<div class="sidebar">
-		<img class="plant" src="smiley_plant.png"></img>
+		<img class="plant" onclick="getDialogue()" id="plantImg" src="smiley_plant.png">
+			<p class="dialogueAfter" id="dialogueAfter"> </p>
+			<p class="dialogue" id="dialogue">You are doing great!</p>
+		</img>
 	</div>
 </div>
 </body>
