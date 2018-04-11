@@ -69,11 +69,45 @@ img{
 .sidebar{
     grid-column: 2;
     text-align: center;
+    align-content: center;
 }
 
 .plant{
     margin-top: 10vh;
     height: 50vh;
+    cursor: pointer;
+    user-select: none;
+}
+/* The actual popup */
+.dialogue {
+    visibility: hidden;
+    text-align: center;
+    background-color: #888;
+    color: #fff;
+    width: 70%;
+    margin: auto;
+    border-radius: 4px;
+    margin-top: 24px;
+    padding: 4px;
+    z-index: 4;
+}
+
+.dialogueAfter {
+    visibility: hidden;
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    z-index: 1;
+    border-color: transparent transparent #888 transparent;
+    top: 70%;
+    left: 90%;
+}
+
+.dialogue.show {
+    visibility: visible;
+}
+.dialogueAfter.show {
+    visibility: visible;
 }
 
 .profile {
