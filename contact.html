@@ -1,26 +1,67 @@
 <!DOCTYPE html>
 <!--
 GR4 Contact PT page
+
+Adapted from: 
+https://bootsnipp.com/snippets/0e3Ma
 -->
 <html>
 
 <head>
 <meta charset="utf-8">
-<title>Information</title>
+<title>Contact</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Load style sheets -->
 <link rel="stylesheet" href="design.css">
-<link rel="stylesheet" href="information.css">
+<link rel="stylesheet" href="contact.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <!--Font Awesome API imported for icon usage"-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="contact.js"></script>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 </head>
 
 <body>
+	<div class="navWrapper">
+		<div class="logo"><a id="heal" href="./calendar.html">heal</a><a id="thee" href="./calendar.html">thee</a><a href="./calendar.html"><img href="./calendar.html" src="healthee_plant.png"></img></a></div>
+		<div class="icons">
+		  <!--hrefs to be filled as we build our other pages-->
+		  <a href="./profile.html"><i class="fa fa-user-circle-o"></i></a>
+		  <a href="./calendar.html"><i class="fa fa-calendar"></i></a> 
+		  <a href="./information.html"><i class="fa fa-info-circle"></i></a> 
+		  <a href="./contact.html"><i class="fa fa-comment"></i></a> 
+		</div>
+	</div>
 
-<footer class="authors"> BEKS </footer>
+	<div class="chatbox">
+		<div id="frame">
+		  <div class="content">
+		    <div class="contact-profile">
+		      <img src="doctor.jpg" alt="" />
+		      <p>Dr. Physical Therapist</p>
+		    </div>
+		    <div class="messages">
+		      <ul>
+		        <li class="replies">
+		          <img src="doctor.jpg" alt="" />
+		          <p>Hi! You can communicate with me here. I'll get to back to you as soon as possible.</p>
+		        </li>
+		      </ul>
+		    </div>
+		    <div class="wrap-send">
+		      <div class="message-input">
+		        <input type="text" placeholder="Write your message..." />     
+		      </div>
+		    <div class="send-button">
+	       	  <button class="submit">Send</button>
+	      	</div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+	
+	<footer class="authors"> BEKS </footer>
 
 </body>
-
 </html>
