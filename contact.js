@@ -11,11 +11,12 @@ function newMessage() {
 };
 
 $( document ).ready(function() {
+  $('.input').focus();
     $('.submit').click(function() {
       console.log("hi");
       newMessage();
     });
-    
+
     $(window).on('keydown', function(e) {
       if (e.which == 13) {
         console.log("keydown");
