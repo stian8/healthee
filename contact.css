@@ -34,7 +34,6 @@ h1 {
   display: flex;
   margin-top: 30px;
   justify-content: center;
-  min-height: 100vh;
   background: white;
   font-family: "proxima-nova", "Source Sans Pro", sans-serif;
   font-size: 1em;
