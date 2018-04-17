@@ -14,6 +14,7 @@ NavBar for Healthee Web Interface
 <!--Font Awesome API imported for icon usage"-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="general.js"></script>
+<script src="calendar.js"></script>
 </head>
 <body>
 <div class="navWrapper">
@@ -23,7 +24,7 @@ NavBar for Healthee Web Interface
   <a href="./profile.html"><i class="fa fa-user-circle-o"></i></a>
   <a href="./calendar.html"><i class="fa fa-calendar"></i></a>
   <a href="./information.html"><i class="fa fa-info-circle"></i></a>
-  <a href="./contact.html"><i class="fa fa-comment"></i></a> 
+  <a href="./contact.html"><i class="fa fa-comment"></i></a>
 </div>
 </div>
 <div class="mainWrapper">
@@ -34,13 +35,13 @@ NavBar for Healthee Web Interface
     <div id="todo">
       <form id="todo-list">
         <div class="heading">Daily Exercises</div>
-        <label><input type="checkbox" />Hamstring Stretch</label> <br>
-        <label><input type="checkbox" />Quad Sets</label> <br>
-        <label><input type="checkbox" />Leg Lifts</label> <br>
-        <label><input type="checkbox" />Wall Squats</label> <br>
-        <label hidden><input type="checkbox" />Calf Stretch</label>
+        <label id="hamstring"><input type="checkbox" onclick="setProgress()"/>Hamstring Stretch</label> <br>
+        <label id="quad"><input type="checkbox" onclick="setProgress()"/>Quad Sets</label> <br>
+        <label id="leglifts"><input type="checkbox" onclick="setProgress()"/>Leg Lifts</label> <br>
+        <label id="squats"><input type="checkbox" onclick="setProgress()"/>Wall Squats</label> <br>
+        <label id="calfstretch" hidden><input type="checkbox" onclick="setProgress()" hidden/>Calf Stretch</label>
       </form>
-      <img width="100%" height="100%" id="progress" src="full.png" alt="Progress Bar">
+      <img width="100%" id="progress" src="empty.png" alt="Progress Bar">
     </div>
 		<div id="calendar">
       <div id="calendar-title-bar" style="text-align:left; margin:5px" width="100%">
@@ -64,22 +65,22 @@ NavBar for Healthee Web Interface
       <div id="week-view">
         <table id="week-table" border="1px">
           <tr>
-            <th width="14%">Sun</th>
-            <th width="14%">Mon</th>
-            <th width="14%">Tues</th>
-            <th width="14%">Wed</th>
-            <th width="14%">Thurs</th>
-            <th width="14%">Fri</th>
-            <th width="14%">Sat</th>
+            <th width="14%">Sun 22</th>
+            <th width="14%" style="background-color:#FFC0CB;">Mon 23</th>
+            <th width="14%">Tues 24</th>
+            <th width="14%">Wed 25</th>
+            <th width="14%">Thurs 26</th>
+            <th width="14%">Fri 27</th>
+            <th width="14%">Sat 28</th>
           </tr>
           <tr>
-            <th width="14%" height="100%"></th>
-            <th width="14%" height="100%"></th>
-            <th width="14%" height="100%"></th>
-            <th width="14%" height="100%"></th>
-            <th width="14%" height="100%"></th>
-            <th width="14%" height="100%"></th>
-            <th width="14%" height="100%"></th>
+            <td width="14%" height="100%"></td>
+            <td width="14%" height="100%"></td>
+            <td width="14%" height="100%"></td>
+            <td width="14%" height="100%"></td>
+            <td width="14%" height="100%"></td>
+            <td width="14%" height="100%"></td>
+            <td width="14%" height="100%"></td>
           </tr>
         </table>
       </div>
