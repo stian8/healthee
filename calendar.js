@@ -8,11 +8,7 @@ function setProgress() {
       if (!inputs[i].hidden) numberOfBoxes++;
       if (inputs[i].checked) numberOfChecks++;
     }
-
   }
-
-  console.log(numberOfBoxes);
-  console.log(numberOfChecks);
 
   if (numberOfChecks == 0) {
     document.getElementById("progress").src = "empty.png";
@@ -21,4 +17,8 @@ function setProgress() {
   } else {
     document.getElementById("progress").src = "middle.png";
   }
+}
+
+function showPlusMenu() {
+  document.getElementById("plus-menu").hidden = !document.getElementById("plus-menu").hidden;
 }
