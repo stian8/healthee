@@ -23,6 +23,10 @@ function showPlusMenu() {
   document.getElementById("plus-menu").hidden = !document.getElementById("plus-menu").hidden;
 }
 
+function hidePlusMenu() {
+  document.getElementById("plus-menu").hidden = true;
+}
+
 function showVideo() {
   document.getElementById("video-iframe").src = "https://www.youtube.com/embed/o5b0gS7wI1k";
   document.getElementById("video").hidden = false;
@@ -33,4 +37,27 @@ function hideVideo() {
   document.getElementById("video-iframe").src = "";
   document.getElementById("video").hidden = true;
   document.getElementById("video-iframe").hidden = true;
+}
+
+function showAppt() {
+  hidePlusMenu();
+  document.getElementById("appt-schedule").hidden = false;
+}
+
+function hideAppt() {
+  document.getElementById("appt-schedule").hidden = true;
+}
+
+function addAppt() {
+  document.getElementById("thurs-appt").hidden = false;
+  hideAppt();
+}
+
+function showAddExercise() {
+  hidePlusMenu();
+  document.getElementById("add-exercise").hidden = false;
+}
+
+function hideAddExercise() {
+  document.getElementById("add-exercise").hidden = true;
 }

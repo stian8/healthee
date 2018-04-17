@@ -51,14 +51,35 @@ NavBar for Healthee Web Interface
       <div id="calendar-title-bar" style="text-align:left; margin:5px" width="100%">
         <div style="font-size:25px">April 2018</div>
         <div>
-        <button id="plus" style="background-color:transparent;border-color:transparent" onclick="showPlusMenu()">
-          <i class="fa fa-plus-circle fa-2x"></i>
-        </button>
-        <div id="plus-menu" hidden>
-          <button class="plus-menu-button">Appointment</button>
-          <button class="plus-menu-button">Exercises</button>
-          <button class="plus-menu-button">Note</button>
-        </div>
+          <button id="plus" style="background-color:transparent;border-color:transparent" onclick="showPlusMenu()">
+            <i class="fa fa-plus-circle fa-2x"></i>
+          </button>
+          <div id="plus-menu" hidden>
+            <button class="plus-menu-button" onclick="showAppt()">Appointment</button>
+            <button class="plus-menu-button" onclick="showAddExercise()">Exercise</button>
+            <button class="plus-menu-button">Note</button>
+          </div>
+          <div id="appt-schedule" class="add-widget" border="1px" hidden>
+            <label>Subject: <input type="text" /></label> <br>
+            <label>Date: <input type="date" /></label> <br>
+            <label>Time: <input type="time" /></label> <br>
+            <label>Location: <input type="text" /></label> <br>
+            <button onclick="addAppt()" class="save-cancel">Save</button>
+            <button onclick="hideAppt()" class="save-cancel">Cancel</button>
+          </div>
+          <div id="add-exercise" class="add-widget" width="600" height="300" border="1px" hidden>
+            <label>Exercise: <input type="text" /></label> <br>
+            <label>Video: <input type="text" /></label> <br>
+            <label>Info: <textarea rows="10" cols"30"> </textarea></label> <br>
+            <label>Repeat: </label><br>
+            <label><input type="radio" />daily</label><br>
+            <label><input type="radio" />weekly</label><br>
+            <label><input type="radio" />monthly</label><br>
+            <label><input type="radio" />never</label>
+            <br>
+            <button onclick="hideAddExercise()" class="save-cancel">Save</button>
+            <button onclick="hideAddExercise()" class="save-cancel">Cancel</button>
+          </div>
         </div>
         <button id="week-month" style="margin-left:auto; margin-right:5px">Month View</button>
         <button id="prev" style="background-color:transparent;border-color:transparent">
@@ -89,7 +110,13 @@ NavBar for Healthee Web Interface
             <td width="14%" height="100%"></td>
             <td width="14%" height="100%"></td>
             <td width="14%" height="100%"></td>
-            <td width="14%" height="100%"></td>
+            <td width="14%" height="100%">
+              <div id="thurs-appt" border="1px" hidden>
+                <label><b>Appointment</b></label> <br>
+                <label>Time: 4:30pm </label> <br>
+                <label>Description: regular check-in with PT</label> <br>
+              </div>
+            </td>
             <td width="14%" height="100%"></td>
             <td width="14%" height="100%"></td>
           </tr>
@@ -108,29 +135,6 @@ NavBar for Healthee Web Interface
         <iframe id="video-iframe" width="640" height="360" src="https://www.youtube.com/embed/o5b0gS7wI1k"
         frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
-    </div>
-
-    <div id="appt-schedule" width="600" height="300" border="1px" hidden>
-      <label>Subject: <input type="text" /></label> <br>
-      <label>Date: <input type="date" /></label> <br>
-      <label>Time: <input type="time" /></label> <br>
-      <label>Location: <input type="text" /></label> <br>
-      <button>Save</button>
-      <button>Cancel</button>
-    </div>
-
-    <div id="add-exercise" width="600" height="300" border="1px" hidden>
-      <label>Exercise: <input type="text" /></label> <br>
-      <label>Video: <input type="text" /></label> <br>
-      <label>Info: <textarea rows="10" cols"30"> </textarea></label> <br>
-      <label>Repeat: </label>
-      <label><input type="radio" />daily</label>
-      <label><input type="radio" />weekly</label>
-      <label><input type="radio" />monthly</label>
-      <label><input type="radio" />never</label>
-      <br>
-      <button>Save</button>
-      <button>Cancel</button>
     </div>
 
     <div id="self-note" width="600" height="300" border="1px" hidden>

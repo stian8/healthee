@@ -108,4 +108,29 @@
   z-index: 100;
 }
 
+.add-widget {
+  position: absolute;
+  border-style: solid;
+  background-color: white;
+  text-align: left;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.save-cancel {
+  font-size: 15px;
+  background-color: var(--color-bluegreen);
+  color: white;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
+#thurs-appt {
+  font-size: 12px;
+  text-align: left;
+  background-color: var(--color-bluegreen);
+  color: white;
+  padding: 2px;
+}
+
 /* span helper code source: https://html-online.com/articles/simple-popup-box/ */
