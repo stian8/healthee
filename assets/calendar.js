@@ -11,11 +11,11 @@ function setProgress() {
   }
 
   if (numberOfChecks == 0) {
-    document.getElementById("progress").src = "../images/empty.png";
+    document.getElementById("progress").src = "images/empty.png";
   } else if (numberOfChecks == numberOfBoxes) {
-    document.getElementById("progress").src = "../images/full.png";
+    document.getElementById("progress").src = "images/full.png";
   } else {
-    document.getElementById("progress").src = "../images/middle.png";
+    document.getElementById("progress").src = "images/middle.png";
   }
 }
 
