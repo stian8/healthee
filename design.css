@@ -7,6 +7,7 @@ body {margin:0;}
 
 h4{
     padding: 1vmin;
+    padding-left: 2vmin;
     font-family: system-ui;
     background: var(--color-green);
     text-align: left;
@@ -24,10 +25,17 @@ h4{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 3em;
     margin-top: 1vh;
-    margin-left: 4vw;
+    margin-left: 2vw;
+}
+.logo a{
+    text-decoration: none;
 }
 
-.logo a{
+a#heal{
+  color: black;
+}
+
+a#thee{
     color: var(--color-green);
 }
 
@@ -37,7 +45,7 @@ img{
 .icons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-	grid-column: 2;
+	  grid-column: 2;
     background-color: white;
     overflow: auto;
 }
@@ -57,12 +65,11 @@ img{
     width: 100%;
     display: grid;
     grid-template-columns: 75% 25%;
-    margin-left: 4vw;
+    margin-left: 2vw;
 }
 
 .main{
     grid-column: 1;
-    margin-left: 4vw;
     text-align: center;
 
 }
@@ -74,6 +81,39 @@ img{
 .plant{
     margin-top: 10vh;
     height: 50vh;
+    cursor: pointer;
+    user-select: none;
+}
+/* The actual popup */
+.dialogue {
+    visibility: hidden;
+    text-align: center;
+    background-color: #888;
+    color: #fff;
+    width: 70%;
+    margin: auto;
+    border-radius: 4px;
+    margin-top: 24px;
+    padding: 4px;
+    z-index: 4;
+}
+
+.dialogueAfter {
+    visibility: hidden;
+    position: absolute;
+    border-width: 10px;
+    border-style: solid;
+    z-index: 1;
+    border-color: transparent transparent #888 transparent;
+    top: 70%;
+    left: 90%;
+}
+
+.dialogue.show {
+    visibility: visible;
+}
+.dialogueAfter.show {
+    visibility: visible;
 }
 
 .profile {

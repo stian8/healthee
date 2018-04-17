@@ -12,16 +12,17 @@ NavBar for Healthee Web Interface
 <link rel="stylesheet" href="design.css">
 <!--Font Awesome API imported for icon usage"-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="general.js"></script>
 </head>
 <body>
 <div class="navWrapper">
-<div class="logo">heal<a>thee</a><img src="healthee_plant.png"></img></div>
+<div class="logo"><a id="heal" href="./calendar.html">heal</a><a id="thee" href="./calendar.html">thee</a><a href="./calendar.html"><img href="./calendar.html" src="healthee_plant.png"></img></a></div>
 <div class="icons">
   <!--hrefs to be filled as we build our other pages-->
   <a href="./profile.html"><i class="fa fa-user-circle-o"></i></a>
-  <a href="./calendar.html"><i class="fa fa-calendar"></i></a>
-  <a href="./information.html"><i class="fa fa-info-circle"></i></a>
-  <a href="#"><i class="fa fa-envelope"></i></a> 
+  <a href="./calendar.html"><i class="fa fa-calendar"></i></a> 
+  <a href="./information.html"><i class="fa fa-info-circle"></i></a> 
+  <a href="./contact.html"><i class="fa fa-comment"></i></a> 
 </div>
 </div>
 <div class="mainWrapper">
@@ -38,10 +39,18 @@ NavBar for Healthee Web Interface
 		</div>
 		<h4>&ensp; Daily Exercises Completed</h4>
 		<img class="statImg" src="stats.png"></img>
+		<h4>&ensp; Physical Therapist Information</h4>
+		<h2>Physical Trainer</h2>
+  		<p><strong>Email:</strong> pt@gmail.com</p>
+  		<p><button class="editButton">Contact</button> &ensp; <button class="editButton">Change</button></p>
+
 	</div>
-	<div class="sidebar">
-		<img class="plant" src="smiley_plant.png"></img>
-	</div>
+		<div class="sidebar">
+		<img class="plant" onclick="getDialogue()" id="plantImg" src="smiley_plant.png">
+			<p class="dialogueAfter" id="dialogueAfter"> </p>
+			<p class="dialogue" id="dialogue">You are doing great!</p>
+		</img>
+		</div>
 </div>
 </body>
 <footer class="authors"> BEKS </footer>
