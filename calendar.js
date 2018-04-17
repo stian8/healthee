@@ -46,11 +46,20 @@ function showAppt() {
 
 function hideAppt() {
   document.getElementById("appt-schedule").hidden = true;
+  clearApptWidget();
 }
 
 function addAppt() {
   document.getElementById("thurs-appt").hidden = false;
   hideAppt();
+}
+
+function clearApptWidget() {
+  document.getElementById("appt-subject").val = "";
+  console.log(document.getElementById("appt-subject"));
+  document.getElementById("appt-date").val = "";
+  document.getElementById("appt-time").val = "";
+  document.getElementById("appt-location").val = "";
 }
 
 function showAddExercise() {
