@@ -30,6 +30,10 @@
   margin: 2px;
 }
 
+.checkbox {
+  height: 20px;
+}
+
 #calendar {
   width: 80%;
   margin: 10px;
@@ -78,3 +82,30 @@
   background-color: white;
   padding: 5px;
 }
+
+#video-iframe {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.helper {
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.grey-background {
+  position: fixed;
+  text-align: center;
+  vertical-align: middle;
+  height: 100%;
+  width: 100%;
+  background:rgba(0,0,0,.2);
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+/* span helper code source: https://html-online.com/articles/simple-popup-box/ */

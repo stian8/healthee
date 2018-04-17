@@ -35,11 +35,15 @@ NavBar for Healthee Web Interface
     <div id="todo">
       <form id="todo-list">
         <div class="heading">Daily Exercises</div>
-        <input type="checkbox" onclick="setProgress()"/><label>Hamstring Stretch</label> <br>
-        <input type="checkbox" onclick="setProgress()"/><label>Quad Sets</label> <br>
-        <input type="checkbox" onclick="setProgress()"/><label>Leg Lifts</label> <br>
-        <input type="checkbox" onclick="setProgress()"/><label>Wall Squats</label> <br>
-        <input id="calfCB" type="checkbox" onclick="setProgress()" hidden/><label id="calf" hidden>Calf Stretch</label>
+        <input type="checkbox" onclick="setProgress()"/>
+          <label>Hamstring Stretch</label> <i class="fa fa-play-circle-o" onclick="showVideo()"></i> <br>
+        <input type="checkbox" onclick="setProgress()"/>
+          <label>Quad Sets</label> <br>
+        <input type="checkbox" onclick="setProgress()"/>
+          <label>Leg Lifts</label> <i class="fa fa-play-circle-o" onclick="showVideo()"></i> <br>
+        <input type="checkbox" onclick="setProgress()"/>
+          <label>Wall Squats</label> <br>
+        <input id="calfCB" type="checkbox" onclick="setProgress()" hidden/><label id="calf" hidden><u>Calf Stretch</u></label>
       </form>
       <img width="100%" id="progress" src="empty.png" alt="Progress Bar">
     </div>
@@ -99,8 +103,11 @@ NavBar for Healthee Web Interface
     <!-- HIDDEN ELEMENTS -->
 
     <div id="video" hidden>
-      <iframe width="640" height="360" src="https://www.youtube.com/embed/o5b0gS7wI1k"
-      frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <div id="video-grey-background" class="grey-background" onclick="hideVideo()">
+        <span class="helper"></span>
+        <iframe id="video-iframe" width="640" height="360" src="https://www.youtube.com/embed/o5b0gS7wI1k"
+        frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
     </div>
 
     <div id="appt-schedule" width="600" height="300" border="1px" hidden>
@@ -125,7 +132,7 @@ NavBar for Healthee Web Interface
       <button>Save</button>
       <button>Cancel</button>
     </div>
-    
+
     <div id="self-note" width="600" height="300" border="1px" hidden>
       <label>Self-Note</label><br>
       <textarea rows="10" cols"60"> </textarea>

@@ -22,3 +22,15 @@ function setProgress() {
 function showPlusMenu() {
   document.getElementById("plus-menu").hidden = !document.getElementById("plus-menu").hidden;
 }
+
+function showVideo() {
+  document.getElementById("video-iframe").src = "https://www.youtube.com/embed/o5b0gS7wI1k";
+  document.getElementById("video").hidden = false;
+  document.getElementById("video-iframe").hidden = false;
+}
+
+function hideVideo() {
+  document.getElementById("video-iframe").src = "";
+  document.getElementById("video").hidden = true;
+  document.getElementById("video-iframe").hidden = true;
+}
