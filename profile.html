@@ -9,20 +9,20 @@ NavBar for Healthee Web Interface
 <title>Profile</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Load style sheets -->
-<link rel="stylesheet" href="design.css">
+<link rel="stylesheet" href="assets/design.css">
 <!--Font Awesome API imported for icon usage"-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="general.js"></script>
+<script src="assets/general.js"></script>
 </head>
 <body>
 <div class="navWrapper">
-<div class="logo"><a id="heal" href="./calendar.html">heal</a><a id="thee" href="./calendar.html">thee</a><a href="./calendar.html"><img href="./calendar.html" src="healthee_plant.png"></img></a></div>
+<div class="logo"><a id="heal" href="index.html">heal</a><a id="thee" href="index.html">thee</a><a href="index.html"><img href="index.html" src="images/healthee_plant.png"></img></a></div>
 <div class="icons">
   <!--hrefs to be filled as we build our other pages-->
-  <a href="./profile.html"><i class="fa fa-user-circle-o"></i></a>
-  <a href="./calendar.html"><i class="fa fa-calendar"></i></a> 
-  <a href="./information.html"><i class="fa fa-info-circle"></i></a> 
-  <a href="./contact.html"><i class="fa fa-comment"></i></a> 
+  <a href="profile.html"><i class="fa fa-user-circle-o"></i></a>
+  <a href="index.html"><i class="fa fa-calendar"></i></a> 
+  <a href="information.html"><i class="fa fa-info-circle"></i></a> 
+  <a href="contact.html"><i class="fa fa-comment"></i></a> 
 </div>
 </div>
 <div class="mainWrapper">
@@ -30,7 +30,7 @@ NavBar for Healthee Web Interface
 		<!--Code for main portion of the page goes here-->
 		<h4>&ensp; Profile</h4>
 		<div class="profile">
-  			<img class="profileImg" src="grayson.jpg">
+  			<img class="profileImg" src="images/grayson.jpg">
   			<h2>Injured Athlete</h2>
   			<p> <strong>Username: </strong> ia123</p>
   			<p><strong>Area of injury:</strong> knee</p>
@@ -38,7 +38,7 @@ NavBar for Healthee Web Interface
   			<p><button class="editButton">Edit Profile</button></p>
 		</div>
 		<h4>&ensp; Daily Exercises Completed</h4>
-		<img class="statImg" src="stats_with_axis.png"></img>
+		<img class="statImg" src="images/stats_with_axis.png"></img>
 		<h4>&ensp; Physical Therapist Information</h4>
 		<h2>Physical Trainer</h2>
   		<p><strong>Email:</strong> pt@gmail.com</p>
@@ -46,7 +46,7 @@ NavBar for Healthee Web Interface
 
 	</div>
 		<div class="sidebar">
-		<img class="plant" onclick="getDialogue()" id="plantImg" src="smiley_plant.png">
+		<img class="plant" onclick="getDialogue()" id="plantImg" src="images/smiley_plant.png">
 			<p class="dialogueAfter" id="dialogueAfter"> </p>
 			<p class="dialogue" id="dialogue">You are doing great!</p>
 		</img>

@@ -9,22 +9,22 @@ NavBar for Healthee Web Interface
 <title>Calendar</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Load style sheets -->
-<link rel="stylesheet" href="design.css">
-<link rel="stylesheet" href="calendar.css">
+<link rel="stylesheet" href="assets/design.css">
+<link rel="stylesheet" href="assets/calendar.css">
 <!--Font Awesome API imported for icon usage"-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="general.js"></script>
-<script src="calendar.js"></script>
+<script src="assets/general.js"></script>
+<script src="assets/calendar.js"></script>
 </head>
 <body>
 <div class="navWrapper">
-<div class="logo"><a id="heal" href="./calendar.html">heal</a><a id="thee" href="./calendar.html">thee</a><a href="./calendar.html"><img href="./calendar.html" src="healthee_plant.png"></img></a></div>
+<div class="logo"><a id="heal" href="index.html">heal</a><a id="thee" href="index.html">thee</a><a href="index.html"><img href="index.html" src="images/healthee_plant.png"></img></a></div>
 <div class="icons">
   <!--hrefs to be filled as we build our other pages-->
-  <a href="./profile.html"><i class="fa fa-user-circle-o"></i></a>
-  <a href="./calendar.html"><i class="fa fa-calendar"></i></a>
-  <a href="./information.html"><i class="fa fa-info-circle"></i></a>
-  <a href="./contact.html"><i class="fa fa-comment"></i></a>
+  <a href="profile.html"><i class="fa fa-user-circle-o"></i></a>
+  <a href="index.html"><i class="fa fa-calendar"></i></a>
+  <a href="information.html"><i class="fa fa-info-circle"></i></a>
+  <a href="contact.html"><i class="fa fa-comment"></i></a>
 </div>
 </div>
 <div class="mainWrapper">
@@ -45,7 +45,7 @@ NavBar for Healthee Web Interface
           <label>Wall Squats</label> <br>
         <input id="calfCB" type="checkbox" onclick="setProgress()" hidden/><label id="calf" hidden><u>Calf Stretch</u></label>
       </form>
-      <img width="100%" id="progress" src="empty.png" alt="Progress Bar">
+      <img width="100%" id="progress" src="images/empty.png" alt="Progress Bar">
     </div>
 		<div id="calendar">
       <div id="calendar-title-bar" style="text-align:left; margin:5px" width="100%">
@@ -147,7 +147,7 @@ NavBar for Healthee Web Interface
   </div>
   </div>
 	<div class="sidebar">
-		<img class="plant" onclick="getDialogue()" id="plantImg" src="smiley_plant.png">
+		<img class="plant" onclick="getDialogue()" id="plantImg" src="images/smiley_plant.png">
 			<p class="dialogueAfter" id="dialogueAfter"> </p>
 			<p class="dialogue" id="dialogue">You are doing great!</p>
 		</img>
