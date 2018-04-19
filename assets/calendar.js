@@ -20,6 +20,8 @@ function setProgress() {
     document.getElementById("cur-day-header").style.backgroundColor = "lightgreen"
   } else {
     document.getElementById("progress").src = "images/middle.png";
+    document.getElementById("cur-day").style.backgroundColor = "#FFC0CB"
+    document.getElementById("cur-day-header").style.backgroundColor = "#FFC0CB"
   }
 }
 
@@ -31,8 +33,14 @@ function hidePlusMenu() {
   document.getElementById("plus-menu").hidden = true;
 }
 
-function showVideo() {
-  document.getElementById("video-iframe").src = "https://www.youtube.com/embed/o5b0gS7wI1k";
+function showHamVideo() {
+  document.getElementById("video-iframe").src = "https://www.youtube.com/embed/bOf2AOpG4qM";
+  document.getElementById("video").hidden = false;
+  document.getElementById("video-iframe").hidden = false;
+}
+
+function showLiftVideo() {
+  document.getElementById("video-iframe").src = "https://www.youtube.com/embed/l-mPHKQFMkk";
   document.getElementById("video").hidden = false;
   document.getElementById("video-iframe").hidden = false;
 }
@@ -92,6 +100,6 @@ function hideNote() {
 
 function addNote() {
   document.getElementById("mon-note").hidden = false;
-  hideAddExercise();
+  hideNote();
 }
 
