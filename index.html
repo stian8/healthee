@@ -43,7 +43,8 @@ NavBar for Healthee Web Interface
           <label>Leg Lifts</label> <i class="fa fa-play-circle-o" onclick="showLiftVideo()"></i> <br>
         <input type="checkbox" onclick="setProgress()"/>
           <label>Wall Squats</label> <br>
-        <input id="calfCB" type="checkbox" onclick="setProgress()" hidden/><label id="calf" hidden>Calf Stretch</label>
+        <input id="calfCB" type="checkbox" onclick="setProgress()" hidden/>
+          <label id="calf" hidden>Calf Stretch</label> <br>
       </form>
       <img width="100%" id="progress" src="images/empty.png" alt="Progress Bar">
     </div>
@@ -113,8 +114,8 @@ NavBar for Healthee Web Interface
             <th width="14%">Sat 28</th>
           </tr>
           <tr>
-            <td width="14%" height="100%"></td>
-            <td width="14%" height="100%" id="cur-day" style="background-color:#FFC0CB">
+            <td width="14%" height="100%" style="background-color:lightgreen"></td>
+            <td width="14%" height="100%" id="cur-day">
                 <div id="mon-note" border="1px" hidden>
                     <label><b>Feeling great today! My knee is feeling so much better, can't wait to see what my PT thinks!</b></label> <br>
                   </div>
@@ -126,6 +127,9 @@ NavBar for Healthee Web Interface
                 <label><b>Appointment</b></label> <br>
                 <label>Time: 4:30pm </label> <br>
                 <label>Description: regular check-in with PT</label> <br>
+                <div width="100%" style="text-align:right">
+                  <i class="fa fa-trash fa-2x" onclick="deleteAppt()"></i>
+                </div>
               </div>
             </td>
             <td width="14%" height="100%"></td>

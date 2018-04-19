@@ -12,15 +12,15 @@ function setProgress() {
 
   if (numberOfChecks == 0) {
     document.getElementById("progress").src = "images/empty.png";
-    document.getElementById("cur-day").style.backgroundColor = "#FFC0CB"
+    //document.getElementById("cur-day").style.backgroundColor = "#FFC0CB"
     document.getElementById("cur-day-header").style.backgroundColor = "#FFC0CB"
   } else if (numberOfChecks == numberOfBoxes) {
     document.getElementById("progress").src = "images/full.png";
-    document.getElementById("cur-day").style.backgroundColor = "lightgreen"
+    //document.getElementById("cur-day").style.backgroundColor = "lightgreen"
     document.getElementById("cur-day-header").style.backgroundColor = "lightgreen"
   } else {
     document.getElementById("progress").src = "images/middle.png";
-    document.getElementById("cur-day").style.backgroundColor = "#FFC0CB"
+    //document.getElementById("cur-day").style.backgroundColor = "#FFC0CB"
     document.getElementById("cur-day-header").style.backgroundColor = "#FFC0CB"
   }
 }
@@ -69,13 +69,17 @@ function addAppt() {
   hideAppt();
 }
 
+function deleteAppt() {
+  document.getElementById("thurs-appt").hidden = true;
+}
+
 function showAddExercise() {
   hidePlusMenu();
   document.getElementById("add-exercise").hidden = false;
 }
 
 function hideAddExercise() {
-  document.getElementById("add-exercise").hidden = true; 
+  document.getElementById("add-exercise").hidden = true;
   document.getElementById("ex").value = "";
   document.getElementById("ex-vid").value = "";
   document.getElementById("ex-info").value = "";
@@ -94,7 +98,7 @@ function showNote() {
 }
 
 function hideNote() {
-  document.getElementById("self-note").hidden = true; 
+  document.getElementById("self-note").hidden = true;
   document.getElementById("note-text").value = "";
 }
 
@@ -102,4 +106,3 @@ function addNote() {
   document.getElementById("mon-note").hidden = false;
   hideNote();
 }
-
