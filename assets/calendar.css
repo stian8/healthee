@@ -133,4 +133,12 @@
   padding: 2px;
 }
 
+#mon-note {
+  font-size: 12px;
+  text-align: left;
+  background-color: var(--color-bluegreen);
+  color: white;
+  padding: 2px;
+}
+
 /* span helper code source: https://html-online.com/articles/simple-popup-box/ */

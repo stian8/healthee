@@ -60,6 +60,7 @@ input {
 }
 
 
+
 #frame .content {
   float: right;
   width: 100%;
@@ -184,8 +185,12 @@ input {
     padding: 15px 32px 16px 8px;
   }
 }
+
 #frame .content .message-input input:focus {
-  outline: none;
+  border-color: green;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
 #frame .content .message-input .attachment {
   position: absolute;
