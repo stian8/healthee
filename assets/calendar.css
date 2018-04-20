@@ -107,6 +107,7 @@
 
 #plus-menu {
   position: absolute;
+  z-index: 10000;
   padding: 0px;
   margin: 0px;
   width: 150px;
@@ -149,6 +150,7 @@
 }
 
 .add-widget {
+  z-index: 10000;
   position: absolute;
   border-style: solid;
   background-color: white;
