@@ -118,7 +118,7 @@
 
 #plus-menu {
   position: absolute;
-  z-index: 10000;
+  z-index: 100;
   padding: 0px;
   margin: 0px;
   width: 150px;
@@ -157,17 +157,21 @@
   background:rgba(0,0,0,.2);
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .add-widget {
-  z-index: 10000;
+  display: grid;
+  z-index: 100;
   position: absolute;
   border-style: solid;
   background-color: white;
   text-align: left;
   font-size: 18px;
   padding: 5px;
+}
+.add-widget[hidden] {
+  display: none;
 }
 
 .save-cancel {
@@ -176,6 +180,10 @@
   color: white;
   border-radius: 5px;
   margin-top: 5px;
+}
+
+.option-buttons {
+  justify-self: center;
 }
 
 #thurs-appt {

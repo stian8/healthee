@@ -69,8 +69,10 @@ NavBar for Healthee Web Interface
             <label class="form-label">Date:</label> <input class="form-input" id="appt-date" type="date" /> <br>
             <label class="form-label">Time:</label> <input class="form-input" id="appt-time" type="time" /> <br>
             <label class="form-label">Location:</label> <input class="form-input" id="appt-location" type="text" /><br>
-            <button onclick="addAppt()" class="save-cancel">Save</button>
-            <button onclick="hideAppt()" class="save-cancel">Cancel</button>
+            <div class="option-buttons">
+              <button onclick="addAppt()" class="save-cancel" id="save">Save</button>
+              <button onclick="hideAppt()" class="save-cancel" id="cancel">Cancel</button>
+            </div>
           </div>
           <div id="add-exercise" class="add-widget" width="600" height="300" border="1px" hidden>
             <label>Exercise: <input id="ex" type="text" /></label> <br>
