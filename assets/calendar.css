@@ -9,9 +9,40 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.heading {
+.heading{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.main {
   font-size: 22px;
   text-align: center;
+  margin-bottom: 5px;
+}
+
+.calendar-column {
+  position: relative;
+}
+
+#progress-bar {
+  position: absolute;
+  left: 5px;
+  bottom: 2px;
+  width: 90%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.date {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.exercise_checklist {
+  margin-bottom: 10px;
 }
 
 #todo {
@@ -22,12 +53,21 @@
   margin: 10px;
   margin-top: 0px;
   padding: 5px;
+  position: relative;
 }
 
 #todo-list {
   text-align: left;
   font-size: 16px;
   margin: 2px;
+}
+
+#main-progress {
+  height: 8vh;
+  width: auto;
+  position: absolute;
+  bottom: 5px;
+  left: 8px;
 }
 
 .checkbox {
@@ -126,6 +166,14 @@
 }
 
 #thurs-appt {
+  font-size: 12px;
+  text-align: left;
+  background-color: var(--color-bluegreen);
+  color: white;
+  padding: 2px;
+}
+
+#mon-note {
   font-size: 12px;
   text-align: left;
   background-color: var(--color-bluegreen);
