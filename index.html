@@ -15,6 +15,7 @@ NavBar for Healthee Web Interface
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="assets/general.js"></script>
 <script src="assets/calendar.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 <div class="navWrapper">
@@ -34,19 +35,22 @@ NavBar for Healthee Web Interface
     <div id="calendar-main">
     <div id="todo">
       <form id="todo-list">
-        <div class="heading">Daily Exercises</div>
-        <input type="checkbox" onclick="setProgress()"/>
+        <div class="heading">
+          <div class="main"> Daily Exercises </div>
+          <div class="date"> April 23 </div>
+        </div>
+        <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
           <label>Hamstring Stretch</label> <i class="fa fa-play-circle-o" onclick="showHamVideo()"></i> <br>
-        <input type="checkbox" onclick="setProgress()"/>
+        <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
           <label>Quad Sets</label> <br>
-        <input type="checkbox" onclick="setProgress()"/>
+        <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
           <label>Leg Lifts</label> <i class="fa fa-play-circle-o" onclick="showLiftVideo()"></i> <br>
-        <input type="checkbox" onclick="setProgress()"/>
+        <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
           <label>Wall Squats</label> <br>
-        <input id="calfCB" type="checkbox" onclick="setProgress()" hidden/>
+        <input class="exercise_checklist" id="calfCB" type="checkbox" onclick="setProgress()" hidden/>
           <label id="calf" hidden>Calf Stretch</label> <br>
       </form>
-      <img width="100%" id="progress" src="images/empty.png" alt="Progress Bar">
+      <img class="today-progress" id="main-progress" src="images/empty.png" alt="Progress Bar">
     </div>
 		<div id="calendar">
       <div id="calendar-title-bar" style="text-align:left; margin:5px" width="100%">
@@ -105,7 +109,7 @@ NavBar for Healthee Web Interface
       <div id="week-view">
         <table id="week-table" border="1px">
           <tr>
-            <th width="14%"style="background-color:lightgreen"> Sun 22</th>
+            <th width="14%"> Sun 22</th>
             <th width="14%" id= "cur-day-header" style="background-color:#FFC0CB;">Mon 23</th>
             <th width="14%">Tues 24</th>
             <th width="14%">Wed 25</th>
@@ -114,15 +118,22 @@ NavBar for Healthee Web Interface
             <th width="14%">Sat 28</th>
           </tr>
           <tr>
-            <td width="14%" height="100%" style="background-color:lightgreen"></td>
-            <td width="14%" height="100%" id="cur-day">
+            <td class="calendar-column" width="14%" height="100%">
+              <img width="100%" class="progress-bar" id="progress-bar" src="images/full.png" alt="Progress Bar">
+            </td>
+            <td class="calendar-column" width="14%" height="100%" id="cur-day">
                 <div id="mon-note" border="1px" hidden>
                     <label><b>Feeling great today! My knee is feeling so much better, can't wait to see what my PT thinks!</b></label> <br>
-                  </div>
+                </div>
+                <img width="100%" class="today-progress" id="progress-bar" src="images/empty.png" alt="Progress Bar">
             </td>
-            <td width="14%" height="100%"></td>
-            <td width="14%" height="100%"></td>
-            <td width="14%" height="100%">
+            <td class="calendar-column" width="14%" height="100%">
+              <img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">
+            </td>
+            <td class="calendar-column" width="14%" height="100%">
+              <img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">
+            </td>
+            <td class="calendar-column" width="14%" height="100%">
               <div id="thurs-appt" border="1px" hidden>
                 <label><b>Appointment</b></label> <br>
                 <label>Time: 4:30pm </label> <br>
@@ -131,9 +142,14 @@ NavBar for Healthee Web Interface
                   <i class="fa fa-trash fa-2x" onclick="deleteAppt()"></i>
                 </div>
               </div>
+              <img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">
             </td>
-            <td width="14%" height="100%"></td>
-            <td width="14%" height="100%"></td>
+            <td class="calendar-column" width="14%" height="100%">
+              <img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">
+            </td>
+            <td class="calendar-column" width="14%" height="100%">
+              <img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">
+            </td>
           </tr>
         </table>
       </div>

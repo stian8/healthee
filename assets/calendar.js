@@ -11,15 +11,15 @@ function setProgress() {
   }
 
   if (numberOfChecks == 0) {
-    document.getElementById("progress").src = "images/empty.png";
+    $('img.today-progress').attr({ src: "images/empty.png" });
     //document.getElementById("cur-day").style.backgroundColor = "#FFC0CB"
     document.getElementById("cur-day-header").style.backgroundColor = "#FFC0CB"
   } else if (numberOfChecks == numberOfBoxes) {
-    document.getElementById("progress").src = "images/full.png";
+    $('img.today-progress').attr({ src: "images/full.png" });
     //document.getElementById("cur-day").style.backgroundColor = "lightgreen"
     document.getElementById("cur-day-header").style.backgroundColor = "lightgreen"
   } else {
-    document.getElementById("progress").src = "images/middle.png";
+    $('img.today-progress').attr({ src: "images/middle.png" });
     //document.getElementById("cur-day").style.backgroundColor = "#FFC0CB"
     document.getElementById("cur-day-header").style.backgroundColor = "#FFC0CB"
   }
