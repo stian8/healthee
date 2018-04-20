@@ -27,6 +27,18 @@ function setProgress() {
 
 function showPlusMenu() {
   document.getElementById("plus-menu").hidden = !document.getElementById("plus-menu").hidden;
+  if (!document.getElementById("appt-schedule").hidden) {
+    document.getElementById("plus-menu").hidden = false;
+    document.getElementById("appt-schedule").hidden = true;
+  }
+  else if (!document.getElementById("add-exercise").hidden) {
+    document.getElementById("plus-menu").hidden = false;
+    document.getElementById("add-exercise").hidden = true;
+  }
+  else if (!document.getElementById("self-note").hidden) {
+    document.getElementById("plus-menu").hidden = false;
+    document.getElementById("self-note").hidden = true;
+  }
 }
 
 function hidePlusMenu() {
