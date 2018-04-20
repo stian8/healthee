@@ -3,6 +3,16 @@
     --color-bluegreen: hsl(170, 43%, 51%);
 }
 
+.form-label {
+  display: inline-block;
+  text-align: right;
+  width: 100px;
+}
+
+.form-input {
+  display: inline-block;
+}
+
 #calendar-main {
   display: flex;
   direction: vertical;
@@ -63,11 +73,12 @@
 }
 
 #main-progress {
-  height: 8vh;
-  width: auto;
+  height: auto;
+  width: 90%;
   position: absolute;
-  bottom: 5px;
-  left: 25px;
+  align-self: end;
+  justify-self: center;
+  margin-bottom: 10px;
 }
 
 .checkbox {

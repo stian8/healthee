@@ -65,10 +65,10 @@ NavBar for Healthee Web Interface
             <button class="plus-menu-button" onclick="showNote()">Note</button>
           </div>
           <div id="appt-schedule" class="add-widget" border="1px" hidden>
-            <label>Subject: <input id="appt-subject" type="text" /></label> <br>
-            <label>Date: <input id="appt-date" type="date" /></label> <br>
-            <label>Time: <input id="appt-time" type="time" /></label> <br>
-            <label>Location: <input id="appt-location" type="text" /></label> <br>
+            <label class="form-label">Subject:</label> <input class="form-input" id="appt-subject" type="text" /> <br>
+            <label class="form-label">Date:</label> <input class="form-input" id="appt-date" type="date" /> <br>
+            <label class="form-label">Time:</label> <input class="form-input" id="appt-time" type="time" /> <br>
+            <label class="form-label">Location:</label> <input class="form-input" id="appt-location" type="text" /><br>
             <button onclick="addAppt()" class="save-cancel">Save</button>
             <button onclick="hideAppt()" class="save-cancel">Cancel</button>
           </div>
