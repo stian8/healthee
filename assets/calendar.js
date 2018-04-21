@@ -12,16 +12,12 @@ function setProgress() {
 
   if (numberOfChecks == 0) {
     $('img.today-progress').attr({ src: "images/empty.png" });
-    //document.getElementById("cur-day").style.backgroundColor = "#FFC0CB"
-    document.getElementById("cur-day-header").style.backgroundColor = "#FFC0CB"
+    //document.getElementById("cur-day-header").style.backgroundColor = "#FFC0CB";
   } else if (numberOfChecks == numberOfBoxes) {
     $('img.today-progress').attr({ src: "images/full.png" });
-    //document.getElementById("cur-day").style.backgroundColor = "lightgreen"
-    document.getElementById("cur-day-header").style.backgroundColor = "lightgreen"
   } else {
     $('img.today-progress').attr({ src: "images/middle.png" });
-    //document.getElementById("cur-day").style.backgroundColor = "#FFC0CB"
-    document.getElementById("cur-day-header").style.backgroundColor = "#FFC0CB"
+    //document.getElementById("cur-day-header").style.backgroundColor = "#FFC0CB";
   }
 }
 
@@ -101,6 +97,7 @@ function hideAddExercise() {
 function addExercise() {
   document.getElementById("calfCB").hidden = false;
   document.getElementById("calf").hidden = false;
+  setProgress();
   hideAddExercise();
 }
 

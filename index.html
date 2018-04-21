@@ -65,34 +65,56 @@ NavBar for Healthee Web Interface
             <button class="plus-menu-button" onclick="showNote()">Note</button>
           </div>
           <div id="appt-schedule" class="add-widget" border="1px" hidden>
-            <label class="form-label">Subject:</label> <input class="form-input" id="appt-subject" type="text" /> <br>
-            <label class="form-label">Date:</label> <input class="form-input" id="appt-date" type="date" /> <br>
-            <label class="form-label">Time:</label> <input class="form-input" id="appt-time" type="time" /> <br>
-            <label class="form-label">Location:</label> <input class="form-input" id="appt-location" type="text" /><br>
+            <div class="label-wrap">
+              <label class="form-label"> Subject:</label> 
+              <input class="form-input" id="appt-subject" type="text" /> <br>
+              <label class="form-label">Date:</label> 
+              <input class="form-input" id="appt-date" type="date" /> <br>
+              <label class="form-label">Time:</label> 
+              <input class="form-input" id="appt-time" type="time" /> <br>
+              <label class="form-label">Location:</label> 
+              <input class="form-input" id="appt-location" type="text" /><br>
+            </div>
             <div class="option-buttons">
               <button onclick="addAppt()" class="save-cancel" id="save">Save</button>
               <button onclick="hideAppt()" class="save-cancel" id="cancel">Cancel</button>
             </div>
           </div>
           <div id="add-exercise" class="add-widget" width="600" height="300" border="1px" hidden>
-            <label>Exercise: <input id="ex" type="text" /></label> <br>
-            <label>Video: <input id="ex-vid" type="text" /></label> <br>
-            <label>Info: <textarea id ="ex-info" rows="10" cols"30"> </textarea></label> <br>
-            <label>Repeat: </label><br>
-            <label><input name="add-ex" type="radio" />daily</label>
-            <label><input name="add-ex" type="radio" />weekly</label>
-            <label><input name="add-ex" type="radio" />monthly</label>
-            <label><input name="add-ex" type="radio" />never</label>
+            <div class="label-wrap">
+              <label class="form-label"> Exercise: </label> 
+              <input class="form-input" id="ex" type="text" /> <br>
+              <label class="form-label">Video Link:</label> 
+              <input class="form-input" id="ex-vid" type="text" /><br>
+              <div class="info-text-section">
+                <label class="form-label" id="info-label">Information:</label> 
+                <textarea id ="ex-info" rows="10" cols"30"> </textarea>
+              </div>
+             
+              <div class="repeat-wrap">
+                <label class="form-label" id="repeat-label">Repeat: </label><br>
+                <div class="radio-options">
+                  <label><input name="add-ex" type="radio" />daily</label>
+                  <label><input name="add-ex" type="radio" />weekly</label>
+                  <label><input name="add-ex" type="radio" />monthly</label>
+                  <label><input name="add-ex" type="radio" />never</label>
+                </div>
+              </div>
+            </div> 
             <br>
-            <button onclick="addExercise()" class="save-cancel">Save</button>
-            <button onclick="hideAddExercise()" class="save-cancel">Cancel</button>
+            <div class="option-buttons">
+              <button onclick="addExercise()" class="save-cancel" id="save">Save</button>
+              <button onclick="hideAddExercise()" class="save-cancel" id="cancel">Cancel</button>
+            </div>
           </div>
           <div id="self-note" class="add-widget" width="600" height="300" border="1px" hidden>
-              <label>Self-Note</label><br>
+              <label class="self-note-label">Self-Note</label><br>
               <textarea id="note-text" rows="10" cols"60"> </textarea>
               <br>
-              <button onclick="addNote()" class="save-cancel">Save</button>
-              <button onclick="hideNote()" class="save-cancel">Cancel</button>
+              <div class="option-buttons">
+                <button onclick="addNote()" class="save-cancel" id="self-note-save" >Save</button>
+                <button onclick="hideNote()" class="save-cancel" id="self-note-cancel">Cancel</button>
+              </div>
             </div>
         </div>
         <button id="week-month" style="margin-left:auto; margin-right:5px">Month View</button>
@@ -112,10 +134,10 @@ NavBar for Healthee Web Interface
         <table id="week-table" border="1px">
           <tr>
             <th width="14%"> Sun 22</th>
-            <th width="14%" id= "cur-day-header" style="background-color:#FFC0CB;">Mon 23</th>
-            <th width="14%">Tues 24</th>
+            <th width="14%" id= "cur-day-header" style="background-color: hsl(170, 43%, 80%);">Mon 23</th>
+            <th width="14%">Tue 24</th>
             <th width="14%">Wed 25</th>
-            <th width="14%">Thurs 26</th>
+            <th width="14%">Thu 26</th>
             <th width="14%">Fri 27</th>
             <th width="14%">Sat 28</th>
           </tr>

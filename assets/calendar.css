@@ -11,6 +11,7 @@
 
 .form-input {
   display: inline-block;
+  width: 100px;
 }
 
 #calendar-main {
@@ -46,7 +47,7 @@
 }
 
 .date {
-  font-size: 16px;
+  font-size: 18px;
   text-align: center;
   margin-bottom: 10px;
 }
@@ -129,7 +130,7 @@
 
 .plus-menu-button {
   width: 100%;
-  font-size: 15px;
+  font-size: 17px;
   border-color: black;
   background-color: white;
   padding: 5px;
@@ -161,7 +162,8 @@
 }
 
 .add-widget {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   z-index: 100;
   position: absolute;
   border-style: solid;
@@ -174,6 +176,50 @@
   display: none;
 }
 
+.self-note-label {
+  color: var(--color-green);
+}
+
+#self-note-save {
+  margin-right: 2px;
+  background-color: var(--color-green);
+  color:white;
+}
+
+#self-note-cancel {
+  margin-left: 2px;
+  background-color: var(--color-green);
+  color:white;
+}
+
+.info-text-section {
+  display:flex;
+  margin-top: 5px;
+}
+
+#info-label {
+  margin-right: 5px;
+}
+
+#ex-info {
+  width: 100px;
+}
+
+#repeat-label {
+  margin-right: 5px;
+}
+
+.repeat-wrap {
+  margin-top: 5px;
+  display:flex;
+  flex-direction: row;
+}
+
+.radio-options {
+  display:flex;
+  flex-direction: column;
+}
+
 .save-cancel {
   font-size: 15px;
   background-color: var(--color-bluegreen);
@@ -182,8 +228,17 @@
   margin-top: 5px;
 }
 
+.save-cancel#save {
+  margin-right: 2px;
+}
+.save-cancel#cancel {
+  margin-left: 2px;
+}
+
 .option-buttons {
-  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #thurs-appt {
@@ -197,7 +252,7 @@
 #mon-note {
   font-size: 12px;
   text-align: left;
-  background-color: var(--color-bluegreen);
+  background-color: var(--color-green);
   color: white;
   padding: 2px;
 }
