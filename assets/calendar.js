@@ -1,3 +1,5 @@
+var notes = {};
+
 function setProgress() {
   var numberOfChecks = 0;
   var inputs = document.getElementsByTagName("input");
@@ -111,7 +113,35 @@ function hideNote() {
   document.getElementById("note-text").value = "";
 }
 
+function hideNoteDisplay() {
+  document.getElementById("note-modal").hidden = true;
+}
+
+function stopProp() {
+  event.stopPropagation();
+}
+
 function addNote() {
-  document.getElementById("mon-note").hidden = false;
+  var noteContents = document.getElementById("note-text").value;
+  var start = "";
+  if (noteContents.length > 10) {
+    start = noteContents.substring(0, 10);
+  } else {
+    start = noteContents;
+  }
+  var noteTitle = "4/23: " + start;
+  notes[noteTitle] = noteContents;
+  var button = document.createElement("button");
+  button.setAttribute("style","width=100%;text-align=left");
+  var textNode = document.createTextNode("Note:" + start + "...");
+  button.appendChild(textNode);
+
+  button.addEventListener("click", function(){
+    document.getElementById("note-text-here").innerHTML = noteContents;
+    document.getElementById("note-modal").hidden = false;
+  });
+
+  document.getElementById("4-23").appendChild(button);
+  //document.getElementById("mon-note").hidden = false;
   hideNote();
 }

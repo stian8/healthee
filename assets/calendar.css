@@ -34,6 +34,8 @@
 
 .calendar-column {
   position: relative;
+  vertical-align: top;
+  text-align: left;
 }
 
 #progress-bar {
@@ -141,6 +143,21 @@
   display: inline-block;
   text-align: center;
   vertical-align: middle;
+}
+
+#note-display {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  background-color: white;
+  width: 400px;
+  height: 400px;
+}
+
+#note-text-here {
+  font-size: 16px;
+  
 }
 
 .helper {

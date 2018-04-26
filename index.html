@@ -66,13 +66,13 @@ NavBar for Healthee Web Interface
           </div>
           <div id="appt-schedule" class="add-widget" border="1px" hidden>
             <div class="label-wrap">
-              <label class="form-label"> Subject:</label> 
+              <label class="form-label"> Subject:</label>
               <input class="form-input" id="appt-subject" type="text" /> <br>
-              <label class="form-label">Date:</label> 
+              <label class="form-label">Date:</label>
               <input class="form-input" id="appt-date" type="date" /> <br>
-              <label class="form-label">Time:</label> 
+              <label class="form-label">Time:</label>
               <input class="form-input" id="appt-time" type="time" /> <br>
-              <label class="form-label">Location:</label> 
+              <label class="form-label">Location:</label>
               <input class="form-input" id="appt-location" type="text" /><br>
             </div>
             <div class="option-buttons">
@@ -82,15 +82,15 @@ NavBar for Healthee Web Interface
           </div>
           <div id="add-exercise" class="add-widget" width="600" height="300" border="1px" hidden>
             <div class="label-wrap">
-              <label class="form-label"> Exercise: </label> 
+              <label class="form-label"> Exercise: </label>
               <input class="form-input" id="ex" type="text" /> <br>
-              <label class="form-label">Video Link:</label> 
+              <label class="form-label">Video Link:</label>
               <input class="form-input" id="ex-vid" type="text" /><br>
               <div class="info-text-section">
-                <label class="form-label" id="info-label">Information:</label> 
+                <label class="form-label" id="info-label">Information:</label>
                 <textarea id ="ex-info" rows="10" cols"30"> </textarea>
               </div>
-             
+
               <div class="repeat-wrap">
                 <label class="form-label" id="repeat-label">Repeat: </label><br>
                 <div class="radio-options">
@@ -100,14 +100,14 @@ NavBar for Healthee Web Interface
                   <label><input name="add-ex" type="radio" />never</label>
                 </div>
               </div>
-            </div> 
+            </div>
             <br>
             <div class="option-buttons">
               <button onclick="addExercise()" class="save-cancel" id="save">Save</button>
               <button onclick="hideAddExercise()" class="save-cancel" id="cancel">Cancel</button>
             </div>
           </div>
-          <div id="self-note" class="add-widget" width="600" height="300" border="1px" hidden>
+          <div id="self-note" class="add-widget" border="1px" hidden>
               <label class="self-note-label">Self-Note</label><br>
               <textarea id="note-text" rows="10" cols"60"> </textarea>
               <br>
@@ -142,22 +142,22 @@ NavBar for Healthee Web Interface
             <th width="14%">Sat 28</th>
           </tr>
           <tr>
-            <td class="calendar-column" width="14%" height="100%">
+            <td id="4-22" class="calendar-column" width="14%" height="100%">
               <img width="100%" class="progress-bar" id="progress-bar" src="images/full.png" alt="Progress Bar">
             </td>
-            <td class="calendar-column" width="14%" height="100%" id="cur-day">
+            <td id="4-23" class="calendar-column" width="14%" height="100%" id="cur-day">
                 <div id="mon-note" border="1px" hidden>
                     <label><b>Feeling great today! My knee is feeling so much better, can't wait to see what my PT thinks!</b></label> <br>
                 </div>
                 <img width="100%" class="today-progress" id="progress-bar" src="images/empty.png" alt="Progress Bar">
             </td>
-            <td class="calendar-column" width="14%" height="100%">
-              <img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">
+            <td id="4-24" class="calendar-column" width="14%" height="100%">
+              <!--<img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">-->
             </td>
-            <td class="calendar-column" width="14%" height="100%">
-              <img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">
+            <td id="4-25" class="calendar-column" width="14%" height="100%">
+              <!--<img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">-->
             </td>
-            <td class="calendar-column" width="14%" height="100%">
+            <td id="4-26" class="calendar-column" width="14%" height="100%">
               <div id="thurs-appt" border="1px" hidden>
                 <label><b>Appointment</b></label> <br>
                 <label>Time: 4:30pm </label> <br>
@@ -166,13 +166,13 @@ NavBar for Healthee Web Interface
                   <i class="fa fa-trash fa-2x" onclick="deleteAppt()"></i>
                 </div>
               </div>
-              <img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">
+              <!--<img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">-->
             </td>
-            <td class="calendar-column" width="14%" height="100%">
-              <img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">
+            <td id="4-27" class="calendar-column" width="14%" height="100%">
+              <!--<img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">-->
             </td>
-            <td class="calendar-column" width="14%" height="100%">
-              <img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">
+            <td id="4-28" class="calendar-column" width="14%" height="100%">
+              <!--<img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">-->
             </td>
           </tr>
         </table>
@@ -191,6 +191,17 @@ NavBar for Healthee Web Interface
         frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       </div>
     </div>
+
+    <div id="note-modal" hidden>
+      <div id="note-grey-background" class="grey-background" onclick="hideNoteDisplay()">
+        <span class="helper"></span>
+        <div id="note-display" onclick="stopProp()" style="text-align:left;padding:10px;">
+          <div id="note-title" width="100%" style="text-align:left">Note:</div>
+          <div id="note-text-here"></div>
+        </div>
+      </div>
+    </div>
+
   </div>
   </div>
 	<div class="sidebar">
