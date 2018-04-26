@@ -151,13 +151,22 @@
   text-align: center;
   vertical-align: middle;
   background-color: white;
-  width: 400px;
-  height: 400px;
+  width: 320px;
+  height: 320px;
+  margin: 10px;
+  padding: 10px;
+  text-align: left;
 }
 
-#note-text-here {
-  font-size: 16px;
-  
+.note-text-area {
+  font-size: 18px;
+  height: 240px;
+  overflow: auto;
+  margin-bottom: 5px;
+}
+
+#note-edit-textarea{
+  resize: none;
 }
 
 .helper {

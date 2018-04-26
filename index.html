@@ -108,7 +108,9 @@ NavBar for Healthee Web Interface
             </div>
           </div>
           <div id="self-note" class="add-widget" border="1px" hidden>
-              <label class="self-note-label">Self-Note</label><br>
+              <label>Subject: </label>
+              <input id="note-title" type="text" maxlength = "24"/>
+              <label>Note: </label>
               <textarea id="note-text" rows="10" cols"60"> </textarea>
               <br>
               <div class="option-buttons">
@@ -195,9 +197,20 @@ NavBar for Healthee Web Interface
     <div id="note-modal" hidden>
       <div id="note-grey-background" class="grey-background" onclick="hideNoteDisplay()">
         <span class="helper"></span>
-        <div id="note-display" onclick="stopProp()" style="text-align:left;padding:10px;">
-          <div id="note-title" width="100%" style="text-align:left">Note:</div>
-          <div id="note-text-here"></div>
+        <div id="note-display" onclick="stopProp()" style="text-align:left">
+          <div id="note-title-here" width="100%" height="100%" style="text-align:left;font-weight:bold;">Note:</div><br>
+          <div id="note-text-here" class="note-text-area"></div>
+          <div id="note-edit-here" class="note-text-area" hidden>
+            <textarea id="note-edit-textarea" rows="18" cols="49"></textarea>
+          </div>
+          <div id="edit-delete" width="100%" height="100%" style="vertical-align:bottom;text-align:right">
+            <i id="edit-note" class="fa fa-pencil" onclick="stopProp()"></i>
+            <i id="delete-note-1" class="fa fa-trash" onclick="stopProp()"></i>
+          </div>
+          <div id="save-delete" with="100%" height="100%" style="vertical-align:bottom;text-align:right" hidden>
+            <i id="save-note" class="fa fa-check-circle" onclick="stopProp()"></i>
+            <i id="delete-note-2" class="fa fa-trash" onclick="stopProp()"></i>
+          </div>
         </div>
       </div>
     </div>
