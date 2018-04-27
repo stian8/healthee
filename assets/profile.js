@@ -15,3 +15,22 @@ function setUpProfileInjuries(){
 	}
 	document.getElementById("injuryarea").innerHTML = injuryString;
 }
+
+function viewMessages(){
+	var messageString = "";
+	var messages = [];
+	if (sessionStorage.messages){
+		messages = JSON.parse(sessionStorage.getItem("messages"));
+	};
+	var dates = [];
+	if (sessionStorage.dates){
+		dates = JSON.parse(sessionStorage.getItem("dates"));
+	};
+	if(dates.length > 0){
+		for (i = 0; i < dates.length; i++){
+			messageString += "<strong>" + dates[i] + "</strong>: &emsp; &emsp;" + messages[i] + "<br>";
+		}
+	}
+	document.getElementById("messages").innerHTML = messageString;
+
+}
