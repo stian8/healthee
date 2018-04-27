@@ -20,16 +20,14 @@ We take no credit for this information.
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="assets/information.js"></script>
-<script src="assets/util.js"></script>
 </head>
 
-<body>
+<body onload="setupInjuries(); setUpModal();">
 <!--for ease of use-->
 <a name="top"></a> 
 	<div class="navWrapper">
 		<div class="logo"><a id="heal" href="index.html">heal</a><a id="thee" href="index.html">thee</a><a href="index.html"><img href="index.html" src="images/healthee_plant.png"></img></a></div>
 		<div class="icons">
-		  <!--hrefs to be filled as we build our other pages-->
 		  <a href="profile.html"><i class="fa fa-user-circle-o"></i></a>
 		  <a href="index.html"><i class="fa fa-calendar"></i></a> 
 		  <a href="information.html"><i class="fa fa-info-circle"></i></a> 
@@ -42,17 +40,26 @@ We take no credit for this information.
 	<div class="injury-selection">
 		<!--<h2 class="injury-type"> Knee Dislocation </h2>-->
 		<div class="dropdown">
- 		<button onclick="selectInjury()" class="dropbtn" id="dropbtn">
- 			Injury
- 			<!--<a onclick="selectInjury()" class="injury-type" id="injury"> Knee Dislocation</a>-->
-			<i class="fa fa-angle-double-down"></i>
- 		</button>
-  		<div id="myDropdown" class="dropdown-content">
-    		<p id="injury1" onclick="setInjury('injury1')">Knee Dislocation</p>
-    		<p id="injury2" onclick="setInjury('injury2')">Elbow Dislocation</p>
+	 		<button onclick="selectInjury()" class="dropbtn" id="dropbtn">
+	 			Select Injury
+	 			<!--<a onclick="selectInjury()" class="injury-type" id="injury"> Knee Dislocation</a>-->
+				<i class="fa fa-angle-double-down"></i>
+	 		</button>
+	  		<div id="injuryDropdown" class="dropdown-content">
+	  		</div>
   		</div>
-  	</div>
+	</div>
 </div>
+<div id="injuryModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <strong> Injury: </strong> 
+    <input type="text" name="Injury" id="newInjury">
+	<button onclick="addInjury()"> Submit </button>
+  </div>
+
 </div>
 <div class="main-wrapper">
 	

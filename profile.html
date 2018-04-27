@@ -13,8 +13,9 @@ NavBar for Healthee Web Interface
 <!--Font Awesome API imported for icon usage"-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="assets/general.js"></script>
+<script src="assets/profile.js"></script>
 </head>
-<body>
+<body onload="setUpProfileInjuries();">
 <div class="navWrapper">
 <div class="logo"><a id="heal" href="index.html">heal</a><a id="thee" href="index.html">thee</a><a href="index.html"><img href="index.html" src="images/healthee_plant.png"></img></a></div>
 <div class="icons">
@@ -33,7 +34,7 @@ NavBar for Healthee Web Interface
   			<img class="profileImg" src="images/grayson.jpg">
   			<h2>Injured Athlete</h2>
   			<p> <strong>Username: </strong> ia123</p>
-  			<p><strong>Area of injury:</strong> knee</p>
+  			<p id="injuryarea"><strong>Area of injury:</strong> knee</p>
   			<p><strong>Email:</strong> ia123@gmail.com</p>
   			<p><button class="editButton">Edit Profile</button></p>
 		</div>
