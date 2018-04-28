@@ -10,12 +10,13 @@ NavBar for Healthee Web Interface
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Load style sheets -->
 <link rel="stylesheet" href="assets/design.css">
+<link rel="stylesheet" href="assets/profile.css">
 <!--Font Awesome API imported for icon usage"-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="assets/general.js"></script>
 <script src="assets/profile.js"></script>
 </head>
-<body onload="setUpProfileInjuries();">
+<body onload="setUpProfileInjuries();setUpModal();">
 <div class="navWrapper">
 <div class="logo"><a id="heal" href="index.html">heal</a><a id="thee" href="index.html">thee</a><a href="index.html"><img href="index.html" src="images/healthee_plant.png"></img></a></div>
 <div class="icons">
@@ -36,8 +37,19 @@ NavBar for Healthee Web Interface
   			<p> <strong>Username: </strong> ia123</p>
   			<p id="injuryarea"><strong>Area of injury:</strong> knee</p>
   			<p><strong>Email:</strong> ia123@gmail.com</p>
-  			<p><button class="editButton">Edit Profile</button></p>
+  			<p><button class="editButton" onclick="openModal()">Edit Profile</button></p>
 		</div>
+		<div id="profileModal" class="modal">
+		 	<div class="modal-content">
+    			<span class="close">&times;</span>
+    				<strong> Username: </strong> 
+    				<input type="text" name="Username" id="newUsername">
+    				<br>
+    				<strong> Email: </strong> 
+    				<input type="text" name="Email" id="newEmail"> <br>
+				<button onclick=""> Submit </button>
+  			</div>
+  		</div>
 		<h4>&ensp; Daily Exercises Completed</h4>
 		<img class="statImg" src="images/stats_with_axis.png"></img>
 		<h4>&ensp; Physical Therapist Information</h4>
