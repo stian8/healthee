@@ -28,7 +28,7 @@ function viewMessages(){
 	};
 	if(dates.length > 0){
 		for (i = 0; i < dates.length; i++){
-			messageString += "<strong>" + dates[i] + "</strong>: &emsp; &emsp;" + messages[i] + "<br>";
+			messageString += "<strong>" + dates[i] + "</strong>: &ensp;" + messages[i] + "<br>";
 		}
 	}
 	document.getElementById("messages").innerHTML = messageString;
