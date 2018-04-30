@@ -44,6 +44,16 @@ function setUpModal(){
     if (event.target == modal) {
         modal.style.display = "none";
     }
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
   }
 }
 
@@ -54,6 +64,7 @@ function selectInjury() {
 
 function setInjury(injury){
     document.getElementById("dropbtn").innerHTML =  document.getElementById(injury).innerHTML + '&darr;';
+    document.getElementById("injuryDropdown").classList.toggle("show");
 }
 
 function addInjury(){
