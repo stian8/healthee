@@ -1,6 +1,6 @@
 :root {
-    --color-green: hsl(120, 25%, 25%);
-    --color-bluegreen: hsl(170, 43%, 51%);
+    --color-green: hsl(153, 100%, 23%);
+    --color-blue: hsl(208, 70%, 38%);
 }
 
 body {margin:0;}
@@ -11,7 +11,7 @@ h4{
     font-family: system-ui;
     background: var(--color-green);
     text-align: left;
-    color: #DDD;
+    color: #FFF;
 }
 
 .navWrapper{
@@ -149,7 +149,7 @@ button {
   border-radius: 5px;
   padding: 8px;
   color: white;
-  background-color: var(--color-bluegreen);
+  background-color: var(--color-blue);
   text-align: center;
   cursor: pointer;
   width: 150px;

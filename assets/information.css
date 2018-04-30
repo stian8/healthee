@@ -1,7 +1,7 @@
 :root {
-    --color-green: hsl(120, 25%, 25%);
-    --color-bluegreen: hsl(170, 43%, 51%);
-    --color-seablue: hsl(190, 100%, 40%);
+    --color-green: hsl(153, 100%, 23%);
+    --color-seablue: hsl(203, 38%, 60%);
+    --color-blue: hsl(208, 70%, 38%);
 }
 
 h1 {
@@ -27,7 +27,7 @@ li {
 }
 
 .injury-type {
-	color: var(--color-bluegreen);
+	color: var(--color-blue);
 	font-size: 1.5em;
 }
 
@@ -146,7 +146,7 @@ footer {
     border: none;
     cursor: pointer;
     font-size: 2em;
-	color: var(--color-bluegreen);
+	color: var(--color-blue);
 }
 
 .dropdown {
