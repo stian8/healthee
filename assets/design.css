@@ -57,6 +57,10 @@ img{
     font-size: 3em;
 }
 
+#current {
+    color: var(--color-green);
+}
+
 .icons a:hover {
     background-color: #BBB;
 }

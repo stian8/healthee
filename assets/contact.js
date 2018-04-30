@@ -23,7 +23,7 @@ function newMessage() {
   sessionStorage.setItem("messages", JSON.stringify(messages));
   sessionStorage.setItem("dates", JSON.stringify(dates));
 
-  $('<li class="sent"><img src="images/grayson.jpg" alt="" /><p>' + message + '</p></li>').appendTo($('.messages ul'));
+  $('<li class="sent"><p>' + message + '</p></li>').appendTo($('.messages ul'));
   $('.message-input input').val(null);
   $('.contact.active .preview').html('<span>You: </span>' + message);
   $(".messages").animate({ scrollTop: $(document).height() }, "fast");
