@@ -53,7 +53,7 @@ function selectInjury() {
 }
 
 function setInjury(injury){
-    document.getElementById("dropbtn").innerHTML =  document.getElementById(injury).innerHTML + '<i class="fa fa-angle-double-down"></i>';
+    document.getElementById("dropbtn").innerHTML =  document.getElementById(injury).innerHTML + '&darr;';
 }
 
 function addInjury(){
