@@ -122,6 +122,14 @@ function stopProp() {
   event.stopPropagation();
 }
 
+function setUpClickOutsideClosing(){
+    window.onclick = function(event) {
+      if (!event.target.matches('.fa.fa-plus-circle.fa-2x')) {
+        document.getElementById("plus-menu").hidden = true;
+      }
+  }
+}
+
 function addNote() {
   var noteContents = document.getElementById("note-text").value;
   var noteTitle = document.getElementById("note-title").value;
