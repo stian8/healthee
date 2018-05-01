@@ -39,6 +39,38 @@ function openModal(){
     document.getElementById('profileModal').style.display = "block";
 }
 
+function createGraph(){
+	google.charts.load('current', {packages: ['corechart', 'line']});
+	google.charts.setOnLoadCallback(drawBackgroundColor);
+
+	function drawBackgroundColor() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Days');
+      data.addColumn('number', 'Exercises Completed');
+
+      data.addRows([
+        [0, 3],   [1, 5],  [2, 3],  [3, 2],  [4, 0],  [5, 4],
+        [6, 4],  [7, 4],  [8, 4],  [9, 4],  [10, 4], [11, 3],
+        [12, 3], [13, 4], [14, 4], [15, 4], [16, 4], [17, 4],
+        [18, 5], [19, 5], [20, 4], [21, 5], [22, 5], [23, 5]
+      ]);
+
+      var options = {
+        hAxis: {
+          title: 'Days'
+        },
+        vAxis: {
+          title: 'Exercises Completed'
+        },
+        backgroundColor: '#ffffff',
+        legend: 'none',
+      };
+
+      var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+      chart.draw(data, options);
+    }
+}
+
 function setUpModal(){
   var modal = document.getElementById('profileModal');
   var span = document.getElementsByClassName("close")[0]; 
