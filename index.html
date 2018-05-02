@@ -38,6 +38,54 @@ NavBar for Healthee Web Interface
           <div class="main"> Daily Exercises </div>
           <div class="date"> April 23 </div>
         </div>
+
+        <div>
+          <label class="todo-label">
+            <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
+            Hamstring Stretch
+          </label>
+          <label class="play-button">
+            <i class="fa fa-play-circle-o" onclick="showHamVideo()"></i>
+          </label>
+        </div>
+        <div>
+          <label class="todo-label">
+            <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
+            Quad Sets
+          </label>
+          <label class="play-button" style="visibility:collapse">
+            <i class="fa fa-play-circle-o"></i>
+          </label>
+        </div>
+        <div>
+          <label class="todo-label">
+            <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
+            Leg Lifts
+          </label>
+          <label class="play-button">
+            <i class="fa fa-play-circle-o" onclick="showLiftVideo()"></i>
+          </label>
+        </div>
+        <div>
+          <label class="todo-label">
+            <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
+            Wall Squats
+          </label>
+          <label class="play-button" style="visibility:collapse">
+            <i class="fa fa-play-circle-o"></i>
+          </label>
+        </div>
+        <div>
+          <label class="todo-label" id="calf" hidden>
+            <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
+            Calf Stretches
+          </label>
+          <label class="play-button" id="calfCB" style="visibility:collapse" hidden>
+            <i class="fa fa-play-circle-o"></i>
+          </label>
+        </div>
+
+        <!--
         <div class="todo-line">
           <label style="display:inline-block; vertical-align:middle">
           <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
@@ -69,6 +117,7 @@ NavBar for Healthee Web Interface
         <label id = "calf" hidden>
           <input class="exercise_checklist" id="calfCB" type="checkbox" onclick="setProgress()" hidden/>
           Calf Stretch</label> <br>
+        -->
       </form>
       <img class="today-progress" id="main-progress" src="images/empty.png" alt="Progress Bar">
     </div>
