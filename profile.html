@@ -6,7 +6,7 @@ NavBar for Healthee Web Interface
 
 <head>
 <meta charset="utf-8">
-<title>Profile</title>
+<title>healthee - Profile</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Load style sheets -->
 <link rel="stylesheet" href="assets/design.css">
@@ -15,8 +15,9 @@ NavBar for Healthee Web Interface
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="assets/general.js"></script>
 <script src="assets/profile.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
-<body onload="setUpProfileInjuries();setUpModal();">
+<body onload="setUpProfileInjuries();setUpModal();createGraph();">
 <div class="navWrapper">
 <div class="logo"><a id="heal" href="index.html">heal</a><a id="thee" href="index.html">thee</a><a href="index.html"><img href="index.html" src="images/healthee_plant.png"></img></a></div>
 <div class="icons">
@@ -50,7 +51,8 @@ NavBar for Healthee Web Interface
   			</div>
   		</div>
 		<h4>&ensp; Daily Exercises Completed</h4>
-		<img class="statImg" src="images/stats_with_axis.png"></img>
+		<!--<img class="statImg" src="images/stats_with_axis.png"></img>-->
+    <div class="statImg" id="chart_div"></div>
 		<h4>&ensp; Physical Therapist Information</h4>
 		<h2>Physical Trainer</h2>
   		<p><strong>Email:</strong> pt@gmail.com</p>

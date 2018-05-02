@@ -208,13 +208,13 @@
 
 #self-note-save {
   margin-right: 2px;
-  background-color: var(--color-green);
+  background-color: var(--color-blue);
   color:white;
 }
 
 #self-note-cancel {
   margin-left: 2px;
-  background-color: var(--color-green);
+  background-color: var(--color-blue);
   color:white;
 }
 
@@ -301,6 +301,10 @@
     font-size: 56px;
     float: none;
     margin-bottom: 300px;
+}
+th.current{
+  background-color: var(--color-blue);
+  color: white;
 }
 
 /* span helper code source: https://html-online.com/articles/simple-popup-box/ */

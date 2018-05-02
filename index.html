@@ -6,7 +6,7 @@ NavBar for Healthee Web Interface
 
 <head>
 <meta charset="utf-8">
-<title>Calendar</title>
+<title>healthee - Calendar</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Load style sheets -->
 <link rel="stylesheet" href="assets/design.css">
@@ -17,7 +17,7 @@ NavBar for Healthee Web Interface
 <script src="assets/calendar.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body>
+<body onload="setUpClickOutsideClosing();">
 <div class="navWrapper">
 <div class="logo"><a id="heal" href="index.html">heal</a><a id="thee" href="index.html">thee</a><a href="index.html"><img href="index.html" src="images/healthee_plant.png"></img></a></div>
 <div class="icons">
@@ -135,7 +135,7 @@ NavBar for Healthee Web Interface
         <table id="week-table" border="1px">
           <tr>
             <th width="14%"> Sun 22</th>
-            <th width="14%" id= "cur-day-header" style="background-color: hsl(203, 38%, 60%);">Mon 23</th>
+            <th width="14%" id= "cur-day-header" class="current">Mon 23</th>
             <th width="14%">Tue 24</th>
             <th width="14%">Wed 25</th>
             <th width="14%">Thu 26</th>
