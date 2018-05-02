@@ -22,8 +22,8 @@ NavBar for Healthee Web Interface
 <div class="logo"><a id="heal" href="index.html">heal</a><a id="thee" href="index.html">thee</a><a href="index.html"><img href="index.html" src="images/healthee_plant.png"></img></a></div>
 <div class="icons">
   <a class="current" href="index.html"><i id="current" class="fa fa-calendar"></i></a>
-  <a href="contact.html"><i class="fa fa-comment"></i></a>  
-  <a href="information.html"><i class="fa fa-info-circle"></i></a> 
+  <a href="contact.html"><i class="fa fa-comment"></i></a>
+  <a href="information.html"><i class="fa fa-info-circle"></i></a>
   <a href="profile.html"><i class="fa fa-user-circle-o"></i></a>
 </div>
 </div>
@@ -38,16 +38,37 @@ NavBar for Healthee Web Interface
           <div class="main"> Daily Exercises </div>
           <div class="date"> April 23 </div>
         </div>
-        <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
-          <label>Hamstring Stretch</label> <i class="fa fa-play-circle-o" onclick="showHamVideo()"></i> <br>
-        <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
-          <label>Quad Sets</label> <br>
-        <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
-          <label>Leg Lifts</label> <i class="fa fa-play-circle-o" onclick="showLiftVideo()"></i> <br>
-        <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
-          <label>Wall Squats</label> <br>
-        <input class="exercise_checklist" id="calfCB" type="checkbox" onclick="setProgress()" hidden/>
-          <label id="calf" hidden>Calf Stretch</label> <br>
+        <div class="todo-line">
+          <label style="display:inline-block; vertical-align:middle">
+          <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
+          Hamstring Stretch</label>
+          <label style="font-size:1.5em">
+            <i class="fa fa-play-circle-o" onclick="showHamVideo()"></i></i>
+          </label>
+          <br>
+        </div>
+        <div class="todo-line">
+          <label style="display:inline-block; vertical-align:middle">
+            <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
+            Quad Sets</label> <br>
+        </div>
+        <div class="todo-line">
+          <label style="display:inline-block; vertical-align:middle">
+          <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
+          Leg Lifts</label>
+          <label style="font-size:1.5em">
+            <i class="fa fa-play-circle-o" onclick="showLiftVideo()"></i>
+          </label>
+          <br>
+        </div>
+        <div class="todo-line">
+          <label style="display:inline-block; vertical-align:middle">
+          <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
+          Wall Squats</label> <br>
+        </div>
+        <label id = "calf" hidden>
+          <input class="exercise_checklist" id="calfCB" type="checkbox" onclick="setProgress()" hidden/>
+          Calf Stretch</label> <br>
       </form>
       <img class="today-progress" id="main-progress" src="images/empty.png" alt="Progress Bar">
     </div>
