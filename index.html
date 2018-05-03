@@ -84,40 +84,6 @@ NavBar for Healthee Web Interface
             <i class="fa fa-play-circle-o"></i>
           </label>
         </div>
-
-        <!--
-        <div class="todo-line">
-          <label style="display:inline-block; vertical-align:middle">
-          <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
-          Hamstring Stretch</label>
-          <label style="font-size:1.5em">
-            <i class="fa fa-play-circle-o" onclick="showHamVideo()"></i></i>
-          </label>
-          <br>
-        </div>
-        <div class="todo-line">
-          <label style="display:inline-block; vertical-align:middle">
-            <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
-            Quad Sets</label> <br>
-        </div>
-        <div class="todo-line">
-          <label style="display:inline-block; vertical-align:middle">
-          <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
-          Leg Lifts</label>
-          <label style="font-size:1.5em">
-            <i class="fa fa-play-circle-o" onclick="showLiftVideo()"></i>
-          </label>
-          <br>
-        </div>
-        <div class="todo-line">
-          <label style="display:inline-block; vertical-align:middle">
-          <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
-          Wall Squats</label> <br>
-        </div>
-        <label id = "calf" hidden>
-          <input class="exercise_checklist" id="calfCB" type="checkbox" onclick="setProgress()" hidden/>
-          Calf Stretch</label> <br>
-        -->
       </form>
       <img class="today-progress" id="main-progress" src="images/empty.png" alt="Progress Bar">
     </div>
@@ -178,9 +144,9 @@ NavBar for Healthee Web Interface
           </div>
           <div id="self-note" class="add-widget" border="1px" hidden>
               <label>Subject: </label>
-              <input id="note-title" type="text" maxlength = "24"/>
+              <input id="note-title" type="text" maxlength = "16"/>
               <label>Note: </label>
-              <textarea id="note-text" rows="10" cols"60"> </textarea>
+              <textarea id="note-text" rows="10" cols"60"></textarea>
               <br>
               <div class="option-buttons">
                 <button onclick="addNote()" class="save-cancel" id="self-note-save" >Save</button>
@@ -270,7 +236,8 @@ NavBar for Healthee Web Interface
         <span class="helper"></span>
         <div id="note-display" onclick="stopProp()" style="text-align:left">
           <span class="close" onclick="hideNoteDisplay()">&times;</span>
-          <div id="note-title-here" width="100%" height="100%" style="text-align:left;font-weight:bold;">Note:</div><br>
+          <div id="note-title-here" width="100%" height="100%"
+            style="text-align:left;font-size:18px;font-weight:bold">Note:</div><br>
           <div id="note-text-here" class="note-text-area"></div>
           <div id="note-edit-here" class="note-text-area" hidden>
             <textarea id="note-edit-textarea" rows="18" cols="49"></textarea>

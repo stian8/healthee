@@ -116,6 +116,10 @@ function hideNote() {
 
 function hideNoteDisplay() {
   document.getElementById("note-modal").hidden = true;
+  document.getElementById("note-text-here").hidden = false;
+  document.getElementById("note-edit-here").hidden = true;
+  document.getElementById("edit-delete").hidden = false;
+  document.getElementById("save-delete").hidden = true;
 }
 
 function stopProp() {

@@ -171,7 +171,8 @@
 .note-text-area {
   font-size: 18px;
   height: 240px;
-  overflow: auto;
+  overflow-wrap: break-word;
+  overflow-y: scroll;
   margin-bottom: 5px;
 }
 
