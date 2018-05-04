@@ -6,16 +6,27 @@ if (sessionStorage.injuries) {
     sessionStorage.setItem("injuries", JSON.stringify(injuries));
 }
 
+function topFunction() {
+  $(document).animate({ scrollTop: 0 }, "fast");
+  $(document.documentElement).animate({ scrollTop: 0 }, "fast");
+}
+
 function setupInjuries(){
     var dropdown = document.getElementById("injuryDropdown");
     for (i = 0; i < injuries.length; i++){
 
       var inj= document.createElement('p');
       var id = "injury" + i.toString();
+
       inj.id = id;
       inj.innerHTML = injuries[i];
       inj.onclick = function (num) {
             return function () {
+                if (num == "injury1") {
+                  window.location.href = "information_ankle.html";
+                } else {
+                  window.location.href = "information.html";
+                }
                 setInjury(num);
             };
         }(id);
