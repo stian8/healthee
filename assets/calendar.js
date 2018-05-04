@@ -23,6 +23,22 @@ function setProgress() {
   }
 }
 
+function monthToWeek() {
+  document.getElementById("month-week").hidden = !document.getElementById("month-week").hidden;
+  document.getElementById("month-week").hidden = true;
+  document.getElementById("week-month").hidden = false;
+  document.getElementById("month-view").hidden = true;
+  document.getElementById("week-view").hidden = false;
+}
+
+function weekToMonth() {
+  document.getElementById("week-month").hidden = !document.getElementById("week-month").hidden;
+  document.getElementById("week-month").hidden = true;
+  document.getElementById("month-week").hidden = false;
+  document.getElementById("month-view").hidden = false;
+  document.getElementById("week-view").hidden = true;
+}
+
 function showPlusMenu() {
   document.getElementById("plus-menu").hidden = !document.getElementById("plus-menu").hidden;
   if (!document.getElementById("appt-schedule").hidden) {
