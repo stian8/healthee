@@ -29,7 +29,16 @@ function newMessage() {
   $(".messages").animate({ scrollTop: $(document).height() }, "fast");
 };
 
+
 $( document ).ready(function() {
+  if (messages.length >0) {
+    for (i = 0; i < messages.length; i++){
+      $('<li class="sent"><p>' + messages[i] + '</p></li>').appendTo($('.messages ul'));
+    }
+  }
+  $('.message-input input').val(null);
+  $('.messages').scrollTop($('.messages')[0].scrollHeight);
+
   $('.input').focus();
     $('.submit').click(function() {
       console.log("hi");
