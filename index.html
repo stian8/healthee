@@ -90,6 +90,16 @@ NavBar for Healthee Web Interface
 		<div id="calendar">
       <div id="calendar-title-bar" style="text-align:left; margin:5px" width="100%">
         <div style="font-size:25px">April 2018</div>
+        <button id="prev" style="background-color:transparent;border-color:transparent">
+          <i class="fa fa-arrow-left fa-2x"></i>
+        </button>
+        <button id="next" style="background-color:transparent;border-color:transparent">
+          <i class="fa fa-arrow-right fa-2x"></i>
+        </button>
+
+        <button class="view-type" id="week-month" style="margin-left:auto; margin-right:5px" onclick="weekToMonth()">Month View</button>
+        <button class="view-type" id="month-week" style="margin-left:auto; margin-right:5px" onclick="monthToWeek()" hidden>Week View</button>
+
         <div>
           <button id="plus" style="background-color:transparent;border-color:transparent" onclick="showPlusMenu()">
             <i id="plus-button" class="fa fa-plus-circle fa-2x"></i>
@@ -154,14 +164,8 @@ NavBar for Healthee Web Interface
               </div>
             </div>
         </div>
-        <button class="view-type" id="week-month" style="margin-left:auto; margin-right:5px" onclick="weekToMonth()">Month View</button>
-        <button class="view-type" id="month-week" style="margin-left:auto; margin-right:5px" onclick="monthToWeek()" hidden>Week View</button>
-        <button id="prev" style="background-color:transparent;border-color:transparent">
-          <i class="fa fa-arrow-left fa-2x"></i>
-        </button>
-        <button id="next" style="background-color:transparent;border-color:transparent">
-          <i class="fa fa-arrow-right fa-2x"></i>
-        </button>
+
+
       </div>
       <div width="100%" style="text-align:right">
 
@@ -231,7 +235,7 @@ NavBar for Healthee Web Interface
                 1</td>
                 <td id="2" class="calendar-column" width="14%" height="19%">
                 2</td>
-                <td id="3" class="calendar-column" width="14%" height="19%"> 
+                <td id="3" class="calendar-column" width="14%" height="19%">
                 3</td>
                 <td id="4" class="calendar-column" width="14%" height="19%">
                 4</td>
@@ -247,7 +251,7 @@ NavBar for Healthee Web Interface
                   8</td>
                   <td id="9" class="calendar-column" width="14%" height="19%">
                   9</td>
-                  <td id="10" class="calendar-column" width="14%" height="19%"> 
+                  <td id="10" class="calendar-column" width="14%" height="19%">
                   10</td>
                   <td id="11" class="calendar-column" width="14%" height="19%">
                   11</td>
@@ -263,7 +267,7 @@ NavBar for Healthee Web Interface
                     15</td>
                     <td id="16" class="calendar-column" width="14%" height="19%">
                     16</td>
-                    <td id="17" class="calendar-column" width="14%" height="19%"> 
+                    <td id="17" class="calendar-column" width="14%" height="19%">
                     17</td>
                     <td id="18" class="calendar-column" width="14%" height="19%">
                     18</td>
@@ -279,7 +283,7 @@ NavBar for Healthee Web Interface
                       22</td>
                       <td id="23" class="cur-day-month" width="14%" height="19%">
                       23</td>
-                      <td id="24" class="calendar-column" width="14%" height="19%"> 
+                      <td id="24" class="calendar-column" width="14%" height="19%">
                       24</td>
                       <td id="25" class="calendar-column" width="14%" height="19%">
                       25</td>
@@ -295,7 +299,7 @@ NavBar for Healthee Web Interface
                         29</td>
                         <td id="30" class="calendar-column" width="14%" height="19%">
                         30</td>
-                        <td id="31" class="calendar-column" width="14%" height="19%"> 
+                        <td id="31" class="calendar-column" width="14%" height="19%">
                         </td>
                         <td id="32" class="calendar-column" width="14%" height="19%">
                         </td>
