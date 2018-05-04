@@ -1,4 +1,4 @@
-var injuries = ["Knee Dislocation"];
+var injuries = ["Knee Dislocation", "Ankle Sprain"];
 // for more permanent do localStorage
 if (sessionStorage.injuries) {
     injuries = JSON.parse(sessionStorage.getItem("injuries"));

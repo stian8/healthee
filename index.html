@@ -92,7 +92,7 @@ NavBar for Healthee Web Interface
         <div style="font-size:25px">April 2018</div>
         <div>
           <button id="plus" style="background-color:transparent;border-color:transparent" onclick="showPlusMenu()">
-            <i class="fa fa-plus-circle fa-2x"></i>
+            <i id="plus-button" class="fa fa-plus-circle fa-2x"></i>
           </button>
           <div id="plus-menu" hidden>
             <button class="plus-menu-button" onclick="showAppt()">Appointment</button>
@@ -154,8 +154,8 @@ NavBar for Healthee Web Interface
               </div>
             </div>
         </div>
-        <button id="week-month" style="margin-left:auto; margin-right:5px" onclick="weekToMonth()">Month View</button>
-        <button id="month-week" style="margin-left:auto; margin-right:5px" onclick="monthToWeek()" hidden>Week View</button>
+        <button class="view-type" id="week-month" style="margin-left:auto; margin-right:5px" onclick="weekToMonth()">Month View</button>
+        <button class="view-type" id="month-week" style="margin-left:auto; margin-right:5px" onclick="monthToWeek()" hidden>Week View</button>
         <button id="prev" style="background-color:transparent;border-color:transparent">
           <i class="fa fa-arrow-left fa-2x"></i>
         </button>
