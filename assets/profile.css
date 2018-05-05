@@ -21,15 +21,58 @@
     width: 80%;
     text-align: center;
     align-items: center;
-    font-size: 1.5em;
+    font-size: 1.8em;
 } 
 
+.profile {
+    display: flex;
+    flex-direction: row | row-reverse;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    padding-top: 1vh;
+    width: 100%;
+    text-align: center;
+    font-family: system-ui;
+}
+
+.imgWrapper{
+    flex-grow: 2;
+    padding-left: 10vw;
+}
+
+.profileImg{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.infoWrapper{
+    align-items: flex-end;
+    flex-grow: 2;
+    padding-right: 10vw;
+}
+
 .modal-content button{
-	font-size: .5em;
+    font-family: 'Roboto';
+	font-size: .9em;
+
 }
 
 input{
-	font-size: .5em;
+	font-size: .9em;
+}
+
+i {
+    cursor: pointer;
+}
+
+h2{
+    font-size: 1.8em;
+}
+
+.infoWrapper p {
+    font-size: 1.2em;
 }
 /* The Close Button */
 .close {
