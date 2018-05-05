@@ -11,6 +11,17 @@ function onLoad() {
       addExerciseLabels(currentKey.substring(10), sessionStorage.getItem(currentKey));
     }
   }
+  var inputs = document.getElementsByTagName("input");
+
+  for (var i = 0; i < inputs.length; i++) {
+    if (inputs[i].type === "checkbox") {
+      if (sessionStorage.getItem(inputs[i].id) === "true") {
+        inputs[i].setAttribute("checked", "true");
+      }
+    }
+  }
+
+  setProgress();
 }
 
 function setProgress() {
@@ -20,8 +31,15 @@ function setProgress() {
 
   for (var i = 0; i < inputs.length; i++) {
     if (inputs[i].type === "checkbox") {
+
+      console.log(sessionStorage.getItem(inputs[i].id));
       if (!inputs[i].hidden) numberOfBoxes++;
-      if (inputs[i].checked) numberOfChecks++;
+      if (inputs[i].checked) {
+        numberOfChecks++;
+        sessionStorage.setItem(inputs[i].id, "true");
+      } else {
+        sessionStorage.setItem(inputs[i].id, "false");
+      }
     }
   }
 
