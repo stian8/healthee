@@ -3,9 +3,12 @@ var notes = sessionStorage;
 
 function onLoad() {
   for (var i = sessionStorage.length-1; i >= 0; i--) {
-    if (sessionStorage.key(i).substring(0,6) === "4/23: ") {
-      console.log(sessionStorage.key(i));
-      addNoteButton(sessionStorage.getItem(sessionStorage.key(i)), sessionStorage.key(i));
+    currentKey = sessionStorage.key(i);
+    if (currentKey.substring(0,6) === "4/23: ") {
+      console.log(currentKey);
+      addNoteButton(sessionStorage.getItem(currentKey), currentKey);
+    } else if (currentKey.substring(0,10) === "Exercise: ") {
+      addExerciseLabels(currentKey.substring(10), sessionStorage.getItem(currentKey));
     }
   }
 }
@@ -81,6 +84,12 @@ function showLiftVideo() {
   document.getElementById("video-iframe").hidden = false;
 }
 
+function showVideoURL(url) {
+  document.getElementById("video-iframe").src = url;
+  document.getElementById("video").hidden = false;
+  document.getElementById("video-iframe").hidden = false;
+}
+
 function hideVideo() {
   document.getElementById("video-iframe").src = "";
   document.getElementById("video").hidden = true;
@@ -119,7 +128,7 @@ function hideAddExercise() {
   document.getElementById("ex").value = "";
   document.getElementById("ex-vid").value = "";
   document.getElementById("ex-info").value = "";
-  document.getElementById("add-ex").checked = false;
+  //document.getElementById("add-ex").checked = false;
 }
 
 function addExercise() {
@@ -128,6 +137,29 @@ function addExercise() {
   document.getElementById("calfPlay").hidden = false;
   document.getElementById("calf").hidden = false;
   */
+
+  var exName = "exercise";
+  var videoURL = "https://www.youtube.com/watch?v=OrnpSe4OChM";
+
+  exName = document.getElementById("ex").value;
+  videoURL = document.getElementById("ex-vid").value;
+
+  if (exName === "") {
+    hideAddExercise();
+    return;
+  }
+
+  videoURL = videoURL.replace("watch?v=", "embed/");
+
+  addExerciseLabels(exName, videoURL);
+
+  sessionStorage.setItem("Exercise: " + exName, videoURL);
+
+  setProgress();
+  hideAddExercise();
+}
+
+function addExerciseLabels(exName, videoURL) {
   var exerciseDiv = document.createElement("div");
   var todoLabel = document.createElement("label");
   todoLabel.setAttribute("class", "todo-label");
@@ -135,10 +167,28 @@ function addExercise() {
   exerciseInput.setAttribute("class", "exercise_checklist");
   exerciseInput.setAttribute("type", "checkbox");
   exerciseInput.onclick = setProgress;
-  var exerciseName = document.createTextNode("next exercise");
-  exerciseInput.appendChild(exerciseName);
-  setProgress();
-  hideAddExercise();
+  var exerciseName = document.createTextNode("\n" + exName + "\n");
+
+  todoLabel.appendChild(exerciseInput);
+  todoLabel.appendChild(exerciseName);
+
+  exerciseDiv.append(todoLabel);
+
+  var playLabel = document.createElement("label");
+  playLabel.setAttribute("class","play-button");
+  playLabel.innerHTML = ("<i class=\"fa fa-play-circle-o\"></i>");
+  if (videoURL === "") {
+    playLabel.setAttribute("style","visibility:collapse");
+  } else {
+    playLabel.addEventListener("click", function(){
+      document.getElementById("video-iframe").src = videoURL;
+      document.getElementById("video").hidden = false;
+      document.getElementById("video-iframe").hidden = false;
+    });
+  }
+
+  exerciseDiv.appendChild(playLabel);
+  document.getElementById("todo-list").appendChild(exerciseDiv);
 }
 
 function showNote() {
