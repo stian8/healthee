@@ -2,7 +2,7 @@
 var notes = sessionStorage;
 
 function onLoad() {
-  for (var i = 0; i < sessionStorage.length; i++) {
+  for (var i = sessionStorage.length-1; i >= 0; i--) {
     if (sessionStorage.key(i).substring(0,6) === "4/23: ") {
       console.log(sessionStorage.key(i));
       addNoteButton(sessionStorage.getItem(sessionStorage.key(i)), sessionStorage.key(i));
@@ -123,9 +123,20 @@ function hideAddExercise() {
 }
 
 function addExercise() {
+  /*
   document.getElementById("calfCB").hidden = false;
   document.getElementById("calfPlay").hidden = false;
   document.getElementById("calf").hidden = false;
+  */
+  var exerciseDiv = document.createElement("div");
+  var todoLabel = document.createElement("label");
+  todoLabel.setAttribute("class", "todo-label");
+  var exerciseInput = document.createElement("input");
+  exerciseInput.setAttribute("class", "exercise_checklist");
+  exerciseInput.setAttribute("type", "checkbox");
+  exerciseInput.onclick = setProgress;
+  var exerciseName = document.createTextNode("next exercise");
+  exerciseInput.appendChild(exerciseName);
   setProgress();
   hideAddExercise();
 }
