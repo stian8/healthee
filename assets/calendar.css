@@ -350,6 +350,7 @@ th.current{
   background-color: var(--color-blue);
   text-align: left;
   vertical-align: top;
+  color: white;
 }
 
 /* span helper code source: https://html-online.com/articles/simple-popup-box/ */
