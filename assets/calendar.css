@@ -109,7 +109,7 @@
   direction: horizontal;
 }
 
-#week-month {
+.view-type {
   height: 25px;
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
@@ -121,16 +121,9 @@
   background-color: var(--color-blue);
 }
 
-#month-week {
-  height: 25px;
-  font-size: 16px;
-  font-family: Arial, Helvetica, sans-serif;
-  padding-top: 3px;
-  padding-bottom: 2px;
-  align-self: center;
-  border-radius: 5px;
-  color: white;
-  background-color: var(--color-blue);
+.view-type:hover{
+  background-color: hsl(208, 70%, 50%);
+  cursor: pointer;
 }
 
 #week-table {
@@ -139,6 +132,15 @@
   border-style: solid;
   border-spacing: 0px;
   border-color: black;
+}
+
+#plus-button {
+  font-size: 30px;
+}
+
+#plus-button:hover {
+  color: hsl(0, 0%, 20%);
+  cursor: pointer;
 }
 
 #plus-menu {

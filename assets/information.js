@@ -1,9 +1,14 @@
-var injuries = ["Knee Dislocation"];
+var injuries = ["Knee Dislocation", "Ankle Sprain"];
 // for more permanent do localStorage
 if (sessionStorage.injuries) {
     injuries = JSON.parse(sessionStorage.getItem("injuries"));
 } else {
     sessionStorage.setItem("injuries", JSON.stringify(injuries));
+}
+
+function topFunction() {
+  $(document).animate({ scrollTop: 0 }, "fast");
+  $(document.documentElement).animate({ scrollTop: 0 }, "fast");
 }
 
 function setupInjuries(){
@@ -12,10 +17,16 @@ function setupInjuries(){
 
       var inj= document.createElement('p');
       var id = "injury" + i.toString();
+
       inj.id = id;
       inj.innerHTML = injuries[i];
       inj.onclick = function (num) {
             return function () {
+                if (num == "injury1") {
+                  window.location.href = "information_ankle.html";
+                } else {
+                  window.location.href = "information.html";
+                }
                 setInjury(num);
             };
         }(id);

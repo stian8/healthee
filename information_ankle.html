@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!--
+GR4 Injury Information page
+
+The information on this page is from: 
+https://www.emedicinehealth.com/ankle_sprain/article_em.htm
+We take no credit for this information.
+-->
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>healthee - Information</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Load style sheets -->
+<link rel="stylesheet" href="assets/design.css">
+<link rel="stylesheet" href="assets/information.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<!--Font Awesome API imported for icon usage"-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="assets/information.js"></script>
+</head>
+
+<body onload="setupInjuries(); setUpModal();">
+<!--for ease of use-->
+<a name="top"></a> 
+	<div class="navWrapper">
+		<div class="logo"><a id="heal" href="index.html">heal</a><a id="thee" href="index.html">thee</a><a href="index.html"><img href="index.html" src="images/healthee_plant.png"></img></a></div>
+		<div class="icons">
+			<a href="index.html"><i class="fa fa-calendar"></i></a>
+			<a href="contact.html"><i class="fa fa-comment"></i></a>  
+		 	<a class="current" href="information.html"><i id="current" class="fa fa-info-circle"></i></a> 
+		 	<a href="profile.html"><i class="fa fa-user-circle-o"></i></a>
+		</div>
+	</div>
+
+<div class="title-section">
+	<h1> Injury Information </h1>
+	<div class="injury-selection">
+		<!--<h2 class="injury-type"> Knee Dislocation </h2>-->
+		<div class="dropdown">
+	 		<button onclick="selectInjury()" class="dropbtn" id="dropbtn">
+	 			Ankle Sprain &darr;
+				<!--<i class="fa fa-angle-double-down"></i>-->
+	 		</button>
+	  		<div id="injuryDropdown" class="dropdown-content">
+	  		</div>
+  		</div>
+	</div>
+</div>
+<div id="injuryModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <strong> Injury: </strong> 
+    <input type="text" name="Injury" id="newInjury">
+	<button onclick="addInjury()"> Submit </button>
+  </div>
+
+</div>
+<div class="main-wrapper">
+	
+	<ul class="quicklinks">
+		<li><a class="quick-link" href="#overview">Ankle Sprain Overview</a></li>
+		<li><a class="quick-link" href="#causes">Ankle Sprain Causes</a></li>
+		<li><a class="quick-link" href="#symptoms">Ankle SPrain Symptoms and Signs</a></li>
+		<li><a class="quick-link" href="#whenseek">When to Seek Medical Care for an Ankle Sprain</a></li>
+		<li><a class="quick-link" href="#diagnosis">Ankle Sprain Diagnosis</a></li>
+		<li><a class="quick-link" href="#homeremedies">Ankle Sprain Home Remedies</a></li>
+		<li><a class="quick-link" href="#treatment">Ankle Sprain Treatment</a></li>
+		<li><a class="quick-link" href="#followup">Ankle Sprain Follow Up</a></li>
+		<li><a class="quick-link" href="#prevent">Ankle Sprain Preventon</a></li>
+		<li><a class="quick-link" href="#prognosis">Ankle Sprain Prognosis</a></li>
+	</ul>
+
+	<div class="info-wrapper" id="info-wrapper">
+		<div class="overview" id="overview">
+			<h2> Ankle Sprain Overview </h2>
+			<h3> Sprained ankles are the most frequent type of musculoskeletal injury seen by primary-care providers. </h3>
+			<h3> Ankle sprains are common sports injuries but also happen during everyday activities. An unnatural twisting motion of the ankle joint can happen when the foot is planted awkwardly, when the ground is uneven, or when an unusual amount of force is applied to the joint. </h3>
+
+			<ul class="info">
+				<h3> The ankle joint is made up of three bones: </h3>
+				<li>The tibia: the major bone of the lower leg. It bears most of the body's weight. Its bottom portion forms the medial malleolus, the inside bump of the ankle.</li>
+				<li>The fibula: the smaller of the two bones in the lower leg. Its lower end forms the lateral malleolus, the outer bump of the ankle.</li>
+				<li>The talus: the top bone of the foot.</li>
+				<br>
+				<h3>Tendons connect muscles to bones: </h3>
+				<li> Several muscles control motion at the ankle. Each has a tendon connecting it to one or more of the bones of the foot.Tendons can be stretched or torn when the joint is subjected to greater than normal stress. Chronic inflammation of a stretched or torn tendon is called tendinitis. </li>
+				<li> Tendons also can be pulled off the bone, called an avulsion injury. </li>
+				<br>
+				<h3> Ligaments provide connection between bones. Sprains are injuries to the ligaments. </h3>
+				<li> The ankle has many bones that come together to form the joint, so it has many ligaments holding it together. Stress on these ligaments can cause them to stretch or tear. </li>
+				<li> The most commonly injured ligament is the anterior talofibular ligament that connects the front part of the fibula to the talus bone on the front-outer part of the ankle joint. </li>
+
+
+			</ul>
+			<div class="dislocation">
+				<img class="dislocation-image" alt="knee dislocations" itemprop="image" x-enc="src" src="https://c-6rtwjumjzx7877x24nrfljx78x2ejrjinhnsjmjfqymx2ehtr.g00.emedicinehealth.com/g00/3_c-6bbb.jrjinhnsjmjfqym.htr_/c-6RTWJUMJZX77x24myyux78x3ax2fx2fnrfljx78.jrjinhnsjmjfqym.htrx2fnrfljx78x2f9908x2f9908-9918-3327-79444ys.oulx3fn65h.rfwpx3dnrflj_$/$/$/$">
+				<span class="dislocation-caption">
+					<p> Ankle Anatomy and Common Injuries </p><p> SOURCE: EMedicineHealth </p>
+				</span>
+			</div> 
+		</div>
+	</div>
+
+
+	<div class="info-wrapper" id="info-wrapper">
+		<div class="causes" id="causes">
+			<h2> Ankle Sprain Causes </h2>
+			<h3> Ligaments are injured when a greater than normal stretching force is applied to them. This happens most commonly when the foot is turned inward or inverted. This kind of injury can happen in the following ways: </h3>
+			<ul class="info">
+				<li>Awkwardly planting the foot when running, stepping up or down, or during simple tasks such as getting out of bed </li>
+				<li>Stepping on a surface that is irregular, such as stepping in a hole </li>
+				<li>Athletic events when one player steps on another player (A common example is a basketball player who goes up for a rebound and comes down on top of another player's foot. This can cause the rebounder's foot to roll inward.)</li>
+				<li> Inversion injuries, in which the foot rolls inward, are more common than eversion injuries (also referred to as a high ankle sprain), in which the foot twists outward. </li>
+			</ul>
+			<div class="dislocation">
+				<img class="dislocation-image" alt="knee dislocations" itemprop="image" x-enc="src" src="https://c-6rtwjumjzx7877x24nrfljx78x2ejrjinhnsjmjfqymx2ehtr.g00.emedicinehealth.com/g00/3_c-6bbb.jrjinhnsjmjfqym.htr_/c-6RTWJUMJZX77x24myyux78x3ax2fx2fnrfljx78.jrjinhnsjmjfqym.htrx2fnrfljx78x2f9908x2f9908-9918-3327-70556ys.oulx3fn65h.rfwpx3dnrflj_$/$/$/$">
+				<span class="dislocation-caption">
+					<p> Ankle sprain. Picture of inversion injury of ankle. Note it is turned inward. </p>
+					<p> SOURCE: EMedicineHealth </p>
+				</span>
+			</div> 
+		</div>
+	</div>
+
+	<div class="info-wrapper" id="info-wrapper">
+		<div class="symptoms" id="symptoms">
+			<h2> Ankle Sprain Symptoms and Signs </h2>
+			<h3> Tissue injury and inflammation occur when an ankle is sprained. Blood vessels become "leaky" and allow fluid to ooze into the soft tissue surrounding the joint. White blood cells responsible for inflammation migrate to the area, and blood flow increases. The following are signs and symptoms of inflammation: </h3>
+			<ul class="info">
+				<li>Swelling: Due to increased fluid in the tissue, this is sometimes severe.</li>
+				<li> Pain: The nerves are more sensitive. The joint hurts and may throb. The pain can worsen when the sore area is pressed or the foot moves in certain directions (depending upon which ligament is involved) and during walking or standing. </li>
+				<li> Redness and warmth: caused by increased blood flow to the area </li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="info-wrapper" id="info-wrapper">
+		<div class="whenseek" id="whenseek">
+			<h2> When to Seek Medical Care fo an Ankle Sprain </h2>
+			<h3> Usually, an ankle sprain itself does not require a trip to the doctor. The problem is how to tell a sprain from a more serious injury such as a fracture (break). If any of the following occur, contact your doctor. </h3>
+			<ul class="info">
+				<li> Pain is uncontrolled, despite the used of over-the-counter medications, elevation, and ice. </li>
+				<li> The injured person is unable to walk or cannot walk more than a few steps without severe pain. </li>
+				<li> The ankle fails to improve within five to seven days. The pain need not be gone, but it should be improving. </li>
+			</ul>
+			<h3> The indications to go to a hospital's emergency department are similar to those for which to call the doctor. The following conditions suggest a fracture or more serious injury or that a splint may be needed for pain control: </h3>
+			<ul class="info">
+				<li>There is severe or uncontrolled pain. </li>
+				<li> The injured ankle cannot be moved.</li>
+				<li> The foot or ankle is misshapen beyond normal swelling. </li>
+				<li> The injured person cannot walk four steps, even with a limp. </li>
+				<li> Severe pain felt when pressing over the medial or lateral malleolus, the bony bumps on each side of the ankle. </li>
+				<li> There is loss of feeling in the foot or toes. </li>
+				<li> There is pain and swelling in the back of the ankle (heel pain), over the Achilles tendon area, or the inability to push the toes down (forward-like pressing a gas pedal). </li>
+				<li> There is pain or swelling into the upper part of the lower leg just below the knee or swelling of the calf muscle.</li>
+				<li> Redness or red streaks spreading out from the injury are observed. </li>
+				<li> You don't know how serious the injury may be or are unsure how to care for it. </li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="info-wrapper" id="info-wrapper">
+		<div class="diagnosis" id="diagnosis">
+			<h2> Ankle Sprain Diagnosis </h2>
+			<h3> The doctor will perform a physical exam to see if a fracture or other serious injury has happened that requires immediate care. </h3>
+			<ul class="info">
+				<li> The examination should check that the nerves or arteries to the foot have not been injured and that the knee or the rest of the leg is not involved. </li>
+				<li> The doctor will handle and move the foot and ankle to determine what bony areas are involved.</li>
+				<li> The Achilles tendon will be checked for signs of rupture. </li>
+				<li> X-rays are often needed to confirm if a fracture is present. In some cases of fracture, a CT scan may be needed.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="info-wrapper" id="info-wrapper">
+		<div class="homeremedies" id="homeremedies">
+			<h2> Ankle Sprain Home Remedies </h2>
+			<h3> Care at home can help reduce pain and aid healing. Because most of the pain is caused by inflammation, the goal is to reduce and prevent inflammation. </h3>
+			<h3> Remember RICE: rest, ice, compression, and elevation. </h3>
+			<ul class="info">
+				<li> Rest prevents further injury and avoids stress on already inflamed tissue. Put the ankle joint at rest by wearing a brace or splint. More severe sprains may be treated with use of crutches.</li>
+				<li> Ice is the best treatment. Applying ice to the injury will help decrease pain. Ice counteracts the increased blood flow to the injured area. It reduces swelling, redness, and warmth. Applied soon after the injury, ice prevents much of the inflammation from developing. </li>
+				<li> Do not apply ice directly to the skin. Use a towel between the ice and the injury, or use an ice bag. Apply ice for 20 minutes at a time, with at least 30 minutes between applications. This is to prevent frostbite, which can occur if you use ice too much or use it directly on your skin. </li>
+				<li> Compression (sometimes called "strapping") provides support and helps prevent inflammation. Elastic wraps such as Ace bandages immobilize the ankle. Do not apply wraps too tightly.</li>
+				<li> Elevation (keeping the injured area up as high as possible) will help the body absorb fluid that has leaked into the tissue. Ideally, prop the ankle up so that it is above the level of the heart.Sit in a reclining chair or prop your legs up with pillows. </li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="info-wrapper" id="info-wrapper">
+		<div class="treatment" id="treatment">
+			<h2> Ankle Sprain Treatment </h2>
+			<h3> Treatment by a doctor will be similar to home care, especially using ice to reduce inflammation. </h3>
+			<ul class="info">
+				<li> The doctor may elect to apply a brace or cast to reduce motion of the ankle. Crutches are frequently provided so the patient does not bear weight on the injured ankle. </li>
+				<li> The most common medications used for ankle sprains are anti-inflammatory pain medications that both reduce pain and help control inflammation. If the patient cannot tolerate these drugs, acetaminophen (Tylenol) or narcotics are common alternatives. </li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="info-wrapper" id="info-wrapper">
+		<div class="followup" id="followup">
+			<h2> Ankle Sprain Follow-up </h2>
+			<h3> Follow-up for ankle sprains is needed only if the ankle is not healing well. This could indicate there is a previously undetected fracture or torn ligaments. An orthopedic or podiatric specialist should be consulted if initial treatment fails. Go to a doctor for follow-up care if any of the following situations: </h3>
+			<ul class="info">
+				<li> You cannot walk on the injured ankle within a week of the injury. </li>
+				<li> The ankle continues to hurt after two weeks. </li>
+				<li> A follow-up visit one to two weeks after the injury is advisable to help with flexibility and strengthening exercises. In some cases, a physical therapist may help with rehabilitation of the injured ankle. </li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="info-wrapper" id="info-wrapper">
+		<div class="prevent" id="prevent">
+			<h2> Ankle Sprain Prevention </h2>
+			<h3> Ankle sprain prevention can be as simple as wearing the right shoes or as complicated as balance training for athletes. </h3>
+			<ul class="info">
+				<li> Wear proper shoes for the activity. Always wear stable shoes that give your ankle proper support. High-top basketball shoes are a good choice. (High heels or platform shoes are not the best choice if you're trying to prevent an ankle sprain.) </li>
+				<li> Keep the ankles strong and flexible. Consult with the doctor or physical therapist for strengthening exercises. </li>
+				<li> When participating in a sport, consider having a weak ankle taped, as taping offers extra support. If you have repeated sprains, wearing an ankle brace while playing may help. </li>
+				<li> Make sure a playing field (or home environment) is clear of any holes or obstacles to help avoid injury. </li>
+				<li> If you have flat feet or bunions, consult a podiatrist as these conditions could lead to balance problems or instability of the ankle. </li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="info-wrapper" id="info-wrapper">
+		<div class="prognosis" id="prognosis">
+			<h2> Ankle Sprain Prognosis </h2>
+			<h3> Most ankle sprains heal without complications or difficulty. </h3>
+
+			<ul class="info">
+				<li> Surgery is seldom needed for torn ligaments. Ligament tears are often noticed when sprains fail to get better. If the diagnosis of a tendon tear that needs surgery is not made right away, the outcome of the surgery is the same as if the doctor did the operation immediately. </li>
+				<li> Recovery time depends upon the severity of the ankle sprain and possible accompanying injuries. </li>
+				<li> Exercises should be started to maintain flexibility and strength when the swelling has resolved and the patient can walk without pain. </li>
+			</ul>
+		</div>
+	</div>
+
+	<button onclick="topFunction()" class="fa fa-arrow-up fa-2x" id="top-link" href="#top"></button>
+
+</div>
+
+<footer class="authors"> BEKS </footer>
+
+</body>
+
+</html>
+
