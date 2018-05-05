@@ -17,7 +17,7 @@ NavBar for Healthee Web Interface
 <script src="assets/profile.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
-<body onload="setUpProfileInjuries();setUpModal();createGraph();">
+<body onload="setUpProfileInjuries();setUpModal();createGraph();setUpInfo();">
 <div class="navWrapper">
 <div class="logo"><a id="heal" href="index.html">heal</a><a id="thee" href="index.html">thee</a><a href="index.html"><img href="index.html" src="images/healthee_plant.png"></img></a></div>
 <div class="icons">
@@ -32,24 +32,33 @@ NavBar for Healthee Web Interface
 		<!--Code for main portion of the page goes here-->
 		<h4>&ensp; Profile</h4>
 		<div class="profile">
-  			<img class="profileImg" src="images/grayson.jpg">
+      <div class="imgWrapper">
+  			 <img class="profileImg" src="images/grayson.jpg">
+      </div>
+      <div class="infoWrapper">
   			<h2>Injured Athlete</h2>
-  			<p> <strong>Username: </strong> ia123</p>
-  			<p id="injuryarea"><strong>Area of injury:</strong> knee</p>
-  			<p><strong>Email:</strong> ia123@gmail.com</p>
-  			<p><button class="editButton" onclick="openModal()">Edit Profile</button></p>
+  			<p id="username"><strong>Username: </strong> ia123 &ensp; <i id="edit-note" class="fa fa-pencil" onclick="openNameModal()"></i></p>
+  			<p id="injuryarea"><strong>Area of injury:</strong> knee </p>
+  			<p id="email"><strong>Email:</strong> ia123@gmail.com &ensp; <i id="edit-note" class="fa fa-pencil" onclick="openEmailModal()"></i> </p>
+  			<!--<p><button class="editButton" onclick="openModal()">Edit Profile</button></p>-->
+      </div>
 		</div>
-		<div id="profileModal" class="modal">
+		<div id="emailModal" class="modal">
 		 	<div class="modal-content">
-    			<span class="close">&times;</span>
-    				<strong> Username: </strong> 
-    				<input type="text" name="Username" id="newUsername">
-    				<br>
+    			<span class="close" id="eclose">&times;</span>
     				<strong> Email: </strong> 
-    				<input type="text" name="Email" id="newEmail"> <br>
-				<button onclick=""> Submit </button>
+    				<input type="text" name="Email" id="newEmail"> 
+				<button onclick="changeEmail()"> Submit </button>
   			</div>
   		</div>
+    <div id="nameModal" class="modal">
+      <div class="modal-content">
+          <span class="close" id="nclose">&times;</span>
+            <strong> Username: </strong> 
+            <input type="text" name="Username" id="newUsername">
+        <button onclick="changeUsername()"> Submit </button>
+        </div>
+      </div>
 		<h4>&ensp; Daily Exercises Completed</h4>
 		<!--<img class="statImg" src="images/stats_with_axis.png"></img>-->
     <div class="statImg" id="chart_div"></div>
