@@ -23,13 +23,15 @@ function setProgress() {
   }
 
   if (numberOfChecks == 0) {
-    $('img.today-progress').attr({ src: "images/empty.png" });
-    //document.getElementById("cur-day-header").style.backgroundColor = "#FFC0CB";
+    $('.progress-bar-color-today').width('0%');
+    $('.progress-bar-color-today').css("background-color", "hsl(51, 100%, 50%)");
   } else if (numberOfChecks == numberOfBoxes) {
-    $('img.today-progress').attr({ src: "images/full.png" });
+    $('.progress-bar-color-today').width('100%');
+    $('.progress-bar-color-today').css("background-color", "hsl(153, 100%, 23%)");
   } else {
-    $('img.today-progress').attr({ src: "images/middle.png" });
-    //document.getElementById("cur-day-header").style.backgroundColor = "#FFC0CB";
+    var percentage = numberOfChecks/numberOfBoxes * 100;
+    $('.progress-bar-color-today').width(percentage + '%');
+    $('.progress-bar-color-today').css("background-color", "hsl(51, 100%, 50%)");
   }
 }
 

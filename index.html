@@ -85,7 +85,9 @@ NavBar for Healthee Web Interface
           </label>
         </div>
       </form>
-      <img class="today-progress" id="main-progress" src="images/empty.png" alt="Progress Bar">
+      <div class="progress-bar" id="progress-bar">
+        <div class="progress-bar-color-today" id="progress-bar-color"> </div>
+      </div>
     </div>
 		<div id="calendar">
       <div id="calendar-title-bar" style="text-align:left; margin:5px" width="100%">
@@ -185,13 +187,18 @@ NavBar for Healthee Web Interface
           </tr>
           <tr>
             <td id="4-22" class="calendar-column" width="14%" height="100%">
-              <img width="100%" class="progress-bar" id="progress-bar" src="images/full.png" alt="Progress Bar">
+              <div class="progress-bar" id="progress-bar">
+                <div class="progress-bar-color" id="progress-bar-color" style="width:100%; background-color: hsl(153, 100%, 23%)"></div>
+              </div>
+              <!--img width="100%" class="progress-bar" id="progress-bar" src="images/full.png" alt="Progress Bar"-->
             </td>
             <td id="4-23" class="calendar-column" width="14%" height="100%" id="cur-day">
                 <div id="mon-note" border="1px" hidden>
                     <label><b>Feeling great today! My knee is feeling so much better, can't wait to see what my PT thinks!</b></label> <br>
                 </div>
-                <img width="100%" class="today-progress" id="progress-bar" src="images/empty.png" alt="Progress Bar">
+                <div class="progress-bar" id="progress-bar">
+                  <div class="progress-bar-color-today" id="progress-bar-color""></div>
+                </div>
             </td>
             <td id="4-24" class="calendar-column" width="14%" height="100%">
               <!--<img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">-->
