@@ -76,7 +76,7 @@ NavBar for Healthee Web Interface
           </label>
         </div>
         <div>
-          <label class="todo-label" id="calf" hidden>
+          <label class="todo-label" id="calf">
             <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
             Calf Stretches
           </label>
@@ -180,7 +180,7 @@ NavBar for Healthee Web Interface
             <th width="14%">Sat 28</th>
           </tr>
           <tr>
-            <td id="4-22" class="calendar-column" width="14%" height="100%">
+            <td id="4-22" class="calendar-column" width="14%" height="100%" onclick="showModal()">
               <img width="100%" class="progress-bar" id="progress-bar" src="images/full.png" alt="Progress Bar">
             </td>
             <td id="4-23" class="calendar-column" width="14%" height="100%" id="cur-day">
@@ -216,7 +216,7 @@ NavBar for Healthee Web Interface
         </table>
       </div>
       <div id="month-view" hidden>
-          <table id="week-table" border="1px">
+          <table id="week-table" border="1px" hidden>
               <tr>
                 <th width="14%">Sun</th>
                 <th width="14%">Mon</th>
@@ -227,83 +227,83 @@ NavBar for Healthee Web Interface
                 <th width="14%">Sat</th>
               </tr>
               <tr>
-                <td id="1" class="calendar-column" width="14%" height="19%">
+                <td id="1" class="calendar-column" width="14%" height="18.5%">
                 1</td>
-                <td id="2" class="calendar-column" width="14%" height="19%">
+                <td id="2" class="calendar-column" width="14%" height="18.5%">
                 2</td>
-                <td id="3" class="calendar-column" width="14%" height="19%"> 
+                <td id="3" class="calendar-column" width="14%" height="18.5%"> 
                 3</td>
-                <td id="4" class="calendar-column" width="14%" height="19%">
+                <td id="4" class="calendar-column" width="14%" height="18.5%">
                 4</td>
-                <td id="5" class="calendar-column" width="14%" height="19%">
+                <td id="5" class="calendar-column" width="14%" height="18.5%">
                 5</td>
-                <td id="6" class="calendar-column" width="14%" height="19%">
+                <td id="6" class="calendar-column" width="14%" height="18.5%">
                 6</td>
-                <td id="7" class="calendar-column" width="14%" height="19%">
+                <td id="7" class="calendar-column" width="14%" height="18.5%">
                 7</td>
               </tr>
               <tr>
-                  <td id="8" class="calendar-column" width="14%" height="19%">
+                  <td id="8" class="calendar-column" width="14%" height="18.5%">
                   8</td>
-                  <td id="9" class="calendar-column" width="14%" height="19%">
+                  <td id="9" class="calendar-column" width="14%" height="18.5%">
                   9</td>
-                  <td id="10" class="calendar-column" width="14%" height="19%"> 
+                  <td id="10" class="calendar-column" width="14%" height="18.5%"> 
                   10</td>
-                  <td id="11" class="calendar-column" width="14%" height="19%">
+                  <td id="11" class="calendar-column" width="14%" height="18.5%">
                   11</td>
-                  <td id="12" class="calendar-column" width="14%" height="19%">
+                  <td id="12" class="calendar-column" width="14%" height="18.5%">
                   12</td>
-                  <td id="13" class="calendar-column" width="14%" height="19%">
+                  <td id="13" class="calendar-column" width="14%" height="18.5%">
                   13</td>
-                  <td id="14" class="calendar-column" width="14%" height="19%">
+                  <td id="14" class="calendar-column" width="14%" height="18.5%">
                   14</td>
                 </tr>
                 <tr>
-                    <td id="15" class="calendar-column" width="14%" height="19%">
+                    <td id="15" class="calendar-column" width="14%" height="18.5%">
                     15</td>
-                    <td id="16" class="calendar-column" width="14%" height="19%">
+                    <td id="16" class="calendar-column" width="14%" height="18.5%">
                     16</td>
-                    <td id="17" class="calendar-column" width="14%" height="19%"> 
+                    <td id="17" class="calendar-column" width="14%" height="18.5%"> 
                     17</td>
-                    <td id="18" class="calendar-column" width="14%" height="19%">
+                    <td id="18" class="calendar-column" width="14%" height="18.5%">
                     18</td>
-                    <td id="19" class="calendar-column" width="14%" height="19%">
+                    <td id="19" class="calendar-column" width="14%" height="18.5%">
                     19</td>
-                    <td id="20" class="calendar-column" width="14%" height="19%">
+                    <td id="20" class="calendar-column" width="14%" height="18.5%">
                     20</td>
-                    <td id="21" class="calendar-column" width="14%" height="19%">
+                    <td id="21" class="calendar-column" width="14%" height="18.5%">
                     21</td>
                   </tr>
                   <tr>
-                      <td id="22" class="calendar-column" width="14%" height="19%">
+                      <td id="22" class="calendar-column" width="14%" height="18.5%">
                       22</td>
-                      <td id="23" class="cur-day-month" width="14%" height="19%">
+                      <td id="23" class="cur-day-month" width="14%" height="18.5%">
                       23</td>
-                      <td id="24" class="calendar-column" width="14%" height="19%"> 
+                      <td id="24" class="calendar-column" width="14%" height="18.5%"> 
                       24</td>
-                      <td id="25" class="calendar-column" width="14%" height="19%">
+                      <td id="25" class="calendar-column" width="14%" height="18.5%">
                       25</td>
-                      <td id="26" class="calendar-column" width="14%" height="19%">
+                      <td id="26" class="calendar-column" width="14%" height="18.5%">
                       26</td>
-                      <td id="27" class="calendar-column" width="14%" height="19%">
+                      <td id="27" class="calendar-column" width="14%" height="18.5%">
                       27</td>
-                      <td id="28" class="calendar-column" width="14%" height="19%">
+                      <td id="28" class="calendar-column" width="14%" height="18.5%">
                       28</td>
                     </tr>
                     <tr>
-                        <td id="29" class="calendar-column" width="14%" height="19%">
+                        <td id="29" class="calendar-column" width="14%" height="18.5%">
                         29</td>
-                        <td id="30" class="calendar-column" width="14%" height="19%">
+                        <td id="30" class="calendar-column" width="14%" height="18.5%">
                         30</td>
-                        <td id="31" class="calendar-column" width="14%" height="19%"> 
+                        <td id="31" class="calendar-column" width="14%" height="18.5%"> 
                         </td>
-                        <td id="32" class="calendar-column" width="14%" height="19%">
+                        <td id="32" class="calendar-column" width="14%" height="18.5%">
                         </td>
-                        <td id="33" class="calendar-column" width="14%" height="19%">
+                        <td id="33" class="calendar-column" width="14%" height="18.5%">
                         </td>
-                        <td id="34" class="calendar-column" width="14%" height="19%">
+                        <td id="34" class="calendar-column" width="14%" height="18.5%">
                         </td>
-                        <td id="35" class="calendar-column" width="14%" height="19%">
+                        <td id="35" class="calendar-column" width="14%" height="18.5%">
                         </td>
                       </tr>
             </table>
@@ -311,6 +311,24 @@ NavBar for Healthee Web Interface
 		</div>
 
     <!-- HIDDEN ELEMENTS -->
+  <div id="addModal" class="modal" hidden>
+    <div class="modal-content">
+      <div class="label-wrap">
+          <label class="form-label"> Subject:</label>
+          <input class="form-input" id="appt-subject" type="text" /> <br>
+          <label class="form-label">Date:</label>
+          <input class="form-input" id="appt-date" type="date" /> <br>
+          <label class="form-label">Time:</label>
+          <input class="form-input" id="appt-time" type="time" /> <br>
+          <label class="form-label">Location:</label>
+          <input class="form-input" id="appt-location" type="text" /><br>
+        </div>
+        <div class="option-buttons">
+          <button onclick="addAppt()" class="save-cancel" id="save">Save</button>
+          <button onclick="hideAppt()" class="save-cancel" id="cancel">Cancel</button>
+        </div>
+    </div>
+  </div>
 
     <div id="video" hidden>
       <div id="video-grey-background" class="grey-background" onclick="hideVideo()">
