@@ -1,4 +1,14 @@
-var notes = new Map();
+//var notes = new Map();
+var notes = sessionStorage;
+
+function onLoad() {
+  for (var i = 0; i < sessionStorage.length; i++) {
+    if (sessionStorage.key(i).substring(0,6) === "4/23: ") {
+      console.log(sessionStorage.key(i));
+      addNoteButton(sessionStorage.getItem(sessionStorage.key(i)), sessionStorage.key(i));
+    }
+  }
+}
 
 function setProgress() {
   var numberOfChecks = 0;
@@ -114,6 +124,7 @@ function hideAddExercise() {
 
 function addExercise() {
   document.getElementById("calfCB").hidden = false;
+  document.getElementById("calfPlay").hidden = false;
   document.getElementById("calf").hidden = false;
   setProgress();
   hideAddExercise();
@@ -153,45 +164,48 @@ function setUpClickOutsideClosing(){
 function addNote() {
   var noteContents = document.getElementById("note-text").value;
   var noteTitle = document.getElementById("note-title").value;
+  var noteTitleDate = "4/23: " + noteTitle;
 
   if (noteTitle.length === 0 || noteContents.length === 0) {
     hideNote();
     return;
   }
 
-  var noteTitleDate = "4/23: " + noteTitle;
+  notes.setItem(noteTitleDate, noteContents); // change here
+  addNoteButton(noteContents, noteTitleDate);
+}
 
-  notes.set(noteTitleDate, noteContents);
+function addNoteButton(noteContents, noteTitleDate) {
 
   var button = document.createElement("button");
   button.setAttribute("style","width=100%;text-align=left");
-  var textNode = document.createTextNode("Note:" + noteTitle);
+  var textNode = document.createTextNode("Note:" + noteTitleDate.substring(6));
   button.appendChild(textNode);
 
   button.addEventListener("click", function(){
-    document.getElementById("note-text-here").innerHTML = notes.get(noteTitleDate);
+    document.getElementById("note-text-here").innerHTML = notes.getItem(noteTitleDate);  // change here
     document.getElementById("note-title-here").innerHTML = noteTitleDate;
     document.getElementById("note-modal").hidden = false;
     document.getElementById("delete-note-1").onclick = function() {
       button.remove();
-      notes.delete(noteTitleDate);
+      notes.removeItem(noteTitleDate);  // change here
       hideNoteDisplay();
     };
     document.getElementById("delete-note-2").onclick = function() {
       button.remove();
-      notes.delete(noteTitleDate);
+      notes.removeItem(noteTitleDate);  // change here
       hideNoteDisplay();
     };
     document.getElementById("edit-note").onclick = function() {
-      document.getElementById("note-edit-textarea").value = notes.get(noteTitleDate);
+      document.getElementById("note-edit-textarea").value = notes.getItem(noteTitleDate);  // change here
       document.getElementById("note-text-here").hidden = true;
       document.getElementById("note-edit-here").hidden = false;
       document.getElementById("edit-delete").hidden = true;
       document.getElementById("save-delete").hidden = false;
     };
     document.getElementById("save-note").onclick = function() {
-      notes.set(noteTitleDate, document.getElementById("note-edit-textarea").value);
-      document.getElementById("note-text-here").innerHTML = notes.get(noteTitleDate);
+      notes.setItem(noteTitleDate, document.getElementById("note-edit-textarea").value);  // change here
+      document.getElementById("note-text-here").innerHTML = notes.getItem(noteTitleDate); // change here
       document.getElementById("note-text-here").hidden = false;
       document.getElementById("note-edit-here").hidden = true;
       document.getElementById("edit-delete").hidden = false;

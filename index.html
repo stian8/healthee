@@ -17,7 +17,7 @@ NavBar for Healthee Web Interface
 <script src="assets/calendar.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body onload="setUpClickOutsideClosing();">
+<body onload="setUpClickOutsideClosing();onLoad();">
 <div class="navWrapper">
 <div class="logo"><a id="heal" href="index.html">heal</a><a id="thee" href="index.html">thee</a><a href="index.html"><img href="index.html" src="images/healthee_plant.png"></img></a></div>
 <div class="icons">
@@ -77,10 +77,10 @@ NavBar for Healthee Web Interface
         </div>
         <div>
           <label class="todo-label" id="calf" hidden>
-            <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
+            <input class="exercise_checklist" id="calfCB" type="checkbox" onclick="setProgress()" hidden/>
             Calf Stretches
           </label>
-          <label class="play-button" id="calfCB" style="visibility:collapse" hidden>
+          <label class="play-button" id="calfPlay" style="visibility:collapse" hidden>
             <i class="fa fa-play-circle-o"></i>
           </label>
         </div>
