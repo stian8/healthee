@@ -63,9 +63,9 @@ NavBar for Healthee Web Interface
     <div class="statImg" id="chart_div"></div>
 		<h4>&ensp; Physical Therapist Information</h4>
       <div class="therapist">
-      <p><strong>Name:</strong> Physical Therapist</p>
-  		<p><strong>Email:</strong> pt@gmail.com &ensp; <a id="pt-email"><i class="fa fa-envelope"></i></a> </p> </div>
-  		<p><!--<button class="editButton">Contact</button> &ensp;--><button class="editButton">Switch Therapists </button> <button class="editButton" onclick="viewMessages()">View Messages</button></p>
+      <p id="ptname"><strong>Name:</strong> Physical Therapist</p>
+  		<p id="ptemail"><strong>Email:</strong> pt@gmail.com &ensp; <a id="pt-email"><i class="fa fa-envelope"></i></a> </p> </div>
+  		<p><!--<button class="editButton">Contact</button> &ensp;--><button class="editButton" onclick="openSwitchModal()">Switch Therapists </button> <button class="editButton" onclick="viewMessages()">View Messages</button></p>
       <div id="messageModal" class="modal">
         <div class="modal-content">
           <span class="close" id="mclose">&times;</span>
@@ -76,7 +76,17 @@ NavBar for Healthee Web Interface
           </div>
         </div>
       </div>
-  		<!--<p id="messages"></p>-->
+      <div id="switchModal" class="modal">
+      <div class="modal-content">
+          <span class="close" id="sclose">&times;</span>
+          <p>Switch Physical Therapists</p>
+            <strong> New Name: </strong> 
+            <input type="text" name="Username" id="newPTName"> <br>
+            <strong> New Email: </strong> 
+            <input type="text" name="Email" id="newPTEmail"> <br> <br>
+          <button onclick="changePTInfo()"> Submit </button>
+        </div>
+      </div>
 
 	</div>
 		<div class="sidebar">
