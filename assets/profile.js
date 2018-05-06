@@ -39,20 +39,24 @@ function setUpInfo(){
 
 function viewMessages(){
 	var messageString = "";
+	var dateString = "";
 	var messages = [];
+	var dates = [];
 	if (sessionStorage.messages){
 		messages = JSON.parse(sessionStorage.getItem("messages"));
 	};
-	var dates = [];
 	if (sessionStorage.dates){
 		dates = JSON.parse(sessionStorage.getItem("dates"));
 	};
 	if(dates.length > 0){
 		for (i = 0; i < dates.length; i++){
-			messageString += "<strong>" + dates[i] + "</strong>: &ensp;" + messages[i] + "<br>";
+			dateString += "<p><strong>" + dates[i] + "</strong></p>";
+			messageString += "<p>"+ messages[i] + "</p>";
 		}
 	}
+	document.getElementById("dates").innerHTML = dateString;
 	document.getElementById("messages").innerHTML = messageString;
+	document.getElementById('messageModal').style.display = "block";
 
 }
 
@@ -78,6 +82,7 @@ function changeEmail(){
 	document.getElementById("email").innerHTML = '<strong>Email:</strong> ' + email + ' &ensp; <i id="edit-note" class="fa fa-pencil" onclick="openEmailModal()"></i>';
 	document.getElementById('newEmail').value = "";
 	document.getElementById('emailModal').style.display = "none";
+	addEmailLink();
 }
 
 function createGraph(){
@@ -143,6 +148,11 @@ function createGraph(){
     }
 }
 
+function addEmailLink(){
+	var ptemail = document.getElementById('pt-email');
+	ptemail.href = "mailto:" + email + '?subject=' +'healthee - Patient Question'+ '&body=' +'Fill me in with a question';
+}
+
 function setUpModal(){
   var eModal = document.getElementById('emailModal');
   var mModal = document.getElementById('nameModal');
@@ -154,6 +164,9 @@ function setUpModal(){
   }
   document.getElementById("nclose").onclick = function() {
       mModal.style.display = "none";
+  }
+  document.getElementById("mclose").onclick = function() {
+      document.getElementById('messageModal').style.display = "none";
   }
 
   // When the user clicks anywhere outside of the modal, close it

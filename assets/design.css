@@ -129,16 +129,6 @@ img{
     width: 80%;
     height: 20%;
 }
-.editButton{
-  border-radius: 5px;
-  padding: 8px;
-  color: white;
-  background-color: var(--color-blue);
-  text-align: center;
-  cursor: pointer;
-  width: 150px;
-  font-size: 1em;
-}
 
 footer {
   display: block;
