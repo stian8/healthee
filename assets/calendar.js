@@ -19,8 +19,6 @@ function onLoad() {
   var inputs = document.getElementsByClassName("exercise_checklist");
 
   for (var i = 0; i < inputs.length; i++) {
-    console.log(inputs[i].id);
-    console.log(sessionStorage.getItem(inputs[i].id));
     if (inputs[i].type === "checkbox") {
       if (sessionStorage.getItem(inputs[i].id) === "true") {
         inputs[i].setAttribute("checked", "true");
@@ -166,10 +164,13 @@ function editTodo() {
 
   var buttons = document.getElementsByClassName("play-button");
   for (var i = 0; i < buttons.length; i++) {
-    if (sessionStorage.getItem(buttons[i].id)) {
+    if (sessionStorage.getItem(buttons[i].id) || sessionStorage.getItem(buttons[i].id) === "") {
+      buttons[i].setAttribute("style", "visibility:visible;")
       buttons[i].innerHTML = "<i class=\"fa fa-trash\"></i>";
+      buttons[i].outerHTML = buttons[i].outerHTML;
       buttons[i].addEventListener("click", function() {
-        console.log("new listener");
+        document.getElementById("todo-list").removeChild(this.parentNode);
+        sessionStorage.removeItem(this.id);
       });
     }
 
