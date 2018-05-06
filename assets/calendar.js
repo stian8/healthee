@@ -158,6 +158,31 @@ function hideAddExercise() {
 
 function editTodo() {
   console.log("healthee REFUSES to let you edit exercises");
+
+  var inputs = document.getElementsByClassName("exercise_checklist");
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].disabled = true;
+  }
+
+  var buttons = document.getElementsByClassName("play-button");
+  for (var i = 0; i < buttons.length; i++) {
+    if (sessionStorage.getItem(buttons[i].id)) {
+      buttons[i].innerHTML = "<i class=\"fa fa-trash\"></i>";
+      buttons[i].addEventListener("click", function() {
+        console.log("new listener");
+      });
+    }
+
+    /*
+    if (sessionStorage.getItem(buttons[i].id)) {
+      //console.log(sessionStorage.getItem(buttons[i].id));
+      //console.log(buttons[i].id);
+      var videoLink = sessionStorage.getItem(buttons[i].id);
+      if (videoLink === "") {
+
+      }
+    } */
+  }
 }
 
 function addExercise() {
@@ -219,6 +244,7 @@ function addExerciseLabels(exName, videoURL) {
 
   var playLabel = document.createElement("label");
   playLabel.setAttribute("class","play-button");
+  playLabel.setAttribute("id", "Exercise: " + exName);
   playLabel.innerHTML = ("<i class=\"fa fa-play-circle-o\"></i>");
   if (videoURL === "") {
     playLabel.setAttribute("style","visibility:collapse");
