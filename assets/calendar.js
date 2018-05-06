@@ -156,6 +156,8 @@ function hideAddExercise() {
 
 function editTodo() {
   console.log("healthee REFUSES to let you edit exercises");
+  document.getElementById("edit-exercises").hidden = true;
+  document.getElementById("save-exercises").hidden = false;
 
   var inputs = document.getElementsByClassName("exercise_checklist");
   for (var i = 0; i < inputs.length; i++) {
@@ -173,17 +175,33 @@ function editTodo() {
         sessionStorage.removeItem(this.id);
       });
     }
-
-    /*
-    if (sessionStorage.getItem(buttons[i].id)) {
-      //console.log(sessionStorage.getItem(buttons[i].id));
-      //console.log(buttons[i].id);
-      var videoLink = sessionStorage.getItem(buttons[i].id);
-      if (videoLink === "") {
-
-      }
-    } */
   }
+}
+
+function saveTodo() {
+  document.getElementById("save-exercises").hidden = true;
+  document.getElementById("edit-exercises").hidden = false;
+
+  var inputs = document.getElementsByClassName("exercise_checklist");
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].disabled = false;
+  }
+
+  var buttons = document.getElementsByClassName("play-button");
+  for (var i = 0; i < buttons.length; i++) {
+    if (sessionStorage.getItem(buttons[i].id)) {
+      buttons[i].setAttribute("style", "visibility:visible;")
+      buttons[i].innerHTML = "<i class=\"fa fa-play-circle-o\"></i>";
+      buttons[i].outerHTML = buttons[i].outerHTML;
+      buttons[i].addEventListener("click", showVideoURL(sessionStorage.getItem(this.id))
+      );
+    } else if (sessionStorage.getItem(buttons[i].id) === "") {
+      buttons[i].setAttribute("style", "visibility:collapse;")
+    }
+  }
+
+  setProgress();
+
 }
 
 function addExercise() {
@@ -219,6 +237,7 @@ function addExerciseLabels(exName, videoURL) {
   var editButton = document.getElementById("edit-exercises");
   if (editButton) {
     document.getElementById("todo-list").removeChild(editButton);
+    document.getElementById("todo-list").removeChild(saveButton);
   } else {
     editButton = document.createElement("button");
     editButton.setAttribute("type", "button");
@@ -226,6 +245,15 @@ function addExerciseLabels(exName, videoURL) {
     editButton.id = "edit-exercises";
     editButton.innerHTML = "<i class=\"fa fa-pencil fa-2x\"></i>";
     editButton.addEventListener("click", editTodo);
+
+    saveButton = document.createElement("button");
+    saveButton.hidden = true;
+    saveButton.setAttribute("type", "button");
+    saveButton.setAttribute("style", "border-radius:5px;margin-top:5px");
+    saveButton.id = "save-exercises";
+    saveButton.innerHTML = "<i class=\"fa fa-check-circle fa-2x\"></i>";
+    saveButton.addEventListener("click", saveTodo);
+
   }
 
   var exerciseDiv = document.createElement("div");
@@ -260,6 +288,7 @@ function addExerciseLabels(exName, videoURL) {
   exerciseDiv.appendChild(playLabel);
   document.getElementById("todo-list").appendChild(exerciseDiv);
   document.getElementById("todo-list").appendChild(editButton);
+  document.getElementById("todo-list").appendChild(saveButton);
 }
 
 function showNote() {
