@@ -1,6 +1,8 @@
 var username = "ia123";
 var email = "ia123@gmail.com";
 var injuries = ["Knee Dislocation"];
+var ptname = "Physical Therapist";
+var ptemail = "pt@gmail.com";
 // for more permanent do localStorage
 // only JSON parse because lists
 if (sessionStorage.injuries) {
@@ -21,6 +23,18 @@ if (sessionStorage.email) {
 else{
 	sessionStorage.setItem("email", email);
 }
+if (sessionStorage.ptname){
+	ptname = sessionStorage.getItem("ptname");
+}
+else{
+	sessionStorage.setItem("ptname", ptname);
+}
+if (sessionStorage.ptemail) {
+	ptemail = sessionStorage.getItem("ptemail");
+}
+else{
+	sessionStorage.setItem("ptemail", ptemail);
+}
 
 var INJURY_DESCRIPTOR = "<strong>Area(s) of injury:</strong>"
 
@@ -35,24 +49,30 @@ function setUpProfileInjuries(){
 function setUpInfo(){
 	document.getElementById("username").innerHTML = '<strong>Username: </strong> ' + username +'&ensp; <i id="edit-note" class="fa fa-pencil" onclick="openNameModal()"></i>';
 	document.getElementById("email").innerHTML = '<strong>Email:</strong> ' + email + ' &ensp; <i id="edit-note" class="fa fa-pencil" onclick="openEmailModal()"></i>';
+	document.getElementById("ptname").innerHTML = '<strong>Name: </strong> ' + ptname;
+	document.getElementById("ptemail").innerHTML = '<strong>Email:</strong> ' + ptemail + '&ensp; <a id="pt-email"><i class="fa fa-envelope"></i></a>';
 }
 
 function viewMessages(){
 	var messageString = "";
+	var dateString = "";
 	var messages = [];
+	var dates = [];
 	if (sessionStorage.messages){
 		messages = JSON.parse(sessionStorage.getItem("messages"));
 	};
-	var dates = [];
 	if (sessionStorage.dates){
 		dates = JSON.parse(sessionStorage.getItem("dates"));
 	};
 	if(dates.length > 0){
 		for (i = 0; i < dates.length; i++){
-			messageString += "<strong>" + dates[i] + "</strong>: &ensp;" + messages[i] + "<br>";
+			dateString += "<p><strong>" + dates[i] + "</strong></p>";
+			messageString += "<p>"+ messages[i] + "</p>";
 		}
 	}
+	document.getElementById("dates").innerHTML = dateString;
 	document.getElementById("messages").innerHTML = messageString;
+	document.getElementById('messageModal').style.display = "block";
 
 }
 
@@ -62,6 +82,10 @@ function openEmailModal(){
 
 function openNameModal(){
     document.getElementById('nameModal').style.display = "block";
+}
+
+function openSwitchModal(){
+    document.getElementById('switchModal').style.display = "block";
 }
 
 function changeUsername(){
@@ -78,6 +102,19 @@ function changeEmail(){
 	document.getElementById("email").innerHTML = '<strong>Email:</strong> ' + email + ' &ensp; <i id="edit-note" class="fa fa-pencil" onclick="openEmailModal()"></i>';
 	document.getElementById('newEmail').value = "";
 	document.getElementById('emailModal').style.display = "none";
+}
+
+function changePTInfo(){
+	ptname = document.getElementById('newPTName').value;
+	sessionStorage.setItem("ptname", ptname);
+	document.getElementById("ptname").innerHTML = '<strong>Name: </strong> ' + ptname;
+	document.getElementById('newPTName').value = "";
+	ptemail = document.getElementById('newPTEmail').value;
+	sessionStorage.setItem("ptemail", ptemail);
+	document.getElementById("ptemail").innerHTML = '<strong>Email:</strong> ' + ptemail + '&ensp; <a id="pt-email"><i class="fa fa-envelope"></i></a>';
+	document.getElementById('newPTEmail').value = "";
+	document.getElementById('switchModal').style.display = "none";
+	addEmailLink();
 }
 
 function createGraph(){
@@ -143,23 +180,50 @@ function createGraph(){
     }
 }
 
+function addEmailLink(){
+	var emailIcon = document.getElementById('pt-email');
+	emailIcon.href = "mailto:" + ptemail + '?subject=' +'healthee - Patient Question'+ '&body=' +'Fill me in with a question';
+}
+
 function setUpModal(){
   var eModal = document.getElementById('emailModal');
-  var mModal = document.getElementById('nameModal');
+  var nModal = document.getElementById('nameModal');
+  var sModal = document.getElementById('switchModal');
+  var mModal = document.getElementById('messageModal');
   var span = document.getElementsByClassName("close")[0]; 
 
   // When the user clicks on <span> (x), close the modal
   document.getElementById("eclose").onclick = function() {
+  	  document.getElementById('newEmail').value = "";
       eModal.style.display = "none";
   }
   document.getElementById("nclose").onclick = function() {
+  	  document.getElementById('newUsername').value = "";
+      nModal.style.display = "none";
+  }
+  document.getElementById("sclose").onclick = function() {
+  	  document.getElementById('newPTName').value = "";
+      document.getElementById('newPTEmail').value = "";
+      sModal.style.display = "none";
+  }
+  document.getElementById("mclose").onclick = function() {
       mModal.style.display = "none";
   }
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function(event) {
     if (event.target == eModal) {
+    	document.getElementById('newEmail').value = "";
         eModal.style.display = "none";
+    }
+    if (event.target == nModal) {
+    	document.getElementById('newUsername').value = "";
+        nModal.style.display = "none";
+    }
+    if (event.target == sModal) {
+    	document.getElementById('newPTName').value = "";
+    	document.getElementById('newPTEmail').value = "";
+        sModal.style.display = "none";
     }
     if (event.target == mModal) {
         mModal.style.display = "none";

@@ -17,7 +17,7 @@ NavBar for Healthee Web Interface
 <script src="assets/profile.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
-<body onload="setUpProfileInjuries();setUpModal();createGraph();setUpInfo();">
+<body onload="setUpProfileInjuries();setUpModal();createGraph();setUpInfo();addEmailLink();">
 <div class="navWrapper">
 <div class="logo"><a id="heal" href="index.html">heal</a><a id="thee" href="index.html">thee</a><a href="index.html"><img href="index.html" src="images/healthee_plant.png"></img></a></div>
 <div class="icons">
@@ -60,13 +60,33 @@ NavBar for Healthee Web Interface
         </div>
       </div>
 		<h4>&ensp; Daily Exercises Completed</h4>
-		<!--<img class="statImg" src="images/stats_with_axis.png"></img>-->
     <div class="statImg" id="chart_div"></div>
 		<h4>&ensp; Physical Therapist Information</h4>
-		<h2>Physical Trainer</h2>
-  		<p><strong>Email:</strong> pt@gmail.com</p>
-  		<p><button class="editButton">Contact</button> &ensp; <button class="editButton">Change</button> &ensp; <button class="editButton" onclick="viewMessages()">View Messages</button></p>
-  		<p id="messages"></p>
+      <div class="therapist">
+      <p id="ptname"><strong>Name:</strong> Physical Therapist</p>
+  		<p id="ptemail"><strong>Email:</strong> pt@gmail.com &ensp; <a id="pt-email"><i class="fa fa-envelope"></i></a> </p> </div>
+  		<p><!--<button class="editButton">Contact</button> &ensp;--><button class="editButton" onclick="openSwitchModal()">Switch Therapists </button> <button class="editButton" onclick="viewMessages()">View Messages</button></p>
+      <div id="messageModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="mclose">&times;</span>
+          <p>Messages</p>
+          <div id="messageWrapper">
+            <div id="dates"></div>
+            <div id="messages"></div>
+          </div>
+        </div>
+      </div>
+      <div id="switchModal" class="modal">
+      <div class="modal-content">
+          <span class="close" id="sclose">&times;</span>
+          <p>Switch Physical Therapists</p>
+            <strong> New Name: </strong> 
+            <input type="text" name="Username" id="newPTName"> <br>
+            <strong> New Email: </strong> 
+            <input type="text" name="Email" id="newPTEmail"> <br> <br>
+          <button onclick="changePTInfo()"> Submit </button>
+        </div>
+      </div>
 
 	</div>
 		<div class="sidebar">
