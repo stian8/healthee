@@ -36,7 +36,7 @@ else{
 	sessionStorage.setItem("ptemail", ptemail);
 }
 
-var INJURY_DESCRIPTOR = "<strong>Area(s) of injury:</strong>"
+var INJURY_DESCRIPTOR = '<strong>Area of injury &ensp; </strong> <i id="add-injury" class="fa fa-plus-circle" onclick="openInjuryModal()"> </i>'
 
 function setUpProfileInjuries(){
 	var injuryString = INJURY_DESCRIPTOR + "<br>";
@@ -78,18 +78,39 @@ function viewMessages(){
 
 function openEmailModal(){
     document.getElementById('emailModal').style.display = "block";
+    document.getElementById("newEmail").focus();
 }
 
 function openNameModal(){
     document.getElementById('nameModal').style.display = "block";
+    document.getElementById("newUsername").focus();
 }
 
 function openSwitchModal(){
     document.getElementById('switchModal').style.display = "block";
+    document.getElementById("newPTName").focus();
+}
+
+function openInjuryModal(){
+	document.getElementById('injuryModal').style.display = "block";
+    document.getElementById("newInjury").focus();
+}
+
+function addInjury(){
+    var newInjury = document.getElementById("newInjury").value;
+    if(newInjury != ""){
+      injuries.push(newInjury);
+      sessionStorage.setItem("injuries", JSON.stringify(injuries));
+    }
+    document.getElementById('newInjury').value = "";
+    document.getElementById('injuryModal').style.display = "none";
+    setUpProfileInjuries();
 }
 
 function changeUsername(){
-	username = document.getElementById('newUsername').value;
+	if (document.getElementById('newUsername').value != ""){
+		username = document.getElementById('newUsername').value;
+	}
 	sessionStorage.setItem("username", username);
 	document.getElementById("username").innerHTML = '<strong>Username: </strong> ' + username +'&ensp; <i id="edit-note" class="fa fa-pencil" onclick="openNameModal()"></i>';
 	document.getElementById('newUsername').value = "";
@@ -97,7 +118,9 @@ function changeUsername(){
 }
 
 function changeEmail(){
-	email = document.getElementById('newEmail').value;
+	if (document.getElementById('newEmail').value != ""){
+		email = document.getElementById('newEmail').value;
+	}
 	sessionStorage.setItem("email", email);
 	document.getElementById("email").innerHTML = '<strong>Email:</strong> ' + email + ' &ensp; <i id="edit-note" class="fa fa-pencil" onclick="openEmailModal()"></i>';
 	document.getElementById('newEmail').value = "";
@@ -105,11 +128,15 @@ function changeEmail(){
 }
 
 function changePTInfo(){
-	ptname = document.getElementById('newPTName').value;
+	if (document.getElementById('newPTName').value != ""){
+		ptname = document.getElementById('newPTName').value;
+	}
 	sessionStorage.setItem("ptname", ptname);
 	document.getElementById("ptname").innerHTML = '<strong>Name: </strong> ' + ptname;
 	document.getElementById('newPTName').value = "";
-	ptemail = document.getElementById('newPTEmail').value;
+	if (document.getElementById('newPTEmail').value != ""){
+		ptemail = document.getElementById('newPTEmail').value;
+	}
 	sessionStorage.setItem("ptemail", ptemail);
 	document.getElementById("ptemail").innerHTML = '<strong>Email:</strong> ' + ptemail + '&ensp; <a id="pt-email"><i class="fa fa-envelope"></i></a>';
 	document.getElementById('newPTEmail').value = "";
@@ -190,6 +217,7 @@ function setUpModal(){
   var nModal = document.getElementById('nameModal');
   var sModal = document.getElementById('switchModal');
   var mModal = document.getElementById('messageModal');
+  var iModal = document.getElementById('injuryModal');
   var span = document.getElementsByClassName("close")[0]; 
 
   // When the user clicks on <span> (x), close the modal
@@ -209,6 +237,10 @@ function setUpModal(){
   document.getElementById("mclose").onclick = function() {
       mModal.style.display = "none";
   }
+  document.getElementById("iclose").onclick = function() {
+  	  document.getElementById('newInjury').value = "";
+      iModal.style.display = "none";
+  }
 
   // When the user clicks anywhere outside of the modal, close it
   window.onclick = function(event) {
@@ -227,6 +259,10 @@ function setUpModal(){
     }
     if (event.target == mModal) {
         mModal.style.display = "none";
+    }
+    if (event.target == iModal) {
+    	document.getElementById('newInjury').value = "";
+    	iModal.style.display = "none";
     }
   }
 }

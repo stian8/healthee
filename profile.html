@@ -38,7 +38,7 @@ NavBar for Healthee Web Interface
       <div class="infoWrapper">
   			<h2>Injured Athlete</h2>
   			<p id="username"><strong>Username: </strong> ia123 &ensp; <i id="edit-note" class="fa fa-pencil" onclick="openNameModal()"></i></p>
-  			<p id="injuryarea"><strong>Area of injury:</strong> knee </p>
+  			<p id="injuryarea"><strong>Area of injury: &ensp; <i id="add-injury" class="fa fa-plus-circle" onclick="openInjuryModal()"> </i> </strong> knee </p>
   			<p id="email"><strong>Email:</strong> ia123@gmail.com &ensp; <i id="edit-note" class="fa fa-pencil" onclick="openEmailModal()"></i> </p>
   			<!--<p><button class="editButton" onclick="openModal()">Edit Profile</button></p>-->
       </div>
@@ -51,6 +51,14 @@ NavBar for Healthee Web Interface
 				<button onclick="changeEmail()"> Submit </button>
   			</div>
   		</div>
+    <div id="injuryModal" class="modal">
+      <div class="modal-content">
+        <span class="close" id="iclose">&times;</span>
+          <strong> Injury: </strong> 
+          <input type="text" name="Injury" id="newInjury">
+          <button id="submit-button" onclick="addInjury()"> Submit </button>
+      </div>
+    </div>
     <div id="nameModal" class="modal">
       <div class="modal-content">
           <span class="close" id="nclose">&times;</span>

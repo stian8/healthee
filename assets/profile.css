@@ -113,6 +113,9 @@ h2{
     flex-grow: 2;
     padding-right: 15vw;
 }
+#switchModal input{
+    margin-top: 10px;
+}
 
 /* The Close Button */
 .close {
