@@ -193,8 +193,9 @@ function saveTodo() {
       buttons[i].setAttribute("style", "visibility:visible;")
       buttons[i].innerHTML = "<i class=\"fa fa-play-circle-o\"></i>";
       buttons[i].outerHTML = buttons[i].outerHTML;
-      buttons[i].addEventListener("click", showVideoURL(sessionStorage.getItem(this.id))
-      );
+      buttons[i].addEventListener("click", function(){
+        showVideoURL(sessionStorage.getItem(this.id));
+      });
     } else if (sessionStorage.getItem(buttons[i].id) === "") {
       buttons[i].setAttribute("style", "visibility:collapse;")
     }
