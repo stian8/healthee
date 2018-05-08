@@ -181,17 +181,22 @@ function createGraph(){
 
 
 
-      data.addRows([
+      /*data.addRows([
       	[d10, 0], [d9, 0], [d8, 4], [d7, 4], [d6, 4],
         [d5, 5], [d4, 5], [d3, 4], 
         [d2, 5], [d1, 5], [new Date(), 5]
+      ]);*/
+      data.addRows([
+      	[new Date(2018, 3, 12), 3], [new Date(2018, 3, 13), 0], [new Date(2018, 3, 14), 3], [new Date(2018, 3, 15), 3], [new Date(2018, 3, 16), 3],
+        [new Date(2018, 3, 17), 4], [new Date(2018, 3, 18), 4], [new Date(2018, 3, 19), 3], 
+        [new Date(2018, 3, 20), 4], [new Date(2018, 3, 21), 4], [new Date(2018, 3, 22), 4]
       ]);
 
       var options = {
         hAxis: {
-          title: 'Days',
-          minValue: d10,
-   	 	  maxValue: new Date(),
+          title: 'Date',
+          minValue: new Date(2018, 3, 12),
+   	 	  maxValue: new Date(2018, 3, 22),
           format:'d-MMM'
         },
         vAxis: {
@@ -210,6 +215,13 @@ function createGraph(){
 function addEmailLink(){
 	var emailIcon = document.getElementById('pt-email');
 	emailIcon.href = "mailto:" + ptemail + '?subject=' +'healthee - Patient Question'+ '&body=' +'Fill me in with a question';
+}
+
+if (window.addEventListener) {
+    window.addEventListener('resize', createGraph);
+}
+else {
+    window.attachEvent('onresize', createGraph);
 }
 
 function setUpModal(){
