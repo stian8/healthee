@@ -155,7 +155,6 @@ function hideAddExercise() {
 }
 
 function editTodo() {
-  console.log("healthee REFUSES to let you edit exercises");
   document.getElementById("edit-exercises").hidden = true;
   document.getElementById("save-exercises").hidden = false;
 
@@ -254,7 +253,6 @@ function addExerciseLabels(exName, videoURL) {
     saveButton.id = "save-exercises";
     saveButton.innerHTML = "<i class=\"fa fa-check-circle fa-2x\"></i>";
     saveButton.addEventListener("click", saveTodo);
-
   }
 
   var exerciseDiv = document.createElement("div");
