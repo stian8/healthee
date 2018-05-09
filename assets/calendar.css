@@ -71,6 +71,11 @@
   font-size: 18px;
   text-align: center;
   margin-bottom: 10px;
+  background-color: var(--color-blue);
+  width: 100%;
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .exercise_checklist {
