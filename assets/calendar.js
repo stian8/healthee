@@ -147,8 +147,45 @@ function hideAppt() {
 }
 
 function addAppt() {
-  document.getElementById("thurs-appt").hidden = false;
+  //document.getElementById("thurs-appt").hidden = false;
+  var subject = document.getElementById("appt-subject").value;
+  var date = new Date(document.getElementById("appt-date").value);
+  var day = date.getDate();
+  var month = date.getMonth() + 1;
+  var year = date.getFullYear();
+
+  if (year != 2018 || month > 5 || month < 3) {
+    hideAppt();
+    return;
+  }
+
+  var time = document.getElementById("appt-time").value;
+  var hour = time.substring(0,2);
+  var minute = time.substring(3);
+
+  var location = document.getElementById("appt-location").value;
+
+  var apptDetails = [month, day, hour, minute, location];
+  var storageLabel = "Appt:" + subject;
+  //sessionStorage.setItem(storageLabel, apptDetails);
+
+  addApptDiv(storageLabel, apptDetails);
+
   hideAppt();
+}
+
+function addApptDiv(storageLabel, apptDetails) {
+  console.log(storageLabel);
+  console.log(apptDetails);
+
+  var month = apptDetails[0];
+  var date = apptDetails[1];
+  var hour = apptDetails[2];
+  var minute = apptDetails[3];
+  var location = apptDetails[4];
+
+  var whereToPlace = document.getElementById(month + "-" + date);
+  console.log(whereToPlace);
 }
 
 function deleteAppt() {

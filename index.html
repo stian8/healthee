@@ -112,13 +112,13 @@ NavBar for Healthee Web Interface
           <div id="appt-schedule" class="add-widget" border="1px" hidden>
             <div class="label-wrap">
               <label class="form-label"> Subject:</label>
-              <input class="form-input" id="appt-subject" type="text" /> <br>
+              <input class="form-input" id="appt-subject" type="text" maxlength="60"/> <br>
               <label class="form-label">Date:</label>
-              <input class="form-input" id="appt-date" type="date" /> <br>
+              <input class="form-input" id="appt-date" type="date"/> <br>
               <label class="form-label">Time:</label>
-              <input class="form-input" id="appt-time" type="time" /> <br>
+              <input class="form-input" id="appt-time" type="time"/> <br>
               <label class="form-label">Location:</label>
-              <input class="form-input" id="appt-location" type="text" /><br>
+              <input class="form-input" id="appt-location" type="text" maxlength="60"/><br>
             </div>
             <div class="option-buttons">
               <button onclick="addAppt()" class="save-cancel" id="save">Save</button>
@@ -195,7 +195,7 @@ NavBar for Healthee Web Interface
                     <label><b>Feeling great today! My knee is feeling so much better, can't wait to see what my PT thinks!</b></label> <br>
                 </div>
                 <div class="progress-bar" id="progress-bar">
-                  <div class="progress-bar-color-today" id="progress-bar-color""></div>
+                  <div class="progress-bar-color-today" id="progress-bar-color"></div>
                 </div>
             </td>
             <td id="4-24" class="calendar-column" width="14%" height="100%">
