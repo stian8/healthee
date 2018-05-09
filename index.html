@@ -31,7 +31,7 @@ NavBar for Healthee Web Interface
 	<div class="main">
 		<!--Code for main portion of the page goes here-->
 		<h4>&ensp; Calendar</h4>
-    <div id="calendar-main">
+    <div id="calendar-main" hidden>
     <div id="todo">
       <form id="todo-list">
         <div class="heading">
@@ -83,13 +83,13 @@ NavBar for Healthee Web Interface
 		<div id="calendar">
       <div id="calendar-title-bar" style="text-align:left; margin:5px" width="100%">
         <div id="cur-month-label" style="font-size:25px">April 2018</div>
-        <button class="arrows" id="prev" style="background-color:transparent;border-color:transparent">
+        <button class="arrows" id="prev" style="background-color:transparent;border-color:transparent" onClick="prevWeek()">
           <i class="fa fa-arrow-left fa-2x"></i>
         </button>
         <button class="arrows" id="prev-mon" style="background-color:transparent;border-color:transparent" onclick="prevMonth()" hidden>
           <i class="fa fa-arrow-left fa-2x"></i>
         </button>
-        <button class="arrows" id="next" style="background-color:transparent;border-color:transparent">
+        <button class="arrows" id="next" style="background-color:transparent;border-color:transparent" onCLick="nextWeek()">
           <i class="fa fa-arrow-right fa-2x"></i>
         </button>
         <button class="arrows" id="next-mon" style="background-color:transparent;border-color:transparent" onclick="nextMonth()" hidden>
@@ -175,7 +175,7 @@ NavBar for Healthee Web Interface
       <div id="week-view">
         <table id="cur-week" class="week-table" border="1px">
           <tr>
-            <th width="14%"> Sun 22</th>
+            <th width="14%">Sun 22</th>
             <th width="14%" id= "cur-day-header" class="current">Mon 23</th>
             <th width="14%">Tue 24</th>
             <th width="14%">Wed 25</th>
@@ -219,6 +219,92 @@ NavBar for Healthee Web Interface
               <!--<img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">-->
             </td>
             <td id="4-28" class="calendar-column" width="14%" height="100%">
+              <!--<img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">-->
+            </td>
+          </tr>
+        </table>
+        <table id="prev-week" class="week-table" border="1px" hidden>
+          <tr>
+            <th width="14%">Sun 15</th>
+            <th width="14%">Mon 16</th>
+            <th width="14%">Tue 17</th>
+            <th width="14%">Wed 18</th>
+            <th width="14%">Thu 19</th>
+            <th width="14%">Fri 20</th>
+            <th width="14%">Sat 21</th>
+          </tr>
+          <tr>
+            <td id="4-15" class="calendar-column" width="14%" height="100%">
+              <div class="progress-bar" id="progress-bar">
+                <div class="progress-bar-color" id="progress-bar-color" style="width:100%; background-color: hsl(153, 100%, 23%)"></div>
+              </div>
+
+            </td>
+            <td id="4-16" class="calendar-column" width="14%" height="100%">
+              <div class="progress-bar" id="progress-bar">
+                <div class="progress-bar-color" id="progress-bar-color" style="width:100%; background-color: hsl(153, 100%, 23%)"></div>
+              </div>
+            </td>
+            <td id="4-17" class="calendar-column" width="14%" height="100%">
+              <div class="progress-bar" id="progress-bar">
+                <div class="progress-bar-color" id="progress-bar-color" style="width:100%; background-color: hsl(153, 100%, 23%)"></div>
+              </div>
+            </td>
+            <td id="4-18" class="calendar-column" width="14%" height="100%">
+              <div class="progress-bar" id="progress-bar">
+                <div class="progress-bar-color" id="progress-bar-color" style="width:100%; background-color: hsl(153, 100%, 23%)"></div>
+              </div>
+            </td>
+            <td id="4-19" class="calendar-column" width="14%" height="100%">
+              <div class="progress-bar" id="progress-bar">
+                <div class="progress-bar-color" id="progress-bar-color" style="width:100%; background-color: hsl(153, 100%, 23%)"></div>
+              </div>
+            </td>
+            <td id="4-20" class="calendar-column" width="14%" height="100%">
+              <div class="progress-bar" id="progress-bar">
+                <div class="progress-bar-color" id="progress-bar-color" style="width:100%; background-color: hsl(153, 100%, 23%)"></div>
+              </div>
+            </td>
+            <td id="4-21" class="calendar-column" width="14%" height="100%">
+              <div class="progress-bar" id="progress-bar">
+                <div class="progress-bar-color" id="progress-bar-color" style="width:100%; background-color: hsl(153, 100%, 23%)"></div>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <table id="next-week" class="week-table" border="1px" hidden>
+          <tr>
+            <th width="14%">Sun 29</th>
+            <th width="14%">Mon 30</th>
+            <th width="14%">Tue 1</th>
+            <th width="14%">Wed 2</th>
+            <th width="14%">Thu 3</th>
+            <th width="14%">Fri 4</th>
+            <th width="14%">Sat 5</th>
+          </tr>
+          <tr>
+            <td id="4-29" class="calendar-column" width="14%" height="100%">
+              <div class="progress-bar" id="progress-bar">
+                <div class="progress-bar-color" id="progress-bar-color" style="width:100%; background-color: hsl(153, 100%, 23%)"></div>
+              </div>
+
+            </td>
+            <td id="4-30" class="calendar-column" width="14%" height="100%">
+              <!--<img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">-->
+            </td>
+            <td id="5-1" class="calendar-column" width="14%" height="100%">
+              <!--<img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">-->
+            </td>
+            <td id="5-2" class="calendar-column" width="14%" height="100%">
+              <!--<img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">-->
+            </td>
+            <td id="5-3" class="calendar-column" width="14%" height="100%">
+              <!--<img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">-->
+            </td>
+            <td id="5-4" class="calendar-column" width="14%" height="100%">
+              <!--<img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">-->
+            </td>
+            <td id="5-5" class="calendar-column" width="14%" height="100%">
               <!--<img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">-->
             </td>
           </tr>
