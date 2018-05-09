@@ -384,6 +384,23 @@ function nextMonth() {
 
 }
 
+function goToToday() {
+  var marchMonth = document.getElementById("march");
+  var aprilMonth = document.getElementById("april");
+  var mayMonth = document.getElementById("may");
+  var curMonthLabel = document.getElementById("cur-month-label")
+  if (mayMonth.hidden == false) {
+    aprilMonth.hidden = false;
+    mayMonth.hidden = true;
+    curMonthLabel.textContent = "April 2018"
+  }
+  if (marchMonth.hidden == false) {
+    aprilMonth.hidden = false;
+    marchMonth.hidden = true;
+    curMonthLabel.textContent = "April 2018"
+  }
+}
+
 function addNoteButton(noteContents, noteTitleDate) {
 
   var button = document.createElement("button");
