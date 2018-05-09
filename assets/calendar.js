@@ -176,14 +176,13 @@ function addAppt() {
   var storageLabel = "Appt:" + month + day + hour + minute;
   sessionStorage.setItem(storageLabel, apptDetails);
 
-  addApptDiv(storageLabel, apptDetails);
+  addApptDiv(storageLabel);
 
   hideAppt();
 }
 
-function addApptDiv(storageLabel, details) {
-  console.log(storageLabel);
-  apptDetails = details.split(",");
+function addApptDiv(storageLabel) {
+  apptDetails = sessionStorage.getItem(storageLabel).split(",");
 
   var month = apptDetails[0];
   var date = apptDetails[1];
@@ -196,18 +195,12 @@ function addApptDiv(storageLabel, details) {
   var whereToPlaceWeek = document.getElementById(month + "-" + date + "w");
   var whereToPlaceExtra = document.getElementById(month + "-" + date + "e");
 
-  console.log(month + "-" + date);
-  console.log(whereToPlaceWeek);
-  console.log(whereToPlaceMonth);
-  console.log(whereToPlaceExtra);
-
   var time = hour + ":" + minute;
   if (time.substring(0,1) === "0") {
     time = time.substring(1);
   }
 
   function buttonClick() {
-    console.log(storageLabel);
     displayAppt(storageLabel);
   }
 
@@ -218,6 +211,7 @@ function addApptDiv(storageLabel, details) {
     bold.appendChild(document.createTextNode("Appt @ " + time));
     buttonWeek.appendChild(bold);
     buttonWeek.addEventListener("click", buttonClick);
+    buttonWeek.id = storageLabel + "w";
     whereToPlaceWeek.appendChild(buttonWeek);
   }
 
@@ -227,6 +221,7 @@ function addApptDiv(storageLabel, details) {
   bold.appendChild(document.createTextNode("Appt"));
   buttonMonth.appendChild(bold);
   buttonMonth.addEventListener("click", buttonClick);
+  buttonMonth.id = storageLabel + "m";
   whereToPlaceMonth.appendChild(buttonMonth);
 
   if (whereToPlaceExtra) {
@@ -236,6 +231,7 @@ function addApptDiv(storageLabel, details) {
     bold.appendChild(document.createTextNode("Appt"));
     buttonExtra.appendChild(bold);
     buttonExtra.addEventListener("click", buttonClick);
+    buttonExtra.id = storageLabel + "e";
     whereToPlaceExtra.appendChild(buttonExtra);
   }
 
@@ -263,7 +259,20 @@ function displayAppt(storageLabel) {
 
   document.getElementById("appt-text-here").innerHTML = text;
   document.getElementById("appt-modal").hidden = false;
-  console.log("here");
+
+  document.getElementById("delete-appt").onclick = function() {
+    if(document.getElementById(storageLabel + "w")) {
+      document.getElementById(storageLabel + "w").remove();
+    }
+    if(document.getElementById(storageLabel + "e")) {
+      document.getElementById(storageLabel + "e").remove();
+    }
+    if(document.getElementById(storageLabel + "m")) {
+      document.getElementById(storageLabel + "m").remove();
+    }
+    sessionStorage.removeItem(storageLabel);
+    hideApptDisplay();
+  };
 }
 
 function hideApptDisplay() {
