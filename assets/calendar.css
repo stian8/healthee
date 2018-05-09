@@ -319,6 +319,26 @@
   padding: 2px;
 }
 
+.note-button {
+  font-size: 12px;
+  text-align: left;
+  background-color: hsl(208, 70%, 80%);
+  color: black;
+  padding: 2px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#cur-month-label {
+  width: 140px;
+}
+
+.note-button:hover {
+  cursor: pointer;
+  background-color: hsl(208, 70%, 70%);
+}
+
 #mon-note {
   font-size: 12px;
   text-align: left;
