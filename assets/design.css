@@ -124,36 +124,9 @@ img{
     visibility: visible;
 }
 
-.profile {
-  margin: auto;
-  padding-top: 1vh;
-  width: 100%;
-  text-align: center;
-  font-family: system-ui;
-}
-
-.profileImg{
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-}
-
 .statImg{
     margin: auto;
     width: 80%;
-    height: 20%;
-}
-button {
-}
-.editButton{
-  border-radius: 5px;
-  padding: 8px;
-  color: white;
-  background-color: var(--color-blue);
-  text-align: center;
-  cursor: pointer;
-  width: 150px;
-  font-size: 1em;
 }
 
 footer {

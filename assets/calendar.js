@@ -3,11 +3,30 @@ var notes = sessionStorage;
 
 function onLoad() {
   for (var i = sessionStorage.length-1; i >= 0; i--) {
-    if (sessionStorage.key(i).substring(0,6) === "4/23: ") {
-      console.log(sessionStorage.key(i));
-      addNoteButton(sessionStorage.getItem(sessionStorage.key(i)), sessionStorage.key(i));
+    currentKey = sessionStorage.key(i);
+    if (currentKey.substring(0,6) === "4/23: ") {
+      addNoteButton(sessionStorage.getItem(currentKey), currentKey);
     }
   }
+
+  for (var i = 0; i < sessionStorage.length; i++) {
+    currentKey = sessionStorage.key(i);
+    if (currentKey.substring(0,10) === "Exercise: ") {
+      addExerciseLabels(currentKey.substring(10), sessionStorage.getItem(currentKey));
+    }
+  }
+
+  var inputs = document.getElementsByClassName("exercise_checklist");
+
+  for (var i = 0; i < inputs.length; i++) {
+    if (inputs[i].type === "checkbox") {
+      if (sessionStorage.getItem(inputs[i].id) === "true") {
+        inputs[i].setAttribute("checked", "true");
+      }
+    }
+  }
+
+  setProgress();
 }
 
 function setProgress() {
@@ -18,18 +37,25 @@ function setProgress() {
   for (var i = 0; i < inputs.length; i++) {
     if (inputs[i].type === "checkbox") {
       if (!inputs[i].hidden) numberOfBoxes++;
-      if (inputs[i].checked) numberOfChecks++;
+      if (inputs[i].checked) {
+        numberOfChecks++;
+        sessionStorage.setItem(inputs[i].id, "true");
+      } else {
+        sessionStorage.setItem(inputs[i].id, "false");
+      }
     }
   }
 
   if (numberOfChecks == 0) {
-    $('img.today-progress').attr({ src: "images/empty.png" });
-    //document.getElementById("cur-day-header").style.backgroundColor = "#FFC0CB";
+    $('.progress-bar-color-today').width('0%');
+    $('.progress-bar-color-today').css("background-color", "hsl(51, 100%, 50%)");
   } else if (numberOfChecks == numberOfBoxes) {
-    $('img.today-progress').attr({ src: "images/full.png" });
+    $('.progress-bar-color-today').width('100%');
+    $('.progress-bar-color-today').css("background-color", "hsl(153, 100%, 23%)");
   } else {
-    $('img.today-progress').attr({ src: "images/middle.png" });
-    //document.getElementById("cur-day-header").style.backgroundColor = "#FFC0CB";
+    var percentage = numberOfChecks/numberOfBoxes * 100;
+    $('.progress-bar-color-today').width(percentage + '%');
+    $('.progress-bar-color-today').css("background-color", "hsl(51, 100%, 50%)");
   }
 }
 
@@ -81,6 +107,12 @@ function showLiftVideo() {
   document.getElementById("video-iframe").hidden = false;
 }
 
+function showVideoURL(url) {
+  document.getElementById("video-iframe").src = url;
+  document.getElementById("video").hidden = false;
+  document.getElementById("video-iframe").hidden = false;
+}
+
 function hideVideo() {
   document.getElementById("video-iframe").src = "";
   document.getElementById("video").hidden = true;
@@ -119,7 +151,57 @@ function hideAddExercise() {
   document.getElementById("ex").value = "";
   document.getElementById("ex-vid").value = "";
   document.getElementById("ex-info").value = "";
-  document.getElementById("add-ex").checked = false;
+  //document.getElementById("add-ex").checked = false;
+}
+
+function editTodo() {
+  document.getElementById("edit-exercises").hidden = true;
+  document.getElementById("save-exercises").hidden = false;
+
+  var inputs = document.getElementsByClassName("exercise_checklist");
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].disabled = true;
+  }
+
+  var buttons = document.getElementsByClassName("play-button");
+  for (var i = 0; i < buttons.length; i++) {
+    if (sessionStorage.getItem(buttons[i].id) || sessionStorage.getItem(buttons[i].id) === "") {
+      buttons[i].setAttribute("style", "visibility:visible;")
+      buttons[i].innerHTML = "<i class=\"fa fa-trash\"></i>";
+      buttons[i].outerHTML = buttons[i].outerHTML;
+      buttons[i].addEventListener("click", function() {
+        document.getElementById("todo-list").removeChild(this.parentNode);
+        sessionStorage.removeItem(this.id);
+      });
+    }
+  }
+}
+
+function saveTodo() {
+  document.getElementById("save-exercises").hidden = true;
+  document.getElementById("edit-exercises").hidden = false;
+
+  var inputs = document.getElementsByClassName("exercise_checklist");
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].disabled = false;
+  }
+
+  var buttons = document.getElementsByClassName("play-button");
+  for (var i = 0; i < buttons.length; i++) {
+    if (sessionStorage.getItem(buttons[i].id)) {
+      buttons[i].setAttribute("style", "visibility:visible;")
+      buttons[i].innerHTML = "<i class=\"fa fa-play-circle-o\"></i>";
+      buttons[i].outerHTML = buttons[i].outerHTML;
+      buttons[i].addEventListener("click", function(){
+        showVideoURL(sessionStorage.getItem(this.id));
+      });
+    } else if (sessionStorage.getItem(buttons[i].id) === "") {
+      buttons[i].setAttribute("style", "visibility:collapse;")
+    }
+  }
+
+  setProgress();
+
 }
 
 function addExercise() {
@@ -128,17 +210,84 @@ function addExercise() {
   document.getElementById("calfPlay").hidden = false;
   document.getElementById("calf").hidden = false;
   */
+
+  var exName = "exercise";
+  var videoURL = "https://www.youtube.com/watch?v=OrnpSe4OChM";
+
+  exName = document.getElementById("ex").value;
+  videoURL = document.getElementById("ex-vid").value;
+
+  if (exName === "") {
+    hideAddExercise();
+    return;
+  }
+
+  videoURL = videoURL.replace("watch?v=", "embed/");
+
+  addExerciseLabels(exName, videoURL);
+
+  sessionStorage.setItem("Exercise: " + exName, videoURL);
+
+  setProgress();
+  hideAddExercise();
+}
+
+function addExerciseLabels(exName, videoURL) {
+
+  var editButton = document.getElementById("edit-exercises");
+  if (editButton) {
+    document.getElementById("todo-list").removeChild(editButton);
+    document.getElementById("todo-list").removeChild(saveButton);
+  } else {
+    editButton = document.createElement("button");
+    editButton.setAttribute("type", "button");
+    editButton.setAttribute("style", "border-radius:5px;margin-top:5px");
+    editButton.id = "edit-exercises";
+    editButton.innerHTML = "<i class=\"fa fa-pencil fa-2x\"></i>";
+    editButton.addEventListener("click", editTodo);
+
+    saveButton = document.createElement("button");
+    saveButton.hidden = true;
+    saveButton.setAttribute("type", "button");
+    saveButton.setAttribute("style", "border-radius:5px;margin-top:5px");
+    saveButton.id = "save-exercises";
+    saveButton.innerHTML = "<i class=\"fa fa-check-circle fa-2x\"></i>";
+    saveButton.addEventListener("click", saveTodo);
+  }
+
   var exerciseDiv = document.createElement("div");
   var todoLabel = document.createElement("label");
   todoLabel.setAttribute("class", "todo-label");
   var exerciseInput = document.createElement("input");
   exerciseInput.setAttribute("class", "exercise_checklist");
   exerciseInput.setAttribute("type", "checkbox");
+  exerciseInput.setAttribute("id", exName);
   exerciseInput.onclick = setProgress;
-  var exerciseName = document.createTextNode("next exercise");
-  exerciseInput.appendChild(exerciseName);
-  setProgress();
-  hideAddExercise();
+  var exerciseName = document.createTextNode("\n" + exName + "\n");
+
+  todoLabel.appendChild(exerciseInput);
+  todoLabel.appendChild(exerciseName);
+
+  exerciseDiv.append(todoLabel);
+
+  var playLabel = document.createElement("label");
+  playLabel.setAttribute("class","play-button");
+  playLabel.setAttribute("id", "Exercise: " + exName);
+  playLabel.innerHTML = ("<i class=\"fa fa-play-circle-o\"></i>");
+  if (videoURL === "") {
+    playLabel.setAttribute("style","visibility:collapse");
+  } else {
+    playLabel.addEventListener("click", function(){
+      document.getElementById("video-iframe").src = videoURL;
+      document.getElementById("video").hidden = false;
+      document.getElementById("video-iframe").hidden = false;
+    });
+  }
+
+  exerciseDiv.appendChild(playLabel);
+  document.getElementById("todo-list").appendChild(exerciseDiv);
+  document.getElementById("todo-list").appendChild(editButton);
+  document.getElementById("todo-list").appendChild(saveButton);
 }
 
 function showNote() {

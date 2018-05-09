@@ -41,7 +41,7 @@ NavBar for Healthee Web Interface
 
         <div>
           <label class="todo-label">
-            <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
+            <input class="exercise_checklist" id="hamCB" type="checkbox" onclick="setProgress()"/>
             Hamstring Stretch
           </label>
           <label class="play-button">
@@ -50,7 +50,7 @@ NavBar for Healthee Web Interface
         </div>
         <div>
           <label class="todo-label">
-            <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
+            <input class="exercise_checklist" id="quadCB" type="checkbox" onclick="setProgress()"/>
             Quad Sets
           </label>
           <label class="play-button" style="visibility:collapse">
@@ -59,7 +59,7 @@ NavBar for Healthee Web Interface
         </div>
         <div>
           <label class="todo-label">
-            <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
+            <input class="exercise_checklist" id="legCB" type="checkbox" onclick="setProgress()"/>
             Leg Lifts
           </label>
           <label class="play-button">
@@ -68,24 +68,17 @@ NavBar for Healthee Web Interface
         </div>
         <div>
           <label class="todo-label">
-            <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
+            <input class="exercise_checklist" id="wallCB" type="checkbox" onclick="setProgress()"/>
             Wall Squats
           </label>
           <label class="play-button" style="visibility:collapse">
             <i class="fa fa-play-circle-o"></i>
           </label>
         </div>
-        <div>
-          <label class="todo-label" id="calf">
-            <input class="exercise_checklist" type="checkbox" onclick="setProgress()"/>
-            Calf Stretches
-          </label>
-          <label class="play-button" id="calfPlay" style="visibility:collapse" hidden>
-            <i class="fa fa-play-circle-o"></i>
-          </label>
-        </div>
       </form>
-      <img class="today-progress" id="main-progress" src="images/empty.png" alt="Progress Bar">
+      <div class="progress-bar" id="progress-bar">
+        <div class="progress-bar-color-today" id="progress-bar-color"> </div>
+      </div>
     </div>
 		<div id="calendar">
       <div id="calendar-title-bar" style="text-align:left; margin:5px" width="100%">
@@ -128,9 +121,9 @@ NavBar for Healthee Web Interface
           <div id="add-exercise" class="add-widget" width="600" height="300" border="1px" hidden>
             <div class="label-wrap">
               <label class="form-label"> Exercise: </label>
-              <input class="form-input" id="ex" type="text" /> <br>
+              <input class="form-input" id="ex" type="text" maxlength="16"/> <br>
               <label class="form-label">Video Link:</label>
-              <input class="form-input" id="ex-vid" type="text" /><br>
+              <input class="form-input" id="ex-vid" type="text"/><br>
               <div class="info-text-section">
                 <label class="form-label" id="info-label">Information:</label>
                 <textarea id ="ex-info" rows="10" cols"30"> </textarea>
@@ -154,7 +147,7 @@ NavBar for Healthee Web Interface
           </div>
           <div id="self-note" class="add-widget" border="1px" hidden>
               <label>Subject: </label>
-              <input id="note-title" type="text" maxlength = "16"/>
+              <input id="note-title" type="text" maxlength="16"/>
               <label>Note: </label>
               <textarea id="note-text" rows="10" cols"60"></textarea>
               <br>
@@ -184,14 +177,19 @@ NavBar for Healthee Web Interface
             <th width="14%">Sat 28</th>
           </tr>
           <tr>
-            <td id="4-22" class="calendar-column" width="14%" height="100%" onclick="showModal()">
-              <img width="100%" class="progress-bar" id="progress-bar" src="images/full.png" alt="Progress Bar">
+            <td id="4-22" class="calendar-column" width="14%" height="100%">
+              <div class="progress-bar" id="progress-bar">
+                <div class="progress-bar-color" id="progress-bar-color" style="width:100%; background-color: hsl(153, 100%, 23%)"></div>
+              </div>
+
             </td>
             <td id="4-23" class="calendar-column" width="14%" height="100%" id="cur-day">
                 <div id="mon-note" border="1px" hidden>
                     <label><b>Feeling great today! My knee is feeling so much better, can't wait to see what my PT thinks!</b></label> <br>
                 </div>
-                <img width="100%" class="today-progress" id="progress-bar" src="images/empty.png" alt="Progress Bar">
+                <div class="progress-bar" id="progress-bar">
+                  <div class="progress-bar-color-today" id="progress-bar-color""></div>
+                </div>
             </td>
             <td id="4-24" class="calendar-column" width="14%" height="100%">
               <!--<img width="100%" class="progress-bar" id="progress-bar" src="images/empty.png" alt="Progress Bar">-->
@@ -235,7 +233,7 @@ NavBar for Healthee Web Interface
                 1</td>
                 <td id="4-2" class="calendar-column" width="14%" height="18.5%">
                 2</td>
-                <td id="4-3" class="calendar-column" width="14%" height="18.5%"> 
+                <td id="4-3" class="calendar-column" width="14%" height="18.5%">
                 3</td>
                 <td id="4-4" class="calendar-column" width="14%" height="18.5%">
                 4</td>
@@ -251,7 +249,7 @@ NavBar for Healthee Web Interface
                   8</td>
                   <td id="4-9" class="calendar-column" width="14%" height="18.5%">
                   9</td>
-                  <td id="4-10" class="calendar-column" width="14%" height="18.5%"> 
+                  <td id="4-10" class="calendar-column" width="14%" height="18.5%">
                   10</td>
                   <td id="4-11" class="calendar-column" width="14%" height="18.5%">
                   11</td>
@@ -267,7 +265,7 @@ NavBar for Healthee Web Interface
                     15</td>
                     <td id="4-16" class="calendar-column" width="14%" height="18.5%">
                     16</td>
-                    <td id="4-17" class="calendar-column" width="14%" height="18.5%"> 
+                    <td id="4-17" class="calendar-column" width="14%" height="18.5%">
                     17</td>
                     <td id="4-18" class="calendar-column" width="14%" height="18.5%">
                     18</td>
@@ -283,7 +281,7 @@ NavBar for Healthee Web Interface
                       22</td>
                       <td id="4-23" class="cur-day-month" width="14%" height="18.5%">
                       23</td>
-                      <td id="4-24" class="calendar-column" width="14%" height="18.5%"> 
+                      <td id="4-24" class="calendar-column" width="14%" height="18.5%">
                       24</td>
                       <td id="4-25" class="calendar-column" width="14%" height="18.5%">
                       25</td>
@@ -326,7 +324,7 @@ NavBar for Healthee Web Interface
                   29</td>
                   <td id="4-30" class="calendar-column" width="14%" height="18.5%" style:"color: gray">
                   30</td>
-                  <td id="5-1" class="calendar-column" width="14%" height="18.5%"> 
+                  <td id="5-1" class="calendar-column" width="14%" height="18.5%">
                   1</td>
                   <td id="5-2" class="calendar-column" width="14%" height="18.5%">
                   2</td>
@@ -342,8 +340,13 @@ NavBar for Healthee Web Interface
                     6</td>
                     <td id="5-7" class="calendar-column" width="14%" height="18.5%">
                     7</td>
+<<<<<<< HEAD
                     <td id="5-8" class="calendar-column" width="14%" height="18.5%"> 
                     8</td>
+=======
+                    <td id="5-8" class="calendar-column" width="14%" height="18.5%">
+                    10</td>
+>>>>>>> e9cff22b1eb30001d2236c9ea8f28f5822372f46
                     <td id="5-9" class="calendar-column" width="14%" height="18.5%">
                     9</td>
                     <td id="5-10" class="calendar-column" width="14%" height="18.5%">

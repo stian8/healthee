@@ -37,23 +37,30 @@ function setupInjuries(){
       iadd.innerHTML = "&#x2b;"
       iadd.onclick = function() {
         document.getElementById('injuryModal').style.display = "block";
+        document.getElementById("newInjury").focus();
       }
       dropdown.appendChild(iadd);
 }
 
 function setUpModal(){
+  document.getElementById('newInjury').value='';
   var modal = document.getElementById('injuryModal');
   var span = document.getElementsByClassName("close")[0]; 
+  document.getElementById("newInjury").focus();
+  var newInjury=document.getElementById("newInjury").value;
+  //$("#submit-button").on("click", setInjury(newInjury));
 
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
       modal.style.display = "none";
+      document.getElementById('newInjury').value='';
   }
 
   window.onclick = function(event) {
     if (event.target == modal) {
         // When the user clicks anywhere outside of the modal, close it
         modal.style.display = "none";
+        document.getElementById('newInjury').value='';
     }
     if (!event.target.matches('.dropbtn')) {
       var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -64,6 +71,7 @@ function setUpModal(){
           openDropdown.classList.remove('show');
         }
       }
+      document.getElementById('newInjury').value='';
     }
   }
 }
