@@ -348,6 +348,34 @@ function addNote() {
   addNoteButton(noteContents, noteTitleDate);
 }
 
+function prevWeek(){
+  var curWeek = document.getElementById("cur-week");
+  var prevWeek = document.getElementById("prev-week");
+  var nextWeek = document.getElementById("next-week");
+  if (curWeek.hidden == false) {
+    prevWeek.hidden = false;
+    curWeek.hidden = true;
+  }
+  if (nextWeek.hidden == false) {
+    curWeek.hidden = false;
+    nextWeek.hidden = true;
+  }
+}
+
+function nextWeek(){
+  var curWeek = document.getElementById("cur-week");
+  var prevWeek = document.getElementById("prev-week");
+  var nextWeek = document.getElementById("next-week");
+  if (curWeek.hidden == false) {
+    nextWeek.hidden = false;
+    curWeek.hidden = true;
+  }
+  if (prevWeek.hidden == false) {
+    curWeek.hidden = false;
+    prevWeek.hidden = true;
+  }
+}
+
 function prevMonth() {
   var marchMonth = document.getElementById("march");
   var aprilMonth = document.getElementById("april");
@@ -363,7 +391,6 @@ function prevMonth() {
     mayMonth.hidden = true;
     curMonthLabel.textContent = "April 2018"
   }
-
 }
 
 function nextMonth() {
