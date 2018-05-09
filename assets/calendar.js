@@ -27,6 +27,7 @@ function onLoad() {
   }
 
   setProgress();
+  x.addListener(hidePlant);
 }
 
 function setProgress() {
@@ -453,3 +454,14 @@ function addNoteButton(noteContents, noteTitleDate) {
   //document.getElementById("mon-note").hidden = false;
   hideNote();
 }
+
+function hidePlant(x) {
+  if (x.matches) { // If media query matches
+      document.getElementById("plantImg").hidden = true;
+  } else {
+    document.getElementById("plantImg").hidden = false;
+  }
+}
+
+var x = window.matchMedia("(max-width: 800px)")
+hidePlant(x) // Call listener function at run time
