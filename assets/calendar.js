@@ -16,6 +16,13 @@ function onLoad() {
     }
   }
 
+  for (var i = 0; i < sessionStorage.length; i++) {
+    currentKey = sessionStorage.key(i);
+    if (currentKey.substring(0,5) === "Appt:") {
+      addApptDiv(currentKey, sessionStorage.getItem(currentKey));
+    }
+  }
+
   var inputs = document.getElementsByClassName("exercise_checklist");
 
   for (var i = 0; i < inputs.length; i++) {
@@ -149,12 +156,12 @@ function hideAppt() {
 function addAppt() {
   //document.getElementById("thurs-appt").hidden = false;
   var subject = document.getElementById("appt-subject").value;
-  var date = new Date(document.getElementById("appt-date").value);
+  var date = new Date(document.getElementById("appt-date").value + 'T00:00');
   var day = date.getDate();
   var month = date.getMonth() + 1;
   var year = date.getFullYear();
 
-  if (year != 2018 || month > 5 || month < 3) {
+  if (year != 2018 || month > 5 || month < 3 || subject === "") {
     hideAppt();
     return;
   }
@@ -165,27 +172,102 @@ function addAppt() {
 
   var location = document.getElementById("appt-location").value;
 
-  var apptDetails = [month, day, hour, minute, location];
-  var storageLabel = "Appt:" + subject;
-  //sessionStorage.setItem(storageLabel, apptDetails);
+  var apptDetails = [month, day, hour, minute, location, subject];
+  var storageLabel = "Appt:" + month + day + hour + minute;
+  sessionStorage.setItem(storageLabel, apptDetails);
 
   addApptDiv(storageLabel, apptDetails);
 
   hideAppt();
 }
 
-function addApptDiv(storageLabel, apptDetails) {
+function addApptDiv(storageLabel, details) {
   console.log(storageLabel);
-  console.log(apptDetails);
+  apptDetails = details.split(",");
 
   var month = apptDetails[0];
   var date = apptDetails[1];
   var hour = apptDetails[2];
   var minute = apptDetails[3];
   var location = apptDetails[4];
+  var subject = apptDetails[5];
 
-  var whereToPlace = document.getElementById(month + "-" + date);
-  console.log(whereToPlace);
+  var whereToPlaceMonth = document.getElementById(month + "-" + date);
+  var whereToPlaceWeek = document.getElementById(month + "-" + date + "w");
+  var whereToPlaceExtra = document.getElementById(month + "-" + date + "e");
+
+  console.log(month + "-" + date);
+  console.log(whereToPlaceWeek);
+  console.log(whereToPlaceMonth);
+  console.log(whereToPlaceExtra);
+
+  var time = hour + ":" + minute;
+  if (time.substring(0,1) === "0") {
+    time = time.substring(1);
+  }
+
+  function buttonClick() {
+    console.log(storageLabel);
+    displayAppt(storageLabel);
+  }
+
+  if (whereToPlaceWeek) {
+    var buttonWeek = document.createElement("button");
+    buttonWeek.className = "appt-button";
+    var bold = document.createElement("b");
+    bold.appendChild(document.createTextNode("Appt @ " + time));
+    buttonWeek.appendChild(bold);
+    buttonWeek.addEventListener("click", buttonClick);
+    whereToPlaceWeek.appendChild(buttonWeek);
+  }
+
+  var buttonMonth = document.createElement("button");
+  buttonMonth.className = "appt-button";
+  var bold = document.createElement("b");
+  bold.appendChild(document.createTextNode("Appt"));
+  buttonMonth.appendChild(bold);
+  buttonMonth.addEventListener("click", buttonClick);
+  whereToPlaceMonth.appendChild(buttonMonth);
+
+  if (whereToPlaceExtra) {
+    var buttonExtra = document.createElement("button");
+    buttonExtra.className = "appt-button";
+    var bold = document.createElement("b");
+    bold.appendChild(document.createTextNode("Appt"));
+    buttonExtra.appendChild(bold);
+    buttonExtra.addEventListener("click", buttonClick);
+    whereToPlaceExtra.appendChild(buttonExtra);
+  }
+
+}
+
+function displayAppt(storageLabel) {
+
+  var details = sessionStorage.getItem(storageLabel).split(',');
+  var month = details[0];
+  var day = details[1];
+  var hour = details[2];
+  if (hour.substring(0,1) === "0") {
+    hour = hour.substring(1);
+  }
+  var minute = details[3];
+  var location = details[4];
+  var subject = details[5];
+  document.getElementById("appt-text-here").innerHTML = "";
+
+  var text = "";
+  text += "<b>Subject: </b>" + subject + "<br>";
+  text += "<b>Date: </b>" + month + "-" + day + "<br>";
+  text += "<b>Time: </b>" + hour + ":" + minute + "<br>";
+  text += "<b>Location: </b>" + location;
+
+  document.getElementById("appt-text-here").innerHTML = text;
+  document.getElementById("appt-modal").hidden = false;
+  console.log("here");
+}
+
+function hideApptDisplay() {
+  document.getElementById("appt-modal").hidden = true;
 }
 
 function deleteAppt() {

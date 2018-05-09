@@ -41,6 +41,8 @@
   position: relative;
   vertical-align: top;
   text-align: left;
+  overflow-wrap: break-word;
+  overflow-y: scroll;
 }
 
 #progress-bar {
@@ -50,15 +52,15 @@
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  height:24px; 
-  color:#000; 
+  height:24px;
+  color:#000;
   background-color: hsl(0, 0%, 90%);
   border-radius: 5px;
 }
 
 #progress-bar-color {
   height:24px;
-  color: #fff; 
+  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -223,6 +225,18 @@
   text-align: left;
 }
 
+#appt-display {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  background-color: white;
+  width: 320px;
+  margin: 10px;
+  padding: 10px;
+  text-align: left;
+}
+
 .note-text-area {
   font-size: 18px;
   height: 240px;
@@ -345,6 +359,17 @@
   font-size: 12px;
   text-align: left;
   background-color: hsl(208, 70%, 80%);
+  color: black;
+  padding: 2px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.appt-button {
+  font-size: 12px;
+  text-align: left;
+  background-color: hsl(350, 100%, 88%);
   color: black;
   padding: 2px;
   width: 100%;
