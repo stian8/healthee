@@ -330,6 +330,10 @@
   flex-direction: column;
 }
 
+#cur-month-label {
+  width: 140px;
+}
+
 .note-button:hover {
   cursor: pointer;
   background-color: hsl(208, 70%, 70%);
