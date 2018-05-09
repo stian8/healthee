@@ -65,6 +65,11 @@ function monthToWeek() {
   document.getElementById("week-month").hidden = false;
   document.getElementById("month-view").hidden = true;
   document.getElementById("week-view").hidden = false;
+  document.getElementById("prev-mon").hidden = true;
+  document.getElementById("prev").hidden = false;
+  document.getElementById("next-mon").hidden = true;
+  document.getElementById("next").hidden = false;
+  document.getElementById("cur-month-label").textContent = "April 2018";
 }
 
 function weekToMonth() {
@@ -73,6 +78,14 @@ function weekToMonth() {
   document.getElementById("month-week").hidden = false;
   document.getElementById("month-view").hidden = false;
   document.getElementById("week-view").hidden = true;
+  document.getElementById("prev-mon").hidden = false;
+  document.getElementById("prev").hidden = true;
+  document.getElementById("next-mon").hidden = false;
+  document.getElementById("next").hidden = true;
+  document.getElementById("may").hidden = true;
+  document.getElementById("march").hidden = true;
+  document.getElementById("april").hidden = false;
+
 }
 
 function showPlusMenu() {
@@ -333,6 +346,42 @@ function addNote() {
 
   notes.setItem(noteTitleDate, noteContents); // change here
   addNoteButton(noteContents, noteTitleDate);
+}
+
+function prevMonth() {
+  var marchMonth = document.getElementById("march");
+  var aprilMonth = document.getElementById("april");
+  var mayMonth = document.getElementById("may");
+  var curMonthLabel = document.getElementById("cur-month-label")
+  if (aprilMonth.hidden == false) {
+    marchMonth.hidden = false;
+    aprilMonth.hidden = true;
+    curMonthLabel.textContent = "March 2018"
+  }
+  if (mayMonth.hidden == false) {
+    aprilMonth.hidden = false;
+    mayMonth.hidden = true;
+    curMonthLabel.textContent = "April 2018"
+  }
+
+}
+
+function nextMonth() {
+  var marchMonth = document.getElementById("march");
+  var aprilMonth = document.getElementById("april");
+  var mayMonth = document.getElementById("may");
+  var curMonthLabel = document.getElementById("cur-month-label")
+  if (aprilMonth.hidden == false) {
+    mayMonth.hidden = false;
+    aprilMonth.hidden = true;
+    curMonthLabel.textContent = "May 2018"
+  }
+  if (marchMonth.hidden == false) {
+    aprilMonth.hidden = false;
+    marchMonth.hidden = true;
+    curMonthLabel.textContent = "April 2018"
+  }
+
 }
 
 function addNoteButton(noteContents, noteTitleDate) {
