@@ -6,12 +6,12 @@
 .form-label {
   display: inline-block;
   text-align: right;
-  width: 100px;
+  width: 125px;
 }
 
 .form-input {
   display: inline-block;
-  width: 100px;
+  width: 125px;
 }
 
 #calendar-main {
@@ -253,7 +253,7 @@
 }
 
 #ex-info {
-  width: 100px;
+  width: 125px;
 }
 
 #repeat-label {
