@@ -338,9 +338,13 @@ function addNote() {
 function addNoteButton(noteContents, noteTitleDate) {
 
   var button = document.createElement("button");
+  button.className = "note-button";
   button.setAttribute("style","width=100%;text-align=left");
-  var textNode = document.createTextNode("Note:" + noteTitleDate.substring(6));
-  button.appendChild(textNode);
+  var bold = document.createElement("b");
+  bold.appendChild(document.createTextNode("Note"));
+  //var boldTextNode = document.createTextNode("Note: " + "\n" + noteTitleDate.substring(6));
+  button.appendChild(bold);
+  button.appendChild(document.createTextNode(noteTitleDate.substring(6)));
 
   button.addEventListener("click", function(){
     document.getElementById("note-text-here").innerHTML = notes.getItem(noteTitleDate);  // change here
