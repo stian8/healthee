@@ -417,6 +417,7 @@ function goToToday() {
   var aprilMonth = document.getElementById("april");
   var mayMonth = document.getElementById("may");
   var curMonthLabel = document.getElementById("cur-month-label")
+
   if (mayMonth.hidden == false) {
     aprilMonth.hidden = false;
     mayMonth.hidden = true;
@@ -426,6 +427,18 @@ function goToToday() {
     aprilMonth.hidden = false;
     marchMonth.hidden = true;
     curMonthLabel.textContent = "April 2018"
+  }
+
+  var curWeek = document.getElementById("cur-week");
+  var prevWeek = document.getElementById("prev-week");
+  var nextWeek = document.getElementById("next-week");
+  if (nextWeek.hidden == false) {
+    curWeek.hidden = false;
+    nextWeek.hidden = true;
+  }
+  if (prevWeek.hidden == false) {
+    curWeek.hidden = false;
+    prevWeek.hidden = true;
   }
 }
 
