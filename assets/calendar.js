@@ -612,7 +612,7 @@ function addNoteButton(noteContents, noteTitleDate) {
     };
   });
 
-  document.getElementById("4-23").appendChild(button);
+  document.getElementById("4-23w").appendChild(button);
   //document.getElementById("mon-note").hidden = false;
   hideNote();
 }
