@@ -377,6 +377,11 @@
   flex-direction: column;
 }
 
+.appt-button:hover {
+  cursor: pointer;
+  background-color: hsl(350, 100%, 70%);
+}
+
 #cur-month-label {
   width: 133px;
 }
