@@ -378,7 +378,10 @@ function addExercise() {
   exName = document.getElementById("ex").value;
   videoURL = document.getElementById("ex-vid").value;
 
-  if (exName === "") {
+  var storeEx = "Exercise: " + exName;
+  var stored = sessionStorage.getItem(storeEx);
+
+  if (exName === "" || stored != null || exName === "Quad Sets" || exName === "Leg Lifts" || exName === "Wall Squats") {
     hideAddExercise();
     return;
   }
@@ -387,7 +390,7 @@ function addExercise() {
 
   addExerciseLabels(exName, videoURL);
 
-  sessionStorage.setItem("Exercise: " + exName, videoURL);
+  sessionStorage.setItem(storeEx, videoURL);
 
   setProgress();
   hideAddExercise();
