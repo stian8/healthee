@@ -1,21 +1,34 @@
 var notes = sessionStorage;
 
 function onLoad() {
-  var noteItems = sessionStorage.getItem("Note-Order").split("[note-delimiter]");
-  for (var i = 0; i < noteItems.length; i++) {
-    var current = noteItems[i];
-    if (current === "") {
-      continue;
+  if (sessionStorage.getItem("Note-Order")) {
+    var noteItems = sessionStorage.getItem("Note-Order").split("[note-delimiter]");
+    for (var i = 0; i < noteItems.length; i++) {
+      var current = noteItems[i];
+      if (current === "") {
+        continue;
+      }
+      addNoteButton(sessionStorage.getItem(current), current);
     }
-    addNoteButton(sessionStorage.getItem(current), current);
   }
 
+  if (sessionStorage.getItem("Exercise-Order")) {
+    var exerciseItems = sessionStorage.getItem("Exercise-Order").split("[exercise-delimiter]");
+    for (i = 0; i < exerciseItems.length; i++) {
+      var current = exerciseItems[i];
+      if (current === "") {
+        continue;
+      }
+      addExerciseLabels(current.substring(10), sessionStorage.getItem(current));
+    }
+  }
+  /*
   for (var i = 0; i < sessionStorage.length; i++) {
     currentKey = sessionStorage.key(i);
     if (currentKey.substring(0,10) === "Exercise: ") {
       addExerciseLabels(currentKey.substring(10), sessionStorage.getItem(currentKey));
     }
-  }
+  } */
 
   for (var i = 0; i < sessionStorage.length; i++) {
     currentKey = sessionStorage.key(i);
@@ -319,7 +332,6 @@ function hideAddExercise() {
   document.getElementById("ex").value = "";
   document.getElementById("ex-vid").value = "";
   document.getElementById("ex-info").value = "";
-  //document.getElementById("add-ex").checked = false;
 }
 
 function editTodo() {
@@ -340,6 +352,8 @@ function editTodo() {
       buttons[i].addEventListener("click", function() {
         document.getElementById("todo-list").removeChild(this.parentNode);
         sessionStorage.removeItem(this.id);
+        sessionStorage.setItem("Exercise-Order",
+          sessionStorage.getItem("Exercise-Order").replace("[exercise-delimiter]" + this.id, ""));
       });
     }
   }
@@ -392,6 +406,11 @@ function addExercise() {
   addExerciseLabels(exName, videoURL);
 
   sessionStorage.setItem(storeEx, videoURL);
+  if (sessionStorage.getItem("Exercise-Order")) {
+    sessionStorage.setItem("Exercise-Order", sessionStorage.getItem("Exercise-Order") + "[exercise-delimiter]" + storeEx);
+  } else {
+    sessionStorage.setItem("Exercise-Order", "[exercise-delimiter]" + storeEx);
+  }
 
   setProgress();
   hideAddExercise();
@@ -599,7 +618,6 @@ function addNoteButton(noteContents, noteTitleDate) {
   button.appendChild(document.createTextNode(noteTitleDate.substring(6)));
 
   button.addEventListener("click", function(){
-    console.log(sessionStorage.getItem("Note-Order"));
     document.getElementById("note-text-here").innerHTML = sessionStorage.getItem(noteTitleDate);
     document.getElementById("note-title-here").innerHTML = noteTitleDate;
     document.getElementById("note-modal").hidden = false;
