@@ -1,12 +1,13 @@
-//var notes = new Map();
 var notes = sessionStorage;
 
 function onLoad() {
-  for (var i = sessionStorage.length-1; i >= 0; i--) {
-    currentKey = sessionStorage.key(i);
-    if (currentKey.substring(0,6) === "4/23: ") {
-      addNoteButton(sessionStorage.getItem(currentKey), currentKey);
+  var noteItems = sessionStorage.getItem("Note-Order").split("[note-delimiter]");
+  for (var i = 0; i < noteItems.length; i++) {
+    var current = noteItems[i];
+    if (current === "") {
+      continue;
     }
+    addNoteButton(sessionStorage.getItem(current), current);
   }
 
   for (var i = 0; i < sessionStorage.length; i++) {
@@ -484,7 +485,12 @@ function addNote() {
     return;
   }
 
-  notes.setItem(noteTitleDate, noteContents); // change here
+  sessionStorage.setItem(noteTitleDate, noteContents);
+  if (sessionStorage.getItem("Note-Order")) {
+    sessionStorage.setItem("Note-Order", sessionStorage.getItem("Note-Order") + "[note-delimiter]" + noteTitleDate);
+  } else {
+    sessionStorage.setItem("Note-Order", "[note-delimiter]" + noteTitleDate);
+  }
   addNoteButton(noteContents, noteTitleDate);
 }
 
@@ -593,29 +599,32 @@ function addNoteButton(noteContents, noteTitleDate) {
   button.appendChild(document.createTextNode(noteTitleDate.substring(6)));
 
   button.addEventListener("click", function(){
-    document.getElementById("note-text-here").innerHTML = notes.getItem(noteTitleDate);  // change here
+    console.log(sessionStorage.getItem("Note-Order"));
+    document.getElementById("note-text-here").innerHTML = sessionStorage.getItem(noteTitleDate);
     document.getElementById("note-title-here").innerHTML = noteTitleDate;
     document.getElementById("note-modal").hidden = false;
     document.getElementById("delete-note-1").onclick = function() {
       button.remove();
-      notes.removeItem(noteTitleDate);  // change here
+      sessionStorage.removeItem(noteTitleDate);
+      sessionStorage.setItem("Note-Order", sessionStorage.getItem("Note-Order").replace("[note-delimiter]" + noteTitleDate, ""));
       hideNoteDisplay();
     };
     document.getElementById("delete-note-2").onclick = function() {
       button.remove();
-      notes.removeItem(noteTitleDate);  // change here
+      sessionStorage.removeItem(noteTitleDate);
+      sessionStorage.setItem("Note-Order", sessionStorage.getItem("Note-Order").replace("[note-delimiter]" + noteTitleDate, ""));
       hideNoteDisplay();
     };
     document.getElementById("edit-note").onclick = function() {
-      document.getElementById("note-edit-textarea").value = notes.getItem(noteTitleDate);  // change here
+      document.getElementById("note-edit-textarea").value = sessionStorage.getItem(noteTitleDate);  // change here
       document.getElementById("note-text-here").hidden = true;
       document.getElementById("note-edit-here").hidden = false;
       document.getElementById("edit-delete").hidden = true;
       document.getElementById("save-delete").hidden = false;
     };
     document.getElementById("save-note").onclick = function() {
-      notes.setItem(noteTitleDate, document.getElementById("note-edit-textarea").value);  // change here
-      document.getElementById("note-text-here").innerHTML = notes.getItem(noteTitleDate); // change here
+      sessionStorage.setItem(noteTitleDate, document.getElementById("note-edit-textarea").value);  // change here
+      document.getElementById("note-text-here").innerHTML = sessionStorage.getItem(noteTitleDate); // change here
       document.getElementById("note-text-here").hidden = false;
       document.getElementById("note-edit-here").hidden = true;
       document.getElementById("edit-delete").hidden = false;
