@@ -1,39 +1,33 @@
 var notes = sessionStorage;
 
 function onLoad() {
+  if (sessionStorage.getItem("Appt-Order")) {
+    var apptItems = sessionStorage.getItem("Appt-Order").split("[appointment-delimiter]");
+    for (var i = 0; i < apptItems.length; i++) {
+      if (apptItems[i] === "") {
+        continue;
+      }
+      addApptDiv(apptItems[i]);
+    }
+  }
+
   if (sessionStorage.getItem("Note-Order")) {
     var noteItems = sessionStorage.getItem("Note-Order").split("[note-delimiter]");
     for (var i = 0; i < noteItems.length; i++) {
-      var current = noteItems[i];
-      if (current === "") {
+      if (noteItems[i] === "") {
         continue;
       }
-      addNoteButton(sessionStorage.getItem(current), current);
+      addNoteButton(sessionStorage.getItem(noteItems[i]), noteItems[i]);
     }
   }
 
   if (sessionStorage.getItem("Exercise-Order")) {
     var exerciseItems = sessionStorage.getItem("Exercise-Order").split("[exercise-delimiter]");
     for (i = 0; i < exerciseItems.length; i++) {
-      var current = exerciseItems[i];
-      if (current === "") {
+      if (exerciseItems[i] === "") {
         continue;
       }
-      addExerciseLabels(current.substring(10), sessionStorage.getItem(current));
-    }
-  }
-  /*
-  for (var i = 0; i < sessionStorage.length; i++) {
-    currentKey = sessionStorage.key(i);
-    if (currentKey.substring(0,10) === "Exercise: ") {
-      addExerciseLabels(currentKey.substring(10), sessionStorage.getItem(currentKey));
-    }
-  } */
-
-  for (var i = 0; i < sessionStorage.length; i++) {
-    currentKey = sessionStorage.key(i);
-    if (currentKey.substring(0,5) === "Appt:") {
-      addApptDiv(currentKey, sessionStorage.getItem(currentKey));
+      addExerciseLabels(exerciseItems[i].substring(10), sessionStorage.getItem(exerciseItems[i]));
     }
   }
 
@@ -214,7 +208,17 @@ function addAppt() {
   var apptDetails = [month, day, hour, minute, location, subject];
   var storageLabel = "Appt:" + month + day + hour + minute;
   sessionStorage.setItem(storageLabel, apptDetails);
+  if (sessionStorage.getItem("Appt-Order")) {
+    sessionStorage.setItem("Appt-Order", sessionStorage.getItem("Appt-Order") + "[appointment-delimiter]" + storageLabel);
+  } else {
+    sessionStorage.setItem("Appt-Order", "[appointment-delimiter]" + storageLabel);
+  }
 
+  if (month === 4 && day === 23) {
+    window.location.reload(false);
+    hideAppt();
+    return;
+  }
   addApptDiv(storageLabel);
 
   hideAppt();
@@ -310,6 +314,8 @@ function displayAppt(storageLabel) {
       document.getElementById(storageLabel + "m").remove();
     }
     sessionStorage.removeItem(storageLabel);
+    sessionStorage.setItem("Appt-Order",
+      sessionStorage.getItem("Appt-Order").replace("[appointment-delimiter]" + storageLabel, ""));
     hideApptDisplay();
   };
 }
