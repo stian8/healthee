@@ -53,7 +53,7 @@ function onLoad() {
     editButton.setAttribute("type", "button");
     editButton.setAttribute("style", "border-radius:5px;margin-top:5px");
     editButton.id = "edit-exercises";
-    editButton.innerHTML = "<i class=\"fa fa-pencil fa-2x\"></i>";
+    editButton.innerHTML = "<i class=\"fa fa-trash fa-2x\"></i>";
     editButton.addEventListener("click", editTodo);
 
     saveButton = document.createElement("button");
